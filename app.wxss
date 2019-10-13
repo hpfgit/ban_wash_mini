@@ -1,0 +1,39 @@
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+button {
+    padding: 0;
+    line-height: normal;
+    background-color: transparent;
+    border: none;
+}
+
+button::after {
+    border: none;
+}
+
+.weight {
+    font-weight: bold;
+}
+
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
+.b_color {
+  color:#5e95f4;
+}
+.c_91 {
+  color: #919191;
+}

@@ -1,0 +1,95 @@
+<!--page/memberHome/memberHome.wxml-->
+<view class="page">
+    <form bindsubmit='find' report-submit='true'>
+        <!--banner部分  -->
+        <view class='banner'>
+            <image src='{{static}}/member_bg.png' class='bg'></image>
+            <view class='code-box'>
+                <!-- <view class='code'>
+                <image src='{{static}}/code.png'></image>
+                <text>付款码</text>
+            </view> -->
+            </view>
+            <view class='user'>
+                <view class='left'>
+                    <view class='img'>
+                        <image src='{{imgUrl}}{{user_info.avatar}}' mode='aspectFill'></image>
+                    </view>
+                    <view class='info' data-id="{{user_info.user_id}}">
+                        <view>{{user_info.username}}</view>
+                        <view>{{user_info.care_card_count}}
+                            <text>元</text>
+                        </view>
+                    </view>
+                </view>
+                <view class='right'>
+                    <image src='{{imgUrl}}{{user_info.level_icon}}'></image>
+                    <view>{{user_info.level_name}}</view>
+                </view>
+            </view>
+            <view class='tab'>
+                <view class='left default' bindtap='goCard'>
+                    <image src='{{static}}/chongzhi.png'></image>
+                    <text>充值</text>
+                </view>
+                <view class='left default' bindtap='goWithdrawal'>
+                    <image src='../../images/draw1.png' style="width: 38px; height: 38px;"></image>
+                    <text>提现</text>
+                </view>
+                <view class='right default' bindtap='goGrade'>
+                    <image src='{{static}}/dengji.png'></image>
+                    <text>升等级</text>
+                </view>
+            </view>
+        </view>
+        <!--会员等级  -->
+        <view class='grade'>
+            <view class='title'>
+                <view class='line'></view>
+                <view class='text'>会员等级</view>
+                <view class='line'></view>
+            </view>
+            <view class='table'>
+                <view class='thead'>
+                    <view>会员等级</view>
+                    <view>标洗/精洗</view>
+                    <view>其他服务项目</view>
+                </view>
+                <view class='tbody' wx:for="{{table}}" wx:key="index" wx:if="{{index<6}}">
+                    <view>{{item.level_name}}</view>
+                    <view wx:if="{{item.wash_reduction == 10}}">无折扣</view>
+                    <view wx:else>{{item.wash_reduction}}折</view>
+                    <view wx:if="{{item.other_reduction == 10}}">无折扣</view>
+                    <view wx:else>{{item.other_reduction}}折</view>
+                </view>
+            </view>
+        </view>
+        <!--tabbar  -->
+        <view class='footer'>
+            <!-- <button class='footer-item' bindtap='goClean' form-type='submit' hover-class="btn-hover">
+                <image src='{{static}}/biaoxi_tab.png'></image>
+                <view>精洗标洗</view>
+            </button> -->
+            <button class='footer-item' bindtap='goYongpin' form-type='submit' hover-class="btn-hover">
+                <image src='../../images/918_yongpin.png'></image>
+                <view>洗护用品</view>
+            </button>
+            <!-- <button class='footer-item' bindtap='colorChange' form-type='submit' hover-class="btn-hover">
+                <image src='{{static}}/gaise.png'></image>
+                <view>改色补色</view>
+            </button> -->
+            <button class='footer-item' bindtap='featureService' form-type='submit' hover-class="btn-hover">
+                <image src='../../images/918_zizhu.png'></image>
+                <view>自助服务</view>
+            </button>
+            <button class='footer-item' bindtap='cleanOrder' form-type='submit' hover-class="btn-hover">
+                <image src='../../images/918_order.png'></image>
+                <view>洗护订单</view>
+            </button>
+        </view>
+        <!--洗护用品  -->
+        <view class='yongpin' wx:if="{{yongpin == true}}" bindtap='yongpin'>
+            <image src='{{static}}/xihu_big.png'></image>
+        </view>
+    </form>
+</view>

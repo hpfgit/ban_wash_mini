@@ -1,0 +1,447 @@
+/* page/repairBegin/repairBegin.wxss */
+
+page {
+    background-color: #eef1f4;
+}
+
+/*提示  */
+
+.prompt {
+    width: 100%;
+    height: 84rpx;
+    background-color: #fff;
+    margin-top: 2rpx;
+    display: flex;
+    align-items: center;
+}
+
+.prompt image {
+    width: 34rpx;
+    height: 39rpx;
+    margin-left: 21rpx;
+    margin-right: 10rpx;
+    margin-top: -4rpx;
+}
+
+.prompt text {
+    font-size: 26rpx;
+    color: #282828;
+}
+
+/*添加图片  */
+
+.imgs {
+    width: 100%;
+    background-color: #fff;
+    padding: 0 24rpx;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 2rpx;
+}
+
+.imgs .img-item {
+    width: 210rpx;
+    height: 210rpx;
+    margin-top: 29rpx;
+    margin-bottom: 29rpx;
+}
+
+.imgs .img-item .default {
+    width: 100%;
+    height: 100%;
+    box-shadow: 0px 3px 14px 0px rgba(98, 126, 167, 0.2);
+    border-radius: 8px;
+}
+
+.imgs .img-item .default image {
+    width: 100%;
+    height: 100%;
+}
+
+.imgs .img-item .pic {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+.imgs .img-item .pic image {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+/*选填  */
+
+.selection {
+    width: 100%;
+    background-color: #fff;
+    margin-top: 18rpx;
+}
+
+.selection .selection-title {
+    width: 100%;
+    height: 84rpx;
+    display: flex;
+    align-items: center;
+    padding: 0 24rpx;
+    box-sizing: border-box;
+}
+
+.selection .selection-title image {
+    width: 32rpx;
+    height: 32rpx;
+    vertical-align: middle;
+    margin-right: 11rpx;
+}
+
+.selection .selection-title text {
+    font-size: 26rpx;
+    color: #282828;
+}
+
+.selection .selection-title text text {
+    font-size: 22rpx;
+}
+
+.selection .selection-C {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 9rpx 24rpx 30rpx;
+    box-sizing: border-box;
+    border-top: 2rpx solid #eef1f4;
+}
+
+/* .selection .selection-C .selection-item {
+    width: 160rpx;
+    height: 58rpx;
+    font-size: 24rpx;
+    color: #282828;
+    text-align: center;
+    line-height: 58rpx;
+    background-color: #eeeef4;
+    border: 1rpx solid #eeeef4;
+    border-radius: 4rpx;
+    margin-top: 21rpx;
+    position: relative;
+} */
+
+.selection .selection-C button {
+    width: 160rpx;
+    height: 58rpx;
+    font-size: 24rpx;
+    color: #282828;
+    text-align: center;
+    line-height: 58rpx;
+    background-color: #eeeef4;
+    border: 1rpx solid #eeeef4;
+    border-radius: 4rpx;
+    margin-top: 21rpx;
+    position: relative;
+}
+
+.selection .selection-C .selection-item image {
+    width: 32rpx;
+    height: 32rpx;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.selection .selection-C .fill {
+    width: 355rpx;
+    height: 58rpx;
+}
+
+.active {
+    border: 1rpx solid #5e94f5;
+    background-color: #fff !important;
+    color: #5e94f5 !important;
+}
+
+/*备注  */
+
+.remarks {
+    width: 100%;
+    margin-top: 18rpx;
+    background-color: #fff;
+}
+
+.remarks .remarks-title {
+    width: 100%;
+    height: 84rpx;
+    font-size: 26rpx;
+    color: #282828;
+    font-weight: 600;
+    padding: 0 24rpx;
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.remarks .remarks-title .fanli {
+    width: 90rpx;
+    height: 66rpx;
+    position: absolute;
+    right: 24rpx;
+    top: 0;
+}
+
+.remarks .remarks-title .fanli image {
+    width: 100%;
+    height: 100%;
+}
+
+.remarks .remarks-title .fanli text {
+    font-size: 26rpx;
+    font-weight: 400;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -26rpx;
+    margin-top: -17rpx;
+}
+
+/*textatea  */
+
+.remarks .text {
+    width: 100%;
+    border-top: 1rpx solid #eef1f4;
+    padding: 28rpx 24rpx;
+    box-sizing: border-box;
+}
+
+.remarks .text .areas {
+    width: 100%;
+    min-height: 170rpx;
+    padding-bottom: 40rpx;
+    font-size: 26rpx;
+    border-bottom: 1rpx solid #eef1f4;
+    position: relative;
+}
+
+.remarks .text .areas text {
+    color: #858585;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.remarks .upload {
+    width: 100%;
+    padding: 0 24rpx;
+    box-sizing: border-box;
+}
+
+.remarks .upload .handle {
+    width: 100%;
+    margin-top: 32rpx;
+    padding-bottom: 30rpx;
+    box-sizing: border-box;
+}
+
+.remarks .upload .handle image {
+    margin-right: 40rpx;
+}
+
+.remarks .upload .handle image:nth-child(1) {
+    width: 28rpx;
+    height: 40rpx;
+}
+
+.remarks .upload .handle image:nth-child(2) {
+    width: 38rpx;
+    height: 34rpx;
+}
+
+.remarks .upload .handle image:nth-child(3) {
+    width: 36rpx;
+    height: 34rpx;
+}
+
+/*上传部分  */
+
+.remarks .upload .display {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/*语音  */
+
+.remarks .upload .display .voice {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.remarks .upload .display .voice .voice-item {
+    width: 126rpx;
+    height: 126rpx;
+    position: relative;
+    margin-right: 22rpx;
+    margin-bottom: 22rpx;
+}
+
+.remarks .upload .display .voice .voice-item .voiceBox {
+    width: 100%;
+    height: 100%;
+}
+
+.remarks .upload .display .voice .voice-item .bofang {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 126rpx;
+    font-size: 50rpx;
+    color: #fff;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.remarks .upload .display .voice .voice-item .zanting {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 126rpx;
+    font-size: 50rpx;
+    color: #fff;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.remarks .upload .display .voice .voice-item .delete {
+    width: 40rpx;
+    height: 40rpx;
+    text-align: center;
+    line-height: 40rpx;
+    font-size: 17rpx;
+    color: #fff;
+    border-radius: 50%;
+    background-color: #5e94f5;
+    position: absolute;
+    right: -15rpx;
+    top: -15rpx;
+}
+
+/*图片  */
+
+.remarks .upload .display .pic {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.remarks .upload .display .pic .pic-item {
+    width: 126rpx;
+    height: 126rpx;
+    position: relative;
+    margin-right: 22rpx;
+    margin-bottom: 22rpx;
+}
+
+.remarks .upload .display .pic .pic-item image {
+    width: 100%;
+    height: 100%;
+}
+
+.remarks .upload .display .pic .pic-item text {
+    width: 40rpx;
+    height: 40rpx;
+    text-align: center;
+    line-height: 40rpx;
+    font-size: 17rpx;
+    color: #fff;
+    border-radius: 50%;
+    background-color: #5e94f5;
+    position: absolute;
+    right: -15rpx;
+    top: -15rpx;
+}
+
+/*视频  */
+
+.remarks .upload .display .video {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.remarks .upload .display .video .video-item {
+    width: 126rpx;
+    height: 126rpx;
+    position: relative;
+    margin-right: 22rpx;
+    margin-bottom: 22rpx;
+}
+
+.remarks .upload .display .video .video-item video {
+    width: 100%;
+    height: 100%;
+}
+
+.remarks .upload .display .video .video-item cover-view {
+    width: 40rpx;
+    height: 40rpx;
+    text-align: center;
+    line-height: 40rpx;
+    font-size: 17rpx;
+    color: #fff;
+    border-radius: 50%;
+    background-color: #5e94f5;
+    position: absolute;
+    right: -15rpx;
+    top: -15rpx;
+    z-index: 9999;
+}
+
+/*提交  */
+
+.submit {
+    width: 100%;
+    padding: 30rpx 0 78rpx;
+    box-sizing: border-box;
+}
+
+.submit .submit-btn {
+    width: 622rpx;
+    height: 74rpx;
+    margin: 0 auto;
+    position: relative;
+}
+
+.submit .submit-btn image {
+    width: 100%;
+    height: 100%;
+}
+
+.submit .submit-btn text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -22rpx;
+    margin-left: -56rpx;
+    font-size: 28rpx;
+    color: #fff;
+}
+
+.submit .submit-text {
+    text-align: center;
+    font-size: 22rpx;
+    color: #858585;
+    margin-top: 30rpx;
+}
+
+.yuyin-gif {
+    width: 200rpx;
+    height: 200rpx;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin-left: -100rpx;
+    margin-top: -200rpx;
+}

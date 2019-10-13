@@ -1,0 +1,186 @@
+/* page/binding/binding.wxss */
+
+.binding {
+    font-size: 44rpx;
+    font-weight: 600;
+    margin-top: 53rpx;
+    padding-left: 104rpx;
+    box-sizing: border-box;
+}
+
+.binding .prompt {
+    font-size: 22rpx;
+    color: #999;
+    display: flex;
+    align-items: center;
+    margin-top: 29rpx;
+}
+
+.binding .prompt image {
+    width: 28rpx;
+    height: 32rpx;
+    margin-right: 10rpx;
+}
+
+/*content  */
+
+.content {
+    width: 100%;
+    padding-left: 104rpx;
+    box-sizing: border-box;
+}
+
+.content .spot {
+    display: inline-block;
+    width: 10rpx;
+    height: 10rpx;
+    background-color: #5e94f5;
+    border-radius: 50%;
+    margin-right: 14rpx;
+}
+
+.content .phone {
+    font-size: 24rpx;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    margin-top: 61rpx;
+}
+
+/*输入手机号  */
+
+.content .input {
+    width: 540rpx;
+    height: 84rpx;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    background-color: #f4f4f4;
+    padding: 0 0 0 25rpx;
+    box-sizing: border-box;
+    font-size: 28rpx;
+    border-radius: 20rpx;
+    margin-top: 27rpx;
+}
+
+.content .input .prefix {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.content .input .prefix .sanjiao {
+    font-size: 16rpx;
+    margin-left: 14rpx;
+    margin-right: 24rpx;
+}
+
+.content .input .number {
+    border-left: 1px solid #282828;
+}
+
+.content .input .number input {
+    width: 100%;
+    margin-left: 21rpx;
+}
+
+/*输入验证码  */
+
+.content .inputCode {
+    font-size: 24rpx;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    margin-top: 59rpx;
+}
+
+.content .newCode {
+    width: 540rpx;
+    height: 84rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f4f4f4;
+    padding: 0 22rpx 0 25rpx;
+    box-sizing: border-box;
+    font-size: 28rpx;
+    border-radius: 20rpx;
+    margin-top: 27rpx;
+}
+
+.content .newCode .getData {
+    width: 50%;
+    text-align: right;
+    font-size: 22rpx;
+    color: #5e94f5;
+}
+
+/*再次发送验证码  */
+
+.content .again {
+}
+
+.content .again text {
+    font-size: 26rpx;
+    color: #999;
+}
+
+.content .again text text {
+    color: #7aa5f5;
+}
+
+/*设置密码  */
+
+.content .newWord {
+    font-size: 24rpx;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    margin-top: 59rpx;
+}
+
+.content .wordInput {
+    width: 540rpx;
+    height: 84rpx;
+    display: flex;
+    align-items: center;
+    background-color: #f4f4f4;
+    padding: 0 22rpx 0 25rpx;
+    box-sizing: border-box;
+    font-size: 28rpx;
+    border-radius: 20rpx;
+    margin-top: 27rpx;
+}
+
+.content .wordInput input {
+    width: 100%;
+}
+
+.content .notice {
+    margin-top: 60rpx;
+    font-size: 22rpx;
+    color: #333;
+}
+
+/*go  */
+
+.go {
+    width: 540rpx;
+    height: 84rpx;
+    font-size: 28rpx;
+    color: #fff;
+    background-color: #5e94f5;
+    margin-top: 144rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.go .sanjiao {
+    border-left: 10rpx solid #fff;
+    border-right: 10rpx solid transparent;
+    border-bottom: 10rpx solid transparent;
+    border-top: 10rpx solid transparent;
+}

@@ -1,0 +1,317 @@
+/* pages/writeLogistics/writeLogistics.wxss */
+
+page {
+    width: 100%;
+    height: 100%;
+    background-color: #eef1f4;
+}
+
+.border {
+    width: 100%;
+    background-color: #fff;
+}
+
+.border image {
+    width: 100%;
+    height: 6rpx;
+}
+
+/*收货信息  */
+
+.collect {
+    width: 100%;
+    background-color: #fff;
+    padding: 30rpx 24rpx 0;
+    box-sizing: border-box;
+    display: flex;
+    padding-bottom: 20rpx;
+    /* justify-content: space-between; */
+}
+
+.collect .img {
+    display: flex;
+    align-content: flex-start;
+}
+
+.collect .img image {
+    width: 24rpx;
+    height: 28rpx;
+    margin-right: 16rpx;
+}
+
+.collect .info {
+    width: 100%;
+}
+
+.collect .info .top {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 28rpx;
+    line-height: 28rpx;
+    color: #282828;
+    margin-bottom: 23rpx;
+}
+
+.collect .info .bottom {
+    font-size: 26rpx;
+    color: #282828;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.collect .info .bottom .left {
+  margin-right: 30rpx;
+}
+.collect .info .bottom .btn_hover {
+  background: #5e95f4;
+  width: 200rpx;
+  height: 60rpx;
+  font-size: 26rpx;
+}
+/* tab_box */
+.tab_box {
+  padding: 18rpx 40rpx;
+  padding-bottom: 0;
+}
+.tab_box .btn_box {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 6rpx;
+  overflow: hidden;
+}
+.btn_box view {
+  font-size: 26rpx;
+  font-family: PingFangSC-Regular;
+  width: 50%;
+  text-align: center;
+  padding: 23rpx 0;
+  background: #fafafa;
+}
+.btn_box view.active {
+  background: #fff;
+  color: #5e95f4;
+}
+/*物流单号/公司  */
+
+.logistics {
+    width: 100%;
+    background-color: #fff;
+    padding: 30rpx 24rpx;
+    box-sizing: border-box;
+    margin-top: 18rpx;
+}
+
+.logistics .default {
+    font-size: 28rpx;
+    color: #474747;
+}
+
+.logistics .default text {
+    font-size: 26rpx;
+    color: #5e95f4;
+}
+
+.logistics .listNumber {
+    margin-top: 40rpx;
+}
+
+.logistics .listInput {
+    width: 100%;
+    height: 60rpx;
+    background-color: #f5f5f5;
+    font-size: 24rpx;
+    color: #7b7d80;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10rpx 0 23rpx;
+    box-sizing: border-box;
+    margin-top: 20rpx;
+}
+
+.logistics .listInput input {
+    width: 100%;
+}
+
+.logistics .listInput image {
+    width: 36rpx;
+    height: 36rpx;
+}
+
+.logistics .company {
+    /* margin-top: 60rpx; */
+}
+
+.logistics .companyInput {
+    width: 100%;
+    height: 60rpx;
+    background-color: #f5f5f5;
+    font-size: 24rpx;
+    color: #7b7d80;
+    display: flex;
+    align-items: center;
+    padding: 0 23rpx 0 23rpx;
+    box-sizing: border-box;
+    margin-top: 20rpx;
+}
+
+.logistics .companyInput .companyName {
+    width: 100%;
+}
+
+/* .logistics .companyInput input {
+    width: 100%;
+} */
+
+.logistics .companyInput image {
+    width: 26rpx;
+    height: 16rpx;
+}
+
+/*注意事项  */
+
+.prompt {
+    width: 100%;
+    margin-top: 18rpx;
+    background-color: #fff;
+    padding: 30rpx 24rpx 40rpx;
+    box-sizing: border-box;
+}
+
+.prompt .title {
+    display: flex;
+    align-items: center;
+}
+
+.prompt .title .img image {
+    width: 29rpx;
+    height: 34rpx;
+    margin-right: 17rpx;
+}
+
+.prompt .title .text {
+    font-size: 24rpx;
+    font-weight: 600;
+}
+
+.prompt .content {
+    display: flex;
+    margin-top: 24rpx;
+}
+
+.prompt .content .circle {
+    width: 20rpx;
+    height: 10rpx;
+    background-color: #d8d8d8;
+    border-radius: 4rpx;
+    margin-top: 4rpx;
+}
+
+.prompt .content .text {
+    font-size: 24rpx;
+    color: #939393;
+    margin-left: 24rpx;
+    line-height: 34rpx;
+}
+/* 邮寄到附近接收点 */
+.to_nearby_box {
+  margin-top: 18rpx;
+  font-size: 24rpx;
+}
+.code_box {
+  margin: 0 26rpx;
+  background: #fff;
+  font-weight: 700;
+  padding: 40rpx 40rpx 0 40rpx;
+}
+.code_box .show_code {
+  color: #282828;
+  font-size: 30rpx;
+}
+.code_box .code {
+  width: 480rpx;
+  height: 480rpx; 
+  margin: 0 auto;
+}
+.code_box .code image {
+  width: 100%;
+  height: 100%;
+}
+.code_box .code_text {
+  border-top: 2rpx dashed #d8d8d8;
+  padding: 30rpx 0;
+  text-align: center;
+}
+.code_box .code_text text {
+  display: inline-block;
+  font-size: 26rpx;
+  color: #282828;
+  border: 2rpx solid #d8d8d8;
+  padding: 28rpx 20rpx;
+  border-radius: 8rpx;
+}
+/*提交  */
+
+.submit {
+    width: 100%;
+    height: 98rpx;
+    text-align: center;
+    line-height: 98rpx;
+    font-size: 30rpx;
+    color: #fff;
+    background-color: #5e95f4;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+
+/* 下拉弹起 */
+
+picker {
+    width: 100%;
+}
+.shop_item {
+  margin-top: 17rpx;
+  background: #fff;
+  padding: 34rpx 26rpx;
+  display: flex;
+}
+.shop_item_left {
+  flex: 1;
+}
+.shop_item_top {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.shop_item_top .shop_item_name {
+  font-size: 28rpx;
+  color: #141416;
+  margin-right: 23rpx;
+}
+.shop_item_bottom {
+  margin-top: 15rpx;
+}
+.shop_item_address {
+  line-height: 35rpx;
+}
+.shop_item_bottom .address {
+  margin-right: 10rpx;
+  padding-right: 10rpx;
+  border-right: 2rpx solid #d8d8d8;
+}
+.open_map, .open_phone {
+  color: blue;
+}
+.shop_item_right {
+  display: flex;
+  text-align: center;
+}
+.shop_item_right>view {
+  padding: 0 20rpx;
+}
+.shop_item_right .open_icon {
+  width: 56rpx;
+  height: 56rpx;
+}

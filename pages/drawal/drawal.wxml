@@ -1,0 +1,20 @@
+<!--pages/drawal/drawal.wxml-->
+<view class="container">
+  <view class="zfb">提现到支付宝：{{payNumber}}</view>
+  <view class="money">
+    <input placeholder="输入提现金额" bindinput="number"></input>
+  </view>
+  <view class="money">
+    <input type="password" placeholder="输入提现密码" bindinput="txpas"></input>
+  </view>
+  <view class="tip">
+    <view>可提现金额 {{txNum}}</view>
+    <view>今日提现上限 ￥50000</view>
+  </view>
+</view>
+<view class='submit' bindtap='singleSubmit'>
+  <image src='{{static}}/xiadan.png'></image>
+  <view class='xiadan'>
+    确认提现
+  </view>
+</view>

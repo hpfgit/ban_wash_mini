@@ -1,0 +1,47 @@
+<view class='page'>
+    <view class='binding'>
+        绑定手机号
+        <view class='prompt'>
+            <image src='{{static}}/security.png'></image>根据“网络安全法”要求请及时绑定手机号
+        </view>
+    </view>
+    <view class='content'>
+        <view class='phone'>
+            <text class='spot'></text>
+            <text class='phone-vlue'>手机号</text>
+        </view>
+        <view class='input'>
+            <!-- <navigator url='/pages/alphabetList/alphabetList' hover-class="other-navigator-hover"> -->
+            <view class='prefix'>
+                <text>+{{num}}</text>
+                <text class='sanjiao'>▼</text>
+            </view>
+            <!-- </navigator> -->
+            <view class='number'>
+                <input type='number' placeholder='请输入手机号' bindinput="phone"></input>
+            </view>
+        </view>
+        <view class='inputCode'>
+            <text class='spot'></text>
+            <text>输入获取的验证码：</text>
+        </view>
+        <view class='newCode'>
+            <input type='number' placeholder='验证码（六位数字）' bindinput='codeContent' maxlength='6'></input>
+            <view bindtap='getData' disabled='{{disabled}}' class='getData'>{{time}}</view>
+        </view>
+        <!-- <view class='newWord'>
+            <text class='spot'></text>
+            <text class='password'>设置密码：</text>
+        </view>
+        <view class='wordInput'>
+            <input type='text' placeholder='设置密码（六位以上）' bindinput='passwordContent'></input>
+        </view> -->
+        <view class='notice'>
+            绑定手机号码后可选择第三方或手机号码登录此账号
+        </view>
+    </view>
+    <button type="defaule" class='go' bindtap='go'>
+        <text class='sanjiao'></text>
+        <text>开始</text>
+    </button>
+</view>

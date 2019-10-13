@@ -1,0 +1,120 @@
+<!--page/repairHome/repairHome.wxml-->
+<view class="page {{yongpin == true?'hidden':''}}">
+    <form bindsubmit='find' report-submit='true'>
+        <!--banner图  -->
+        <view class='banner'>
+          <view class='swiper_box'>
+            <swiper circular="true" autoplay='true'>
+              <swiper-item wx:for="{{bannerImgArr}}" wx:key="{{index}}">
+                <image src='{{imgUrl}}{{item.path}}'></image>
+              </swiper-item>
+            </swiper>
+          </view>
+            <button bindtap='kefu' class='custBtn' open-type="{{openType}}">
+                <image src='{{static}}/kefu.png' class='kefu'></image>
+            </button>
+        </view>
+        <!--修复流程结束  -->
+        <view class='middle'>
+            <view class='repair'>
+                <image src='{{static}}/change_repair_bg1.png' class='bg'></image>
+                <image src='{{static}}/change_repair_douhao.png' class='douhao'></image>
+                <image src='{{static}}/change_repair_biaozhun.png' class='biaozhun' bindtap='priceList'></image>
+                <!--修复类型  -->
+                <view class='type'>
+                    <image src='{{static}}/change_repair_vamp.png'></image>
+                    <view class='point'></view>
+                    <image src='{{static}}/change_repair_middle.png'></image>
+                    <view class='point'></view>
+                    <image src='{{static}}/change_repair_bottom.png'></image>
+                </view>
+                <!--步骤  -->
+                <view class='step'>
+                    <view class='item'>
+                        <image src='{{static}}/change_repair_no1.png'></image>
+                        <text>提交信息</text>
+                    </view>
+                    <view class='item'>
+                        <image src='{{static}}/change_repair_no2.png'></image>
+                        <text>选择方案</text>
+                    </view>
+                    <view class='item'>
+                        <image src='{{static}}/change_repair_no3.png'></image>
+                        <text>按需付款</text>
+                    </view>
+                </view>
+                <!--专业人员为您定制修复方案  -->
+                <view class='major'>
+                    —专业人员为您定制修复方案—
+                </view>
+            </view>
+            <!--开始修复  -->
+            <view class='begin' bindtap='begin'>
+                <image src='{{static}}/begin.png'></image>
+                <text>开始修复</text>
+            </view>
+        </view>
+        <!--出厂式修复  -->
+        <view class='out'>
+            <view class='out-title'>
+                <image src='{{static}}/out_title.png'></image>
+            </view>
+            <view class='out-content'>
+                <view class='out-item'>
+                    <image src='{{static}}/goutong.png'></image>
+                    <view>细致沟通</view>
+                    <view>精准修复判断</view>
+                </view>
+                <view class='out-item'>
+                    <image src='{{static}}/cailiao.png'></image>
+                    <view>球鞋专用</view>
+                    <view>进口修复材料</view>
+                </view>
+                <view class='out-item'>
+                    <image src='{{static}}/xiufushi.png'></image>
+                    <view>专业修复师</view>
+                    <view>严格修复程序</view>
+                </view>
+            </view>
+        </view>
+        <!--效果展示  -->
+        <view class='effect clearfix'>
+            <view class='effect-title'>
+                <image src='{{static}}/effect.png'></image>
+                <text>效果展示</text>
+            </view>
+            <view class='effect-image clearfix'>
+                <view class='effect-item' wx:for="{{effectImage}}" wx:for-index="index" wx:key="index">
+                    <image src='{{imgUrl}}{{item.path}}-thumb300' data-src="{{imgUrl}}{{item.path}}" data-list="{{effectImage}}" bindtap='bigImg' mode='widthFix'></image>
+                </view>
+            </view>
+        </view>
+        <!--底部导航栏  -->
+        <view class='footer'>
+            <!-- <button class='footer-item' bindtap='goClean' form-type='submit' hover-class="btn-hover">
+                <image src='{{static}}/biaoxi_tab.png'></image>
+                <view>精洗标洗</view>
+            </button> -->
+            <button class='footer-item' bindtap='goYongpin' form-type='submit' hover-class="btn-hover">
+                <image src='../../images/918_yongpin.png'></image>
+                <view>洗护用品</view>
+            </button>
+            <!-- <button class='footer-item' bindtap='goColor' form-type='submit' hover-class="btn-hover">
+                <image src='{{static}}/gaise.png'></image>
+                <view>改色补色</view>
+            </button> -->
+            <button class='footer-item' bindtap='goService' form-type='submit' hover-class="btn-hover">
+                <image src='../../images/918_zizhu.png'></image>
+                <view>自助服务</view>
+            </button>
+            <button class='footer-item' bindtap='cleanOrder' form-type='submit' hover-class="btn-hover">
+                <image src='../../images/918_order.png'></image>
+                <view>洗护订单</view>
+            </button>
+        </view>
+        <!--洗护用品  -->
+        <view class='yongpin' wx:if="{{yongpin == true}}" bindtap='yongpin'>
+            <image src='{{static}}/xihu_big.png'></image>
+        </view>
+    </form>
+</view>

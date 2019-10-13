@@ -1,0 +1,349 @@
+/* pages/coupon/coupon.wxss */
+
+page {
+  background-color: #eef1f4;
+}
+
+.swiper-tab {
+  width: 100%;
+  text-align: center;
+  height: 80rpx;
+  line-height: 80rpx;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  color: #ccc;
+  font-size: 24rpx;
+  background-color: #fff;
+  border-top: 2rpx solid #eef1f4;
+}
+
+.swiper-tab-item {
+  width: 30%;
+  color: #434343;
+}
+
+.text {
+  display: inline-block;
+  margin-top: -4rpx;
+  border-bottom: 4rpx solid #5e94f4;
+}
+
+.active {
+  color: #5e94f4;
+  /* border-bottom: 4rpx solid #F65959; */
+  font-size: 24rpx;
+  /* font-weight: bold; */
+}
+
+.juzhong {
+  margin: 0 auto;
+}
+
+.show {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+/* lists */
+
+.lists {
+  width: 100%;
+  padding: 0 27rpx;
+  box-sizing: border-box;
+}
+
+.lists .listOne {
+  position: relative;
+  width: 100%;
+  margin-bottom: 20rpx;
+}
+
+.lists .listOne .listBox {
+  width: 100%;
+  height: 180rpx;
+  background-color: #fff;
+  margin-top: 18rpx;
+  display: flex;
+  box-shadow: 0rpx 5rpx 20rpx -5rpx #898989;
+  position: relative;
+}
+
+.lists .listOne .left {
+  width: 247rpx;
+  height: 192rpx;
+  position: relative;
+  /* margin-left: -5rpx; */
+}
+
+.lists .listOne .left .bg {
+  width: 247rpx;
+  height: 100%;
+  position: absolute;
+  left: 0rpx;
+  top: 0;
+}
+
+.lists .listOne .left .box {
+  width: 247rpx;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.lists .listOne .left .box .info {
+  margin-top: -25rpx;
+}
+
+.lists .listOne .left .box .info image {
+  width: 20rpx;
+  height: 27rpx;
+}
+
+.lists .listOne .left .box .info .num {
+  font-size: 82rpx;
+}
+
+.lists .listOne .left .box .purpose {
+  font-size: 20rpx;
+}
+
+.lists .listOne .right {
+  width: 460rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+}
+
+.lists .listOne .right .top {
+  display: flex;
+}
+
+.lists .listOne .right .top .freight {
+  font-size: 18rpx;
+  padding: 5rpx 10rpx;
+  box-sizing: border-box;
+  color: #fff;
+  background-color: #3b3d4b;
+  border-radius: 14rpx;
+}
+
+.lists .listOne .right .top .content {
+  font-size: 22rpx;
+  margin-left: 10rpx;
+}
+
+.lists .listOne .right .middle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lists .listOne .right .middle .time {
+  font-size: 18rpx;
+  color: #474747;
+}
+
+.lists .listOne .right .middle .use {
+  font-size: 20rpx;
+  color: #5e94f4;
+  border: 2rpx solid #5e94f4;
+  padding: 8rpx 13rpx;
+  box-sizing: border-box;
+  border-radius: 18rpx;
+}
+
+.lists .listOne .right .middle .noUse {
+  font-size: 20rpx;
+  color: gray;
+  border: 2rpx solid gray;
+  padding: 8rpx 13rpx;
+  box-sizing: border-box;
+  border-radius: 18rpx;
+}
+
+.lists .listOne .right .middle .used {
+  font-size: 20rpx;
+  color: #000;
+  border: 2rpx solid #000;
+  padding: 8rpx 13rpx;
+  box-sizing: border-box;
+  border-radius: 18rpx;
+}
+
+.lists .listOne .right .bottom {
+  display: flex;
+  justify-content: space-between;
+  border-top: 2rpx dashed #eef1f4;
+  padding-top: 15rpx;
+}
+
+.lists .listOne .right .rule {
+  font-size: 20rpx;
+  color: #282828;
+}
+
+.lists .listOne .right image {
+  width: 24rpx;
+  height: 24rpx;
+}
+
+.lists .listOne .purposeInfo {
+  width: 100%;
+  background-color: #fff;
+  padding: 27rpx 27rpx;
+  box-sizing: border-box;
+  font-size: 24rpx;
+  color: #898989;
+}
+
+/* 没有 更多了 */
+
+.lists .noMore {
+  width: 100%;
+  margin-top: 50rpx;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20rpx;
+}
+
+.lists .noMore image {
+  width: 320rpx;
+  height: 107rpx;
+}
+
+/* 添加优惠券按钮 */
+
+.addBox {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 100rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.addBox .add {
+  font-size: 30rpx;
+  color: #fff;
+  padding: 10rpx 20rpx;
+  box-sizing: border-box;
+  border: 2rpx solid #5e94f4;
+  border-radius: 30rpx;
+  background-color: #5e94f4;
+}
+
+/* 添加优惠券弹窗 */
+
+.modal {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal .modalBox .contentBox {
+  width: 570rpx;
+  height: 410rpx;
+  position: relative;
+}
+
+.modal .modalBox .contentBox .dialogUp {
+  width: 570rpx;
+  height: 100rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.modal .modalBox .contentBox .dialogDown {
+  width: 570rpx;
+  height: 310rpx;
+  position: absolute;
+  left: 0;
+  top: 100rpx;
+}
+
+.modal .modalBox .contentBox .title {
+  width: 570rpx;
+  height: 100rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: center;
+  line-height: 100rpx;
+  font-size: 28rpx;
+  color: #fff;
+}
+
+.modal .modalBox .contentBox .input {
+  width: 570rpx;
+  height: 310rpx;
+  position: absolute;
+  left: 0;
+  top: 100rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal .modalBox .contentBox .input input {
+  width: 486rpx;
+  height: 80rpx;
+  border: 2rpx solid #ededed;
+  font-size: 28rpx;
+  margin-top: 40rpx;
+  padding-left: 30rpx;
+  box-sizing: border-box;
+}
+
+.modal .modalBox .contentBox .input text {
+  font-size: 22rpx;
+  color: #ff4646;
+  margin-top: 20rpx;
+  display: inline-block;
+  height: 20rpx;
+}
+
+.modal .modalBox .contentBox .input .submit {
+  width: 486rpx;
+  height: 68rpx;
+  text-align: center;
+  line-height: 68rpx;
+  color: #fff;
+  font-size: 26rpx;
+  background-color: #5e97f4;
+  border-radius: 4rpx;
+  margin-top: 20rpx;
+}
+
+.modal .close {
+  width: 70rpx;
+  height: 70rpx;
+  text-align: center;
+  line-height: 70rpx;
+  border-radius: 50%;
+  color: #fff;
+  border: 2rpx solid #fff;
+  font-size: 26rpx;
+  margin-top: 40rpx;
+}

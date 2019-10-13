@@ -1,0 +1,111 @@
+.forget {
+    font-size: 40rpx;
+    font-weight: 600;
+    margin-top: 60rpx;
+    padding-left: 106rpx;
+    box-sizing: border-box;
+}
+
+.code {
+    width: 100%;
+    padding-left: 106rpx;
+    box-sizing: border-box;
+    margin-top: 80rpx;
+}
+
+.code .text {
+    font-size: 26rpx;
+    color: #999;
+}
+
+.code .code-num {
+    font-size: 26rpx;
+    display: flex;
+    align-items: center;
+    margin-top: 27rpx;
+}
+
+.code .code-num .spot {
+    display: inline-block;
+    width: 10rpx;
+    height: 10rpx;
+    background-color: #5e94f5;
+    border-radius: 50%;
+}
+
+.code .code-num .prefix {
+    margin-left: 10rpx;
+    margin-right: 10rpx;
+}
+
+.code .inputCode {
+    font-size: 28rpx;
+    margin-top: 27rpx;
+}
+
+.code .newCode {
+    margin-top: 27rpx;
+}
+
+.code .newCode input {
+    width: 75%;
+    height: 85rpx;
+    font-size: 30rpx;
+    background-color: #f4f4f4;
+    border-radius: 20rpx;
+    padding-left: 20rpx;
+}
+
+.code .again {
+    margin-top: 30rpx;
+}
+
+.code .again text {
+    font-size: 26rpx;
+    color: #999;
+}
+
+.code .again text text {
+    color: #7aa5f5;
+}
+
+.code .newWord {
+    margin-top: 60rpx;
+    display: flex;
+    align-items: center;
+}
+
+.code .newWord .spot {
+    display: inline-block;
+    width: 10rpx;
+    height: 10rpx;
+    background-color: #5e94f5;
+    border-radius: 50%;
+}
+
+.code .newWord .password {
+    font-size: 28rpx;
+    margin-left: 10rpx;
+}
+
+.code .wordInput {
+    margin-top: 30rpx;
+}
+
+.code .wordInput input {
+    width: 75%;
+    height: 85rpx;
+    font-size: 30rpx;
+    background-color: #f4f4f4;
+    border-radius: 20rpx;
+    padding-left: 20rpx;
+}
+
+.go {
+    width: 540rpx;
+    height: 84rpx;
+    font-size: 30rpx;
+    color: #fff;
+    background-color: #5e94f5;
+    margin-top: 200rpx;
+}

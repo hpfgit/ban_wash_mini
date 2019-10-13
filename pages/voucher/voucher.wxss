@@ -1,0 +1,90 @@
+/* pages/voucher/voucher.wxss */
+
+page {
+    background-color: #eef1f4;
+}
+
+.banner {
+    width: 100%;
+    height: 410rpx;
+}
+
+.banner image {
+    width: 100%;
+    height: 100%;
+}
+
+/*券密信息  */
+
+.main {
+    width: 100%;
+    padding: 0 24rpx;
+    box-sizing: border-box;
+    margin-top: -240rpx;
+}
+
+.main .box {
+    width: 100%;
+    height: 400rpx;
+    position: relative;
+}
+
+.main .box .bg {
+    width: 100%;
+    height: 100%;
+}
+
+.main .box .card {
+    width: 78rpx;
+    height: 58rpx;
+    position: absolute;
+    top: 36rpx;
+    left: 312rpx;
+}
+
+.main .box .info {
+    width: 600rpx;
+    height: 227rpx;
+    display: flex;
+    flex-direction: wrap;
+    -webkit-flex-wrap: wrap;
+    align-content: space-between;
+    position: absolute;
+    top: 135rpx;
+    left: 61rpx;
+}
+
+.main .box .info .top {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 27rpx;
+    box-sizing: border-box;
+}
+
+.main .box .info .top .item {
+    width: 50%;
+}
+
+.main .box .info .top .item text:nth-child(1) {
+    font-size: 28rpx;
+    font-weight: 600;
+    font-style: italic;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #58bbfa;
+    margin-right: 15rpx;
+}
+
+.main .box .info .top .item text:nth-child(2) {
+    font-size: 28rpx;
+    font-weight: 600;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #58bbfa;
+}
+
+.main .box .info .bottom {
+    font-size: 22rpx;
+    color: #fff;
+}

@@ -1,0 +1,37 @@
+<view class='to_nearby_box'>
+      <view class='code_box'>
+        <view class='show_code'>出示二维码</view>
+        <view class='code'>
+          <image src='{{qrcode}}'></image>
+        </view>
+        <view class='code_text'>
+          <text>送至任意门店向店员出示此条码即可完成送货</text>
+        </view>
+      </view>
+      <view class='shops'>
+        <view wx:for="{{nearbyList}}" wx:key ="index" class='shop_item'>
+          <view class='shop_item_left'>
+            <view class='shop_item_top'>
+              <view class='shop_item_name'>BAN LAB {{item.consignee_name}}</view>
+              <view class='shop_item_phone c_91'>{{item.mb_phone}}</view>
+            </view> 
+            <view class='shop_item_bottom'>
+              <view class='shop_item_address'>
+                <text class='address'>{{item.area_info + item.address}}</text>
+                <text class='distance c_91'>距您{{item.distance}}km</text>
+              </view>
+            </view>
+          </view>
+          <view class='shop_item_right'>
+            <view data-latitude="{{item.latitude}}" data-longitude='{{item.longitude}}' bindtap='open_map' class='open_map'>
+              <image class='open_icon' src='../../images/map.png'></image>
+              <view>地图</view>
+            </view>
+             <view data-phone='{{item.mb_phone}}' bindtap='open_phone' class='open_phone'>
+                <image class='open_icon' src='../../images/phone.png'></image>
+                <view>电话</view>
+             </view>
+          </view>
+        </view>
+      </view>
+    </view>

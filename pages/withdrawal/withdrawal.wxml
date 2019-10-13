@@ -1,0 +1,17 @@
+<!--pages/withdrawal/withdrawal.wxml-->
+<view class="container">
+    <view class="money">￥<text class="number">{{user.money}}</text></view>
+    <view class="tip">现金余额可以在交易时使用，可以随时提现</view>
+    <view class="nav">
+        <view class="draw" bindtap="draw"><image src="../../images/draw.png" class="icon"></image> 提现</view>
+        <view class="detail" bindtap="detail"><image src="../../images/detail.png" class="icon"></image> 明细</view>
+    </view>
+    <view class="zfb">
+      <text>支付宝账号</text>
+      <view class="{{pay.bindtype === 1 ? '' : 'active'}}" data-bindtype="{{pay.bindtype}}" bindtap="setpay">{{pay.bindtype === 1 ? pay.alipay_account : '点击设置'}}</view>
+    </view>
+    <view class="zfb">
+      <text>提现密码</text>
+      <view class="active" bindtap="editPas">修改密码</view>
+    </view>
+</view>

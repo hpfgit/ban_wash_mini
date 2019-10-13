@@ -1,0 +1,114 @@
+<view class="relus">
+  <view class='card'>
+    <view class='card-top'>
+      <view class="top-right">
+        <image src='/images/lv_relus/icon2.png'></image>
+      </view>
+      <view class='top-left'>会员等级介绍</view>
+    </view>
+    <view class='card-content'>
+      <view class='text'>
+          会员等级是基于用户一定时期内使用BAN洗护服务累计
+          获取的积分所决定，用户达到相应的等级门槛即可升级。
+          用户可通过洗护服务消费及洗护卡充值来获取积分，从
+          而提升等级。(比例：1元=1积分）
+      </view>
+    </view>
+  </view>
+  <view class='card'>
+    <view class='card-top'>
+      <view class="top-right">
+        <image src='/images/lv_relus/icon5.png'></image>
+      </view>
+      <view class='top-left'>等级有效期</view>
+    </view>
+    <view class='card-content'>
+      <view class='text'>
+          会员等级有效期为1年，若用户升级,新等级有效期从升
+          级当天开始重新计算.若您没在有效期内升级,等级有效
+          期当天会计算新的等级，变更时间在0点-24点之间，
+          由系统逐步批量处理。当等级变更日期与充值奖励积分
+          日期为同一天时，系统会自动延迟发放充值奖励积分。
+          同时您在等级有效期日当天等级变更前获取的积分是计
+          算在上一个等级有效期的等级积分内，等级变更后获取
+          的积分是计算在新的等级有效期的等级积分内。所以在
+          临界升级的用户请提前完成升级。
+      </view>
+    </view>
+  </view>
+  <view class='card'>
+    <view class='card-top'>
+      <view class="top-right">
+        <image src='/images/lv_relus/icon3.png'></image>
+      </view>
+      <view class='top-left'>升等级规则</view>
+    </view>
+    <view class='card-content'>
+      <view class='text'>
+          用户在等级有效期内等级积分达到升级门槛值，新等级
+          立即生效。等级到期后，用户等级将根据上个有效期内
+          等级积分重新计算。
+      </view>
+    </view>
+  </view>
+  <view class='card'>
+    <view class='card-top'>
+      <view class="top-right">
+        <image src='/images/lv_relus/icon4.png'></image>
+      </view>
+      <view class='top-left'>积分说明</view>
+    </view>
+    <view class='card-content'>
+      <view class='text'>
+          等级积分：用户在等级有效期内获取的积分总计。用户
+          升级或到达有效期，等级积分自动清零，用户正常获取
+          积分和退款回扣积分会影响等级积分，使用积分兑换权
+          益，权益兑换失败后的积分退回和积分过期清理都不影
+          响等级积分。
+      </view>
+    </view>
+  </view>
+   <view class='card'>
+    <view class='card-top'>
+      <view class="top-right">
+        <image src='/images/lv_relus/icon1.png'></image>
+      </view>
+      <view class='top-left'>会员等级对照表</view>
+    </view>
+    <view class='card-content'>
+      <view class='text'>
+          用户等级积分达到对应升级门槛，则立即升级。有效期
+          结束后，用户的等级将根据上个有效期内已累计积分重
+          新计算等级。
+      </view>
+      <view class='table-box'>
+        <view class='table'>
+          <view class='th'>
+            <view class='td'>等级</view>
+            <view class='td'>对应升级积分</view>
+          </view>
+          <view class='tr'>
+            <view class='td'>普通会员</view>
+            <view class='td'>0</view>
+          </view>
+          <view class='tr'>
+            <view class='td'>星会员</view>
+            <view class='td'>300 </view>
+          </view>
+          <view class='tr'>
+            <view class='td'>黄金会员</view>
+            <view class='td'>500</view>
+          </view>
+          <view class='tr'>
+            <view class='td'>铂金会员</view>
+            <view class='td'>1000</view>
+          </view>
+          <view class='tr'>
+            <view class='td'>钻石会员</view>
+            <view class='td'>2000</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,14 @@
+var reg = getRegExp('static\.tosneaker\.com', "i");
+var filter = {
+  pipei: function (img, globalApp) {
+    var url = globalApp.globalData.imgUrl;
+    console.log(reg.test(img));
+    if (reg.test(img)) {
+      return img;
+    } else {
+      return url + img;
+    }
+  }
+}
+
+module.exports = filter

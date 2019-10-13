@@ -1,0 +1,94 @@
+<!--page/specialOrder/specialOrder.wxml-->
+<view class='page'>
+    <!--图片上传  -->
+    <view class='uploadLeft'>
+        <view class='img' bindtap='uploadLeft'>
+            <image wx:if="{{img == ''}}" src='{{static}}/photo.png'></image>
+            <image wx:else src="{{img}}" mode='aspectFill'></image>
+        </view>
+        <view class='right'>
+            <view class='right-top'>上传图片</view>
+            <view class='right-bottom'>请确认您想要修改鞋子的左侧45°照片，以便工作人员确认</view>
+        </view>
+    </view>
+    <!--选择服务项目  -->
+    <view class='checkbox'>
+        <view class='title'>
+            请选择服务项目
+            <text>（支持多选）</text>
+        </view>
+        <view class='items clearfix'>
+            <view class="item {{item.checked==true?'acvite':''}}" wx:for="{{data}}" wx:key="index" wx:for-item="item" wx:for-index="index" data-index="{{index}}" bindtap='change'>
+                {{item.text}}
+            </view>
+        </view>
+    </view>
+    <!--自助下单流程  -->
+    <view class='flow'>
+        <view class='top'>
+            <image src='{{static}}/flow.png'></image>
+            <text>自助下单流程</text>
+        </view>
+        <view class='content'>
+            <text>1.提交需求单</text>
+            <image src='{{static}}/jiantou.png'></image>
+            <text>2.邮寄至平台</text>
+            <image src='{{static}}/jiantou.png'></image>
+            <text>3.工作人员将在签收后12小时内根据您所选服务项目来评估价格</text>
+            <image src='{{static}}/jiantou.png'></image>
+            <text>4.选择方案并付款</text>
+            <image src='{{static}}/jiantou.png'></image>
+            <text>5.开始修复</text>
+        </view>
+    </view>
+    <!-- 备注信息 -->
+    <view class='remarks'>
+        <view class='remarks-title'>
+            <text>备注</text>
+            <view class='fanli'>
+                <image src="{{static}}/fanli.png"></image>
+                <text>范例</text>
+            </view>
+        </view>
+        <view class='text'>
+            <textarea class='areas' cursor-spacing="100" auto-height placeholder='请输入备注信息（至少10字）' maxlength="{{max}}" bindinput='input'>
+                <text class='currentWordNumber'>{{currentWordNumber}}/{{max}}</text>
+            </textarea>
+        </view>
+        <view class='upload'>
+            <view class='display'>
+                <view class='voice'>
+                    <view class='voice-item' wx:for="{{voiceItem}}" wx:key="index" wx:for-index="index">
+                        <image class='voiceBox' src='https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3143598853,690910552&fm=27&gp=0.jpg'></image>
+                        <text bindtap='bofang' class='bofang' wx:if="{{zanting==1}}">▶</text>
+                        <text bindtap='zanting' class='zanting' wx:elif="{{zanting==2}}">||</text>
+                        <text bindtap='deleVoice' class='delete' data-index="{{index}}">X</text>
+                    </view>
+                </view>
+                <view class='pic'>
+                    <view class='pic-item' wx:for="{{picItem}}" wx:key="index" wx:for-item="item" wx:for-index="index">
+                        <image src='{{item}}' data-index="{{index}}" bindtap='bigPic' mode='aspectFill'></image>
+                        <text data-index="{{index}}" bindtap='delePic'>X</text>
+                    </view>
+                </view>
+                <view class='video'>
+                    <view class='video-item' wx:for="{{videoItem}}" wx:key="index" wx:for-item="item" wx:for-index="index">
+                        <video id='myVideo' bindfullscreenchange="startScreenChange" show-center-play-btn="{{videois1}}" ustom-cache="{{false}}" direction="{{90}}" src='{{item}}' data-index="{{index}}" bindplay="play"></video>
+                        <cover-view data-index="{{index}}" bindtap='deleVideo'>X</cover-view>
+                    </view>
+                </view>
+            </view>
+            <view class='handle'>
+                <image src='{{static}}/yuyin.png' bindtap='startVoice'></image>
+                <image src='{{static}}/xiangji.png' bindtap='addPic'></image>
+                <image src='{{static}}/shipin.png' bindtap="addVideo"></image>
+            </view>
+        </view>
+    </view>
+    <!--提交订单  -->
+    <view class='submit' bindtap='submit'>
+        <image src='{{static}}/begin.png'></image>
+        <text>已选 {{num}} 项服务，提交订单</text>
+    </view>
+    <image src='{{static}}/yuyin_gif.gif' class='yuyin-gif' wx:if="{{yuyinTrue == true}}"></image>
+</view>

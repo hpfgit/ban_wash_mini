@@ -1,0 +1,374 @@
+/* page/colorOrder/colorOrder.wxss */
+
+page {
+    background-color: #eef1f4;
+}
+
+/*上传图片  */
+
+.upImg {
+    width: 100%;
+    background-color: #fff;
+    border-top: 1rpx solid #eef1f4;
+    padding: 22rpx 24rpx;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+}
+
+.upImg .img {
+    width: 126rpx;
+    height: 126rpx;
+}
+
+.upImg .img image {
+    width: 126rpx;
+    height: 126rpx;
+    border-radius: 6rpx;
+}
+
+.upImg .right {
+    margin-left: 30rpx;
+}
+
+.upImg .right .right-top {
+    font-size: 28rpx;
+    line-height: 30rpx;
+    color: #282828;
+    margin-top: 8rpx;
+}
+
+.upImg .right .right-bottom {
+    font-size: 24rpx;
+    color: #aaabad;
+    margin-top: 18rpx;
+}
+
+/*选择服务项目  */
+
+.project {
+    width: 100%;
+    margin-top: 18rpx;
+    background-color: #fff;
+}
+
+.project .title {
+    width: 100%;
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size: 26rpx;
+    color: #282828;
+    padding: 0 24rpx;
+    box-sizing: border-box;
+    border-bottom: 1rpx solid #eef1f4;
+}
+
+.project .content {
+    padding: 22rpx 24rpx 0;
+    box-sizing: border-box;
+}
+
+.project .content .item .type {
+    font-size: 26rpx;
+    color: #282828;
+    margin-bottom: 26rpx;
+}
+
+.project .content .item .num {
+    display: flex;
+    justify-content: space-between;
+}
+
+.project .content .item .items {
+    width: 210rpx;
+    height: 64rpx;
+    text-align: center;
+    line-height: 64rpx;
+    font-size: 24rpx;
+    color: #282828;
+    background-color: #f6f5fa;
+    border-radius: 31rpx;
+    margin-bottom: 29rpx;
+}
+
+.active {
+    background-color: #e7f3ff !important;
+    color: #5e95f4 !important;
+}
+
+/*范例  */
+
+.example {
+    width: 100%;
+    padding: 0 24rpx;
+    box-sizing: border-box;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+}
+
+.example .left .sanjiao {
+    display: inline-block;
+    border-left: 11rpx solid rgba(40, 40, 40, 0.7);
+    border-right: 11rpx solid transparent;
+    border-top: 11rpx solid transparent;
+    border-bottom: 11rpx solid transparent;
+}
+
+.example .left .text {
+    font-size: 26rpx;
+    color: #282828;
+}
+
+.example .right {
+    width: 90rpx;
+    height: 66rpx;
+    position: relative;
+}
+
+.example .right image {
+    width: 100%;
+    height: 100%;
+}
+
+.example .right text {
+    font-size: 26rpx;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -17rpx;
+    margin-left: -26rpx;
+}
+
+/*textatea  */
+
+.input {
+    width: 100%;
+    padding: 13rpx 24rpx;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+
+.input .areas {
+    width: 100%;
+    min-height: 170rpx;
+    padding: 30rpx 25rpx;
+    box-sizing: border-box;
+    font-size: 26rpx;
+    border: 1rpx solid #eef1f4;
+    position: relative;
+}
+
+.input .areas text {
+    color: #858585;
+    position: absolute;
+    right: 25rpx;
+    bottom: 30rpx;
+}
+
+/*语音、图片、视频  */
+
+.remarks .upload {
+    width: 100%;
+    padding: 0 24rpx;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+
+.remarks .upload .handle {
+    width: 100%;
+    margin-top: 32rpx;
+    padding-bottom: 30rpx;
+    box-sizing: border-box;
+}
+
+.remarks .upload .handle image {
+    margin-right: 40rpx;
+}
+
+.remarks .upload .handle image:nth-child(1) {
+    width: 28rpx;
+    height: 40rpx;
+}
+
+.remarks .upload .handle image:nth-child(2) {
+    width: 38rpx;
+    height: 34rpx;
+}
+
+.remarks .upload .handle image:nth-child(3) {
+    width: 36rpx;
+    height: 34rpx;
+}
+
+/*上传部分  */
+
+.remarks .upload .display {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 18rpx;
+    box-sizing: border-box;
+}
+
+/*语音  */
+
+.remarks .upload .display .voice {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.remarks .upload .display .voice .voice-item {
+    width: 126rpx;
+    height: 126rpx;
+    position: relative;
+    margin-right: 22rpx;
+    margin-bottom: 22rpx;
+}
+
+.remarks .upload .display .voice .voice-item .voiceBox {
+    width: 100%;
+    height: 100%;
+}
+
+.remarks .upload .display .voice .voice-item .bofang {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 126rpx;
+    font-size: 50rpx;
+    color: #fff;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.remarks .upload .display .voice .voice-item .zanting {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 126rpx;
+    font-size: 50rpx;
+    color: #fff;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.remarks .upload .display .voice .voice-item .delete {
+    width: 40rpx;
+    height: 40rpx;
+    text-align: center;
+    line-height: 40rpx;
+    font-size: 17rpx;
+    color: #fff;
+    border-radius: 50%;
+    background-color: #5e94f5;
+    position: absolute;
+    right: -15rpx;
+    top: -15rpx;
+}
+
+/*图片  */
+
+.remarks .upload .display .pic {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.remarks .upload .display .pic .pic-item {
+    width: 126rpx;
+    height: 126rpx;
+    position: relative;
+    margin-right: 22rpx;
+    margin-bottom: 22rpx;
+}
+
+.remarks .upload .display .pic .pic-item image {
+    width: 100%;
+    height: 100%;
+}
+
+.remarks .upload .display .pic .pic-item text {
+    width: 40rpx;
+    height: 40rpx;
+    text-align: center;
+    line-height: 40rpx;
+    font-size: 17rpx;
+    color: #fff;
+    border-radius: 50%;
+    background-color: #5e94f5;
+    position: absolute;
+    right: -15rpx;
+    top: -15rpx;
+}
+
+/*视频  */
+
+.remarks .upload .display .video {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.remarks .upload .display .video .video-item {
+    width: 126rpx;
+    height: 126rpx;
+    position: relative;
+    margin-right: 22rpx;
+    margin-bottom: 22rpx;
+}
+
+.remarks .upload .display .video .video-item video {
+    width: 100%;
+    height: 100%;
+}
+
+.remarks .upload .display .video .video-item cover-view {
+    width: 40rpx;
+    height: 40rpx;
+    text-align: center;
+    line-height: 40rpx;
+    font-size: 17rpx;
+    color: #fff;
+    border-radius: 50%;
+    background-color: #5e94f5;
+    position: absolute;
+    right: -15rpx;
+    top: -15rpx;
+    z-index: 9999;
+}
+
+/*提交  */
+
+.submit {
+    width: 300rpx;
+    height: 80rpx;
+    margin: 33rpx auto 0;
+    position: relative;
+}
+
+.submit image {
+    width: 100%;
+    height: 100%;
+}
+
+.submit text {
+    font-size: 28rpx;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -56rpx;
+    margin-top: -21rpx;
+}
+
+.yuyin-gif {
+    width: 200rpx;
+    height: 200rpx;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin-left: -100rpx;
+    margin-top: -200rpx;
+}

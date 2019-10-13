@@ -1,0 +1,24 @@
+<view>
+  <view class="list">
+    <view wx:for='{{list}}' wx:key="index" class='item'>
+      <view class='item_left'>
+        <view>
+          <text class='h1'>BAN LAB {{item.storehouse_name}}</text>
+          <text class='phone'>{{item.mb_phone}}</text>
+        </view>
+        <view class='address'>
+          <text>{{item.area_info + item.address}}</text>
+        </view>
+        <view class='info'>
+          <text wx:if="{{item.is_valid == 1}}" class='status'>已投入使用</text>
+          <text wx:else class='status_no'>建设中</text>
+          <text class='distance'>距离{{item.distance}}km</text>
+        </view>
+      </view>
+      <view class='item_right'>
+        <text wx:if="{{item.is_valid == 1}}" class='is' data-index='{{index}}' bindtap='select'>选择</text>
+        <text wx:else class='no'>选择</text>
+      </view>
+    </view>
+  </view>
+</view>

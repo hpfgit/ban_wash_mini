@@ -1,0 +1,486 @@
+/* page/cleanOrder/cleanOrder.wxss */
+
+page {
+  background-color: #eef1f4;
+}
+
+/*邮寄地址  */
+
+.mail {
+  width: 100%;
+  height: 173rpx;
+  position: relative;
+}
+
+.mail .bg {
+  width: 100%;
+  height: 100%;
+}
+
+.mail .C {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  padding-right: 24rpx;
+  box-sizing: border-box;
+}
+
+.user {
+  width: 100%;
+  height: 173rpx;
+  padding-top: 19rpx;
+  box-sizing: border-box;
+}
+
+.user .userInfo {
+  padding-left: 24rpx;
+  box-sizing: border-box;
+  margin-bottom: 10rpx;
+}
+
+.user .userInfo image {
+  width: 22rpx;
+  height: 26rpx;
+  margin-right: 17rpx;
+  vertical-align: middle;
+}
+
+.user .userInfo text {
+  font-size: 28rpx;
+  margin-right: 42rpx;
+}
+
+.user .address {
+  padding-left: 64rpx;
+  padding-right: 42rpx;
+  box-sizing: border-box;
+  font-size: 26rpx;
+  line-height: 40rpx;
+}
+
+.mail .right {
+  width: 14rpx;
+  height: 25rpx;
+}
+
+.mail .right image {
+  width: 100%;
+  height: 100%;
+}
+
+/*填写邮寄信息  */
+
+.no-mail {
+  width: 100%;
+  height: 128rpx;
+  position: relative;
+}
+
+.no-mail .bg {
+  width: 100%;
+  height: 100%;
+}
+
+.no-mail .C {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24rpx;
+  box-sizing: border-box;
+}
+
+.no-mail .C .address {
+  display: flex;
+  align-items: center;
+}
+
+.no-mail .C .address image {
+  width: 34rpx;
+  height: 38rpx;
+  margin-right: 23rpx;
+}
+
+.no-mail .C .address text {
+  font-size: 36rpx;
+  color: #fff;
+}
+
+.no-mail .C .right image {
+  width: 15rpx;
+  height: 27rpx;
+}
+
+/*提示  */
+
+.prompt {
+  width: 100%;
+  height: 60rpx;
+  text-align: center;
+  line-height: 60rpx;
+  background-color: rgb(253, 250, 233);
+  font-size: 22rpx;
+  color: rgb(152, 152, 152);
+}
+
+/*上传图片部分  */
+
+.upload {
+  width: 100%;
+  padding: 22rpx 24rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+  background-color: #fff;
+  margin-bottom: 18rpx;
+}
+
+.upload .U-left {
+  width: 126rpx;
+  height: 126rpx;
+  border-radius: 6rpx;
+}
+
+.upload .U-left image {
+  width: 100%;
+  height: 100%;
+  border-radius: 6rpx;
+}
+
+.upload .U-right {
+  width: 548rpx;
+  margin-left: 22rpx;
+}
+
+.upload .U-right .U-price {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10rpx;
+}
+
+.upload .U-right .U-price text:nth-child(1) {
+  font-size: 26rpx;
+  color: rgb(40, 40, 40);
+}
+
+.upload .U-right .U-price text:nth-child(2) {
+  font-size: 30rpx;
+  color: rgb(40, 40, 40);
+}
+
+.upload .U-right .U-fuwu {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: flex-start; *//* justify-content: space-between; */
+  margin-top: 15rpx;
+}
+
+.upload .U-right .U-fuwu text {
+  padding: 3rpx 6rpx;
+  box-sizing: border-box;
+  border: 1px solid #5e94f5;
+  border-radius: 6rpx;
+  font-size: 21rpx;
+  color: #5e94f5;
+  margin-right: 12rpx;
+  margin-bottom: 12rpx;
+}
+
+/* .upload .U-right .U-fuwu .fuwu-left text {
+    padding: 4rpx 8rpx;
+    border: 1px solid #5e94f5;
+    border-radius: 6rpx;
+    font-size: 22rpx;
+    color: #5e94f5;
+    margin-right: 12rpx;
+    margin-bottom: 12rpx;
+}
+
+.upload .U-right .U-fuwu .fuwu-right text {
+    padding: 4rpx 8rpx;
+    border: 1px solid rgb(255, 153, 19);
+    border-radius: 6rpx;
+    font-size: 22rpx;
+    color: rgb(255, 153, 19);
+    margin-left: 12rpx;
+    margin-bottom: 12rpx;
+} */
+
+/*不上传图片部分  */
+
+.no-upload {
+  width: 100%;
+  padding: 22rpx 24rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+  background-color: #fff;
+}
+
+.no-upload .U-left {
+  width: 126rpx;
+  height: 126rpx;
+  border-radius: 6rpx;
+}
+
+.no-upload .U-left image {
+  width: 100%;
+  height: 100%;
+  border-radius: 6rpx;
+}
+
+.no-upload .U-right {
+  width: 548rpx;
+  margin-left: 22rpx;
+}
+
+.no-upload .U-right .U-price {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10rpx;
+}
+
+.no-upload .U-right .U-price text:nth-child(1) {
+  font-size: 26rpx;
+  color: rgb(40, 40, 40);
+}
+
+.no-upload .U-right .U-price text:nth-child(2) {
+  font-size: 24rpx;
+  color: #5e95f4;
+}
+
+.no-upload .U-right .U-fuwu {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-between; */
+  margin-top: 15rpx;
+}
+
+.no-upload .U-right .U-fuwu text {
+  padding: 3rpx 6rpx;
+  box-sizing: border-box;
+  border: 1px solid #5e94f5;
+  border-radius: 6rpx;
+  font-size: 21rpx;
+  color: #5e94f5;
+  margin-right: 12rpx;
+  margin-bottom: 12rpx;
+}
+
+/*快递选择部分  */
+
+.choose {
+  padding: 0 25rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+  margin-top: 18rpx;
+}
+
+.choose .comm {
+  width: 100%;
+  height: 92rpx;
+  font-size: 26rpx;
+  color: rgb(95, 98, 102);
+  display: flex;
+  align-items: center;
+}
+
+.choose .comm label {
+  margin-right: 20rpx;
+}
+
+.choose .comm .wx-radio-input {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.choose .comm .wx-radio-input.wx-radio-input-checked {
+  border: none;
+  background: #5e94f5 !important;
+}
+
+.choose .support input {
+  width: 200rpx;
+  height: 50rpx;
+  text-align: center;
+  margin-left: 30rpx;
+  border: 1px solid rgb(205, 205, 205);
+  border-radius: 6rpx;
+}
+
+.remark-favourable {
+  display: flex;
+  font-size: 26rpx;
+  color: #5f6266;
+  height: 92rpx;
+  line-height: 92rpx;
+  text-align: left;
+}
+
+.remark-favourable input {
+  font-size: 26rpx;
+  color: #989898;
+  height: 92rpx;
+  line-height: 92rpx;
+  text-align: left;
+}
+
+/*优惠  */
+
+.dis {
+  width: 100%;
+  padding: 0 25rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+  margin-top: 18rpx;
+}
+
+.dis .comm {
+  width: 100%;
+  height: 85rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 26rpx;
+}
+
+/* .dis .coupon .coupon-right text:nth-child(1) {
+    color: rgb(152, 152, 152);
+} */
+
+.dis .coupon .coupon-right text:nth-child(2) {
+  color: #5e94f5;
+}
+
+.dis .coupon .coupon-right .nav {
+  height: 85rpx;
+  line-height: 85rpx;
+  color: #5e94f5;
+}
+
+.dis .coupon .coupon-right image {
+  width: 14rpx;
+  height: 25rpx;
+  margin-left: 22rpx;
+  vertical-align: middle;
+  margin-top: -4rpx;
+}
+.dis .gold,.dis .isCoupon {
+  border-top: 1px solid #eef1f4;
+}
+
+.dis .gold .gold-right {
+  font-size: 22rpx;
+  color: rgb(152, 152, 152);
+}
+
+.dis .gold .gold-right .wx-switch-input {
+  width: 66rpx !important;
+  height: 36rpx !important;
+  margin-left: 18rpx;
+  margin-top: -10rpx;
+}
+
+.dis .gold .gold-right .wx-switch-input::before {
+  width: 64rpx !important;
+  height: 32rpx !important;
+  background-color: rgb(201, 201, 201);
+}
+
+.dis .gold .gold-right .wx-switch-input::after {
+  width: 33rpx !important;
+  height: 32rpx !important;
+}
+
+.dis .favourable {
+  color: rgb(40, 40, 40);
+}
+
+/*付款金额  */
+
+.pay {
+  width: 100%;
+  margin-top: 18rpx;
+  margin-bottom: 116rpx;
+  padding: 0rpx 25rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+.pay .pay-item {
+  width: 100%;
+  height: 85rpx;
+  font-size: 26rpx;
+  color: rgb(40, 40, 40);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pay .discount view:last-child {
+  color: #5e94f5;
+}
+
+/*付款  */
+
+.money {
+  width: 100%;
+  height: 98rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  padding-left: 24rpx;
+}
+
+.money .money-num {
+  color: #5e94f5;
+}
+
+.money .money-num text:nth-child(1) {
+  font-size: 26rpx;
+}
+
+.money .money-num text:nth-child(2) {
+  font-size: 28rpx;
+  font-weight: 600;
+}
+
+.money .submit {
+  width: 290rpx;
+  height: 98rpx;
+  position: relative;
+  margin-left: 30rpx;
+}
+
+.money .submit image {
+  width: 100%;
+  height: 100%;
+}
+
+.money .submit text {
+  font-size: 28rpx;
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -13rpx;
+  margin-left: -55rpx;
+}

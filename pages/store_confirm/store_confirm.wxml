@@ -1,0 +1,36 @@
+<view>
+  <view class='top'>
+    <view class='code_box'>
+      <input bindinput='getCode' placeholder='请填写收货码' type='text' value='{{code_num}}'></input>
+      <image src='{{static}}/sweep.png' bindtap='sweep'></image>
+    </view>
+    <view class='order_goods_num'>
+      <input bindinput='getNum' placeholder='请填写数量' value='{{order_num}}'></input>
+      <view bindtap='submit' class='submit'>确认收货</view>
+    </view>
+  </view>
+  <view class='all_order_num'>
+    <text>{{shop_no_recv_num}}个待取单</text>
+  </view>
+  <view class='list'>
+    <view wx:for="{{order_list}}" wx:key="{{index}}" class='item'>
+      <view class='goods_images_box'>
+        <image src='{{imgUrl + item.goods[0].left_image}}'></image>
+      </view>
+      <view class='order_info'>
+        <view class='order_id'>
+          <text>订单编号: </text>
+          <text>{{item.log_no}}</text>
+        </view>
+        <view class='date'>
+          <text>收货时间:</text>
+          <text>{{item.actual_recv_time}}</text>
+        </view>
+        <view class='order_num'>
+          <text>数量: </text>
+          <text>{{item.actual_recv_num}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

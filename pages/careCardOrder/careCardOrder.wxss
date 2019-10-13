@@ -1,0 +1,297 @@
+/* pages/careCardOrder/careCardOrder.wxss */
+
+page {
+    width: 100%;
+    height: 100%;
+    background-color: #eef1f4;
+}
+
+.hidden {
+    height: 100%;
+    overflow-y: hidden;
+}
+
+.box {
+    width: 100%;
+    padding: 0 18rpx;
+    box-sizing: border-box;
+}
+
+/*电子卡  */
+
+.page {
+    padding-bottom: 20rpx;
+    box-sizing: border-box;
+}
+
+.E-card {
+    width: 100%;
+    background-color: #fff;
+    border-radius: 10rpx;
+    margin-top: 20rpx;
+}
+
+.E-card .date {
+    width: 100%;
+    height: 78rpx;
+    border-bottom: 2rpx solid #eef1f4;
+    padding: 0 30rpx;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+}
+
+.E-card .date image {
+    width: 100rpx;
+    height: 24rpx;
+    margin-right: 18rpx;
+}
+
+.E-card .date .num {
+    width: 34rpx;
+    height: 30rpx;
+    text-align: center;
+    background-color: #000;
+    font-size: 22rpx;
+    color: #fff;
+    margin-right: 10rpx;
+    border-radius: 6rpx;
+}
+
+/*洗护卡  */
+
+.E-card .card {
+    width: 100%;
+    height: 164rpx;
+    border-bottom: 1rpx solid #eef1f4;
+    padding: 0 30rpx;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+}
+
+.E-card .card .left {
+    width: 166rpx;
+    height: 84rpx;
+    position: relative;
+    font-size: 22rpx;
+    font-weight: 600;
+    color: #5e94f3;
+    margin-right: 35rpx;
+}
+
+.E-card .card .left image {
+    width: 100%;
+    height: 100%;
+}
+
+.E-card .card .left view {
+    width: 100rpx;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -20rpx;
+    margin-left: -20rpx;
+}
+
+.E-card .card .left text {
+    font-size: 30rpx;
+    font-weight: 600;
+    color: #5e94f3;
+}
+
+.E-card .card .middle .top {
+    font-size: 26rpx;
+    font-weight: 600;
+    color: #282828;
+}
+
+.E-card .card .middle .bottom {
+    font-size: 24rpx;
+    font-weight: 600;
+    color: #5e94f3;
+}
+
+.E-card .card .right {
+    width: 128rpx;
+    height: 52rpx;
+    text-align: center;
+    line-height: 52rpx;
+    border: 1rpx solid #3a7ef4;
+    border-radius: 26rpx;
+    font-size: 24rpx;
+    color: #5e94f3;
+    margin-left: 85rpx;
+}
+
+/*直存  */
+
+.E-card .direct {
+    width: 100%;
+    height: 164rpx;
+    border-bottom: 1rpx solid #eef1f4;
+    padding: 0 30rpx;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+}
+
+.E-card .direct .left {
+    width: 166rpx;
+    height: 84rpx;
+    position: relative;
+    font-size: 22rpx;
+    font-weight: 600;
+    color: #f55;
+    margin-right: 35rpx;
+}
+
+.E-card .direct .left image {
+    width: 100%;
+    height: 100%;
+}
+
+.E-card .direct .left view {
+    width: 100rpx;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -20rpx;
+    margin-left: -20rpx;
+}
+
+.E-card .direct .left text {
+    font-size: 30rpx;
+    font-weight: 600;
+    color: #f55;
+}
+
+.E-card .direct .middle .top {
+    font-size: 26rpx;
+    font-weight: 600;
+    color: #282828;
+}
+
+.E-card .direct .middle .bottom {
+    font-size: 24rpx;
+    font-weight: 600;
+    color: #5e94f3;
+}
+
+/*验证码  */
+
+.code {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9;
+    padding: 0 40rpx;
+    box-sizing: border-box;
+}
+
+.code .codeBox {
+    width: 100%;
+    height: 490rpx;
+    position: relative;
+    top: 50%;
+    margin-top: -245rpx;
+    background-color: #fff;
+    border-radius: 16rpx;
+    padding: 74rpx 45rpx 0;
+    box-sizing: border-box;
+}
+
+.code .codeBox .cancel {
+    width: 40rpx;
+    height: 40rpx;
+    position: absolute;
+    top: 40rpx;
+    right: 50rpx;
+}
+
+.code .codeBox .title {
+    font-size: 26rpx;
+    color: #282828;
+}
+
+.code .codeBox .title text {
+    font-size: 28rpx;
+    font-weight: 600;
+}
+
+.code .codeBox .inputCode {
+    width: 100%;
+    height: 90rpx;
+    background-color: #f9f9f9;
+    border-radius: 16rpx;
+    padding: 15rpx 30rpx;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 60rpx;
+}
+
+.code .codeBox .inputCode input {
+    font-size: 24rpx;
+    color: #282828;
+}
+
+.code .codeBox .inputCode .num {
+    width: 90rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    border-left: 1rpx solid #ddd;
+    box-sizing: border-box;
+    font-size: 24rpx;
+    color: #999;
+    text-align: right;
+}
+
+.code .codeBox .inputCode .again {
+    height: 50rpx;
+    line-height: 50rpx;
+    border-left: 1rpx solid #ddd;
+    padding-left: 30rpx;
+    box-sizing: border-box;
+    font-size: 24rpx;
+    color: #5e95f4;
+}
+
+.code .codeBox .submit {
+    width: 100%;
+    height: 90rpx;
+    margin-top: 60rpx;
+    position: relative;
+}
+
+.code .codeBox .submit image {
+    width: 100%;
+    height: 100%;
+}
+
+.code .codeBox .submit text {
+    font-size: 26rpx;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -17rpx;
+    margin-left: -52rpx;
+}
+
+/*暂无洗护卡订单  */
+
+.noOrder {
+    width: 100%;
+    text-align: center;
+    margin-top: 20rpx;
+    font-size: 30rpx;
+    font-weight: 600;
+    color: #282828;
+}

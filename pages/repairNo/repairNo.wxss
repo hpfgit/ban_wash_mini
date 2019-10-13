@@ -1,0 +1,73 @@
+/* page/repairNO/repairNo.wxss */
+
+page {
+    width: 100%;
+    height: 100%;
+}
+
+.page {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.page .bg {
+    width: 100%;
+    height: 100%;
+}
+
+.main {
+    width: 714rpx;
+    height: 850rpx;
+    margin: 0 auto;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    margin-left: -357rpx;
+    margin-top: 74rpx;
+}
+
+.main .white {
+    width: 100%;
+    height: 100%;
+}
+
+.main .main-info {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding: 0 20rpx;
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.main .main-info .logo {
+    width: 114rpx;
+    height: 114rpx;
+    margin-top: -57rpx;
+}
+
+.main .main-info .title {
+    font-size: 28rpx;
+    color: #000;
+    margin-top: 20rpx;
+}
+
+.main .main-info .shoes {
+    width: 600rpx;
+    height: 399rpx;
+    margin-top: 40rpx;
+}
+
+.main .main-info .reason {
+    border-top: 5rpx dashed #eef1f4;
+    margin-top: 33rpx;
+    padding: 10rpx 37rpx 0;
+    box-sizing: border-box;
+    font-size: 28rpx;
+    line-height: 64rpx;
+    text-align: left;
+}

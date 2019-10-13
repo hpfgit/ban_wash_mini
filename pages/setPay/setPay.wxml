@@ -1,0 +1,28 @@
+<!--pages/setPay/setPay.wxml-->
+<view class="container">
+  <view class="title">支付宝收款账户</view>
+  <view class="money">
+    <text class="label">收款账号</text><input placeholder="请输入支付宝账号" bindinput="AccountNumber"></input>
+  </view>
+  <view class="money">
+    <text class="label">确认账号</text><input placeholder="请再次确认支付宝账号" bindinput="AccountNumberYes"></input>
+  </view>
+  <view class="money">
+    <text class="label">姓名</text><text style="color: transparent;">确认</text><input placeholder="请输入支付宝账户相应姓名" bindinput="name"></input>
+  </view>
+  <view class="money">
+    <text class="label">提现密码</text><input placeholder="设置提现密码" bindinput="txpas" type="password"></input>
+  </view>
+  <view class="money">
+    <input placeholder="请输入短信验证码" bindinput="code" style="padding-left: 0;text-align: left;"></input><text class="label" class="{{codeFlag === true ? 'code' : 'getCode'}}" bindtap="getCode">{{timeStr}}</text>
+  </view>
+</view>
+<view class='submit' bindtap='singleSubmit'>
+  <image src='{{static}}/xiadan.png'></image>
+  <view class='xiadan'>
+    确认绑定
+  </view>
+</view>
+<view class="fail">
+  <text>请仔细核对支付宝账号，因账号错误造成的提现损失BAN不予负责</text>
+</view>

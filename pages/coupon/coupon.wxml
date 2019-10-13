@@ -1,0 +1,198 @@
+<!--pages/coupon/coupon.wxml-->
+<view>
+  <view class="swiper-tab">
+    <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" catchtap="clickTab">
+      <text data-current="0" class="{{currentTab==0?'text':''}}">未使用({{unused_count}})</text>
+    </view>
+    <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" catchtap="clickTab">
+      <text data-current="1" class="{{currentTab==1?'text':''}}">使用记录({{used_count}})</text>
+    </view>
+    <view class="swiper-tab-item {{currentTab==2?'active':''}}" data-current="2" catchtap="clickTab">
+      <text data-current="2" class="{{currentTab==2?'text':''}}">已过期({{overdue_count}})</text>
+    </view>
+  </view>
+  <view wx:if="{{currentTab == 0}}" class="lists">
+    <scroll-view>
+      <view class='listOne' wx:for="{{unusedList}}" wx:for-item="item" wx:key="index" wx:for-index="index" data-id="{{item.id}}">
+        <view class='listBox'>
+          <view class='left'>
+            <image src='../../images/coupon/coupon_bg_zhekou.png' class='bg' wx:if="{{item.coupon_type==1}}"></image>
+            <image src='../../images/coupon/coupon_bg.png' class='bg' wx:if="{{item.coupon_type==0}}"></image>
+            <image src='../../images/coupon/coupon_bg_yunfei.png' class='bg' wx:if="{{item.coupon_type==2}}"></image>
+            <view class='box'>
+              <view class='info'>
+                <image src='../../images/coupon/¥.png' wx:if="{{item.coupon_type==0 || item.coupon_type==2}}"></image>
+                <text class='num' wx:if="{{item.coupon_type==0 || item.coupon_type==2}}">{{item.rule_deduct}}</text>
+                <text class='num' wx:if="{{item.coupon_type==1}}">{{item.discount*10}}</text>
+                <text class='zhe' wx:if="{{item.coupon_type==1}}">折</text>
+              </view>
+              <view class='purpose' wx:if="{{item.coupon_type==0}}">满{{item.rule_over}}可用</view>
+              <view class='purpose' wx:if="{{item.coupon_type==2}}">部分特殊商品</view>
+            </view>
+          </view>
+          <view class='right'>
+            <view class='top'>
+              <view class='freight'>{{item.coupon_type_name}}</view>
+              <view class='content' wx:if="{{item.coupon_type==0}}">仅限部分服务</view>
+              <view class='content' wx:if="{{item.coupon_type==1}}">仅限部分服务</view>
+              <view class='content' wx:if="{{item.coupon_type==2}}">部分特殊商品运费</view>
+            </view>
+            <view class='middle'>
+              <view class='time' wx:if="{{item.start_time != null && item.end_time != null}}">{{item.start_time}}-{{item.end_time}}</view>
+              <view class='time' wx:if="{{item.end_time == null && item.start_time != null}}">{{item.start_time}}开始</view>
+              <view class='time' wx:if="{{item.start_time == null && item.end_time != null}}">截止{{item.start_time}}</view>
+              <view class='time' wx:if="{{item.start_time == null && item.end_time == null}}"></view>
+              <view class='use' bindtap='use' wx:if="{{item.can_used && item.isUse==false}}" data-id="{{item.id}}">立即使用</view>
+              <view class='use' bindtap='cancelUse' wx:if="{{item.can_used && item.isUse==true}}" data-id="{{item.id}}">取消选择</view>
+              <view class='noUse' wx:if="{{!item.can_used}}">不可使用</view>
+              <view class='used' wx:if="{{item.is_used==1}}">已经选择</view>
+            </view>
+            <view class='bottom'>
+              <view class='rule'>使用规则</view>
+              <image src='../../images/coupon/coupon_up.png' data-index="{{index}}" bindtap='openInfo' wx:if="{{info}}"></image>
+              <image src='../../images/coupon/coupon_down.png' data-index="{{index}}" bindtap='openInfo' wx:else></image>
+            </view>
+          </view>
+        </view>
+        <view class='purposeInfo' wx:if="{{item.isOpen}}">
+          本优惠券使用范围 >
+          <!-- <text>部分商品购买</text> -->
+          <text wx:for="{{item.scope_name}}" wx:key="inx" wx:for-index="inx" wx:for-item="itm">{{itm}}；</text>
+        </view>
+      </view>
+      <view class='noMore' wx:if="{{currentTab == 0 && unused_count == unusedList.length}}">
+        <image src='../../images/coupon/没有更多了.png'></image>
+      </view>
+    </scroll-view>
+  </view>
+
+
+
+  <view wx:if="{{currentTab == 1}}" class="lists">
+    <scroll-view>
+      <view class='listOne' wx:for="{{usedList}}" wx:for-item="item" wx:key="index" wx:for-index="index" data-id="{{item.id}}">
+        <view class='listBox'>
+          <view class='left'>
+            <image src='../../images/coupon/coupon_bg_zhekou.png' class='bg' wx:if="{{item.coupon_type==1}}"></image>
+            <image src='../../images/coupon/coupon_bg.png' class='bg' wx:if="{{item.coupon_type==0}}"></image>
+            <image src='../../images/coupon/coupon_bg_yunfei.png' class='bg' wx:if="{{item.coupon_type==2}}"></image>
+            <view class='box'>
+              <view class='info'>
+                <image src='../../images/coupon/¥.png' wx:if="{{item.coupon_type==0 || item.coupon_type==2}}"></image>
+                <text class='num' wx:if="{{item.coupon_type==0 || item.coupon_type==2}}">{{item.rule_deduct}}</text>
+                <text class='num' wx:if="{{item.coupon_type==1}}">{{item.discount*10}}</text>
+                <text class='zhe' wx:if="{{item.coupon_type==1}}">折</text>
+              </view>
+              <view class='purpose' wx:if="{{item.coupon_type==0}}">满{{item.rule_over}}可用</view>
+              <view class='purpose' wx:if="{{item.coupon_type==2}}">部分特殊商品</view>
+            </view>
+          </view>
+          <view class='right'>
+            <view class='top'>
+              <view class='freight'>{{item.coupon_type_name}}</view>
+              <view class='content' wx:if="{{item.coupon_type==0}}">仅限部分服务</view>
+              <view class='content' wx:if="{{item.coupon_type==1}}">仅限部分服务</view>
+              <view class='content' wx:if="{{item.coupon_type==2}}">部分特殊商品运费</view>
+            </view>
+            <view class='middle'>
+              <view class='time' wx:if="{{item.start_time != null && item.end_time != null}}">{{item.start_time}}-{{item.end_time}}</view>
+              <view class='time' wx:if="{{item.end_time == null && item.start_time != null}}">{{item.start_time}}开始</view>
+              <view class='time' wx:if="{{item.start_time == null && item.end_time != null}}">截止{{item.start_time}}</view>
+              <view class='time' wx:if="{{item.start_time == null && item.end_time == null}}"></view>
+              <!-- <view class='use' bindtap='use' wx:if="{{item.can_used}}">立即使用</view> -->
+              <!-- <view class='noUse' wx:if="{{!item.can_used}}">不可使用</view> -->
+              <!-- <view class='used' wx:if="{{item.is_used==1}}">已经选择</view> -->
+            </view>
+            <view class='bottom'>
+              <view class='rule'>使用规则</view>
+              <image src='../../images/coupon/coupon_up.png' data-index="{{index}}" bindtap='openInfo' wx:if="{{info}}"></image>
+              <image src='../../images/coupon/coupon_down.png' data-index="{{index}}" bindtap='openInfo' wx:else></image>
+            </view>
+          </view>
+        </view>
+        <view class='purposeInfo' wx:if="{{item.isOpen}}">
+          本优惠券使用范围 >
+          <!-- <text>部分商品购买</text> -->
+          <text wx:for="{{item.scope_name}}" wx:key="inx" wx:for-index="inx" wx:for-item="itm">{{itm}}；</text>
+        </view>
+      </view>
+      <view class='noMore' wx:if="{{currentTab == 1 && used_count == usedList.length}}">
+        <image src='../../images/coupon/没有更多了.png'></image>
+      </view>
+    </scroll-view>
+  </view>
+  <view wx:if="{{currentTab == 2}}" class="lists">
+    <scroll-view>
+      <view class='listOne' wx:for="{{overdueList}}" wx:for-item="item" wx:key="index" wx:for-index="index" data-id="{{item.id}}">
+        <view class='listBox'>
+          <view class='left'>
+            <image src='../../images/coupon/coupon_bg_zhekou.png' class='bg' wx:if="{{item.coupon_type==1}}"></image>
+            <image src='../../images/coupon/coupon_bg.png' class='bg' wx:if="{{item.coupon_type==0}}"></image>
+            <image src='../../images/coupon/coupon_bg_yunfei.png' class='bg' wx:if="{{item.coupon_type==2}}"></image>
+            <view class='box'>
+              <view class='info'>
+                <image src='../../images/coupon/¥.png' wx:if="{{item.coupon_type==0 || item.coupon_type==2}}"></image>
+                <text class='num' wx:if="{{item.coupon_type==0 || item.coupon_type==2}}">{{item.rule_deduct}}</text>
+                <text class='num' wx:if="{{item.coupon_type==1}}">{{item.discount*10}}</text>
+                <text class='zhe' wx:if="{{item.coupon_type==1}}">折</text>
+              </view>
+              <view class='purpose' wx:if="{{item.coupon_type==0}}">满{{item.rule_over}}可用</view>
+              <view class='purpose' wx:if="{{item.coupon_type==2}}">部分特殊商品</view>
+            </view>
+          </view>
+          <view class='right'>
+            <view class='top'>
+              <view class='freight'>{{item.coupon_type_name}}</view>
+              <view class='content' wx:if="{{item.coupon_type==0}}">仅限部分服务</view>
+              <view class='content' wx:if="{{item.coupon_type==1}}">仅限部分服务</view>
+              <view class='content' wx:if="{{item.coupon_type==2}}">部分特殊商品运费</view>
+            </view>
+            <view class='middle'>
+              <view class='time' wx:if="{{item.start_time != null && item.end_time != null}}">{{item.start_time}}-{{item.end_time}}</view>
+              <view class='time' wx:if="{{item.end_time == null && item.start_time != null}}">{{item.start_time}}开始</view>
+              <view class='time' wx:if="{{item.start_time == null && item.end_time != null}}">截止{{item.start_time}}</view>
+              <view class='time' wx:if="{{item.start_time == null && item.end_time == null}}"></view>
+            
+            </view>
+            <view class='bottom'>
+              <view class='rule'>使用规则</view>
+              <image src='../../images/coupon/coupon_up.png' data-index="{{index}}" bindtap='openInfo' wx:if="{{info}}"></image>
+              <image src='../../images/coupon/coupon_down.png' data-index="{{index}}" bindtap='openInfo' wx:else></image>
+            </view>
+          </view>
+        </view>
+        <view class='purposeInfo' wx:if="{{item.isOpen}}">
+          本优惠券使用范围 >
+          <!-- <text>部分商品购买</text> -->
+          <text wx:for="{{item.scope_name}}" wx:key="inx" wx:for-index="inx" wx:for-item="itm">{{itm}}；</text>
+        </view>
+      </view>
+      <view class='noMore' wx:if="{{currentTab == 2 && overdue_count == overdueList.length}}">
+        <image src='../../images/coupon/没有更多了.png'></image>
+      </view>
+    </scroll-view>
+  </view>
+  <!-- 添加优惠券按钮 -->
+  <view class='addBox'>
+    <view class='add' bindtap='add'>添加优惠券</view>
+  </view>
+  <!-- 添加优惠券弹窗 -->
+  <view class='modal' wx:if="{{modal}}">
+    <view class='modalBox'>
+      <view class='contentBox'>
+        <image src='../../images/coupon/coupon_dialog_up.png' class='dialogUp'></image>
+        <image src='../../images/coupon/coupon_dialog_down.png' class='dialogDown'></image>
+        <view class='title'>兑换优惠券</view>
+        <view class='input'>
+          <input type='text' placeholder='请输入优惠券兑换码' bindinput='inputChange'></input>
+          <text wx:if="{{isTrue}}">{{codeText}}</text>
+          <text wx:else></text>
+          <view class='submit' bindtap='submit'>立即兑换</view>
+        </view>
+      </view>
+    </view>
+    <view class='close' bindtap='close'>
+      X
+    </view>
+  </view>
+</view>

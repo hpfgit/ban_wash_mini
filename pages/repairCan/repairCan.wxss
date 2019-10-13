@@ -1,0 +1,266 @@
+/* page/repairCan/repairCan.wxss */
+
+page {
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+}
+
+.noscroll {
+    overflow: hidden;
+}
+
+.page {
+    width: 100%;
+    height: 100%;
+}
+
+.goods {
+    width: 100%;
+    padding: 22rpx 20rpx;
+    box-sizing: border-box;
+    background-color: #fff;
+    display: flex;
+    flex-grow: grow;
+    position: relative;
+    border-top: 18rpx solid #eef1f4;
+}
+
+.goods .member {
+    width: 292rpx;
+    height: 58rpx;
+    position: absolute;
+    right: 0;
+    top: 22rpx;
+}
+
+.goods .member image {
+    width: 100%;
+    height: 100%;
+}
+
+.goods .member .member-text {
+    position: absolute;
+    top: 0;
+    left: 25rpx;
+}
+
+.goods .member .member-text text:nth-child(1) {
+    font-size: 28rpx;
+    color: #fff;
+    background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(#fff), to(#d5b1a0));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.goods .member .member-text text:nth-child(2) {
+    font-size: 26rpx;
+    color: #fff;
+    margin-left: 28rpx;
+}
+
+.goods .shoes {
+    width: 126rpx;
+    height: 126rpx;
+    border-radius: 6rpx;
+}
+
+.goods .shoes image {
+    width: 100%;
+    height: 100%;
+    border-radius: 6rpx;
+}
+
+.goods .info {
+    margin-left: 26rpx;
+}
+
+.goods .info .top {
+    font-size: 26rpx;
+    color: #282828;
+}
+
+.goods .info .bottom {
+    margin-top: 34rpx;
+}
+
+.goods .info .bottom text:nth-child(1) {
+    font-size: 30rpx;
+    color: #282828;
+}
+
+.goods .info .bottom .sanjiao {
+    display: inline-block;
+    border-left: 10rpx solid transparent;
+    border-right: 10rpx solid #f0f3fa;
+    border-top: 10rpx solid transparent;
+    border-bottom: 10rpx solid transparent;
+}
+
+.goods .info .bottom text:nth-child(3) {
+    width: 109rpx;
+    height: 34rpx;
+    background-color: #f0f3fa;
+    padding: 6rpx 5rpx;
+    font-size: 22rpx;
+    color: #5e95f4;
+}
+/* 建议 */
+.proposal {
+    background: #fff;
+    border-top: 18rpx solid #eef1f4;
+    padding: 22rpx 20rpx;
+}
+.proposal .proposal-title {
+    height: 40rpx;
+    line-height: 40rpx;
+}
+.proposal .proposal-title .proposal-img {
+    display: inline-block;
+    width: 34rpx;
+    height: 34rpx;
+    margin-right: 15rpx;
+    position: relative;
+    top: 8rpx;
+}
+.proposal .proposal-t {
+    height: 40rpx;
+    line-height: 40rpx;
+    font-size: 28rpx;
+    color: #282828;
+    display: inline-block；
+}
+.proposal .proposal-content {
+    padding: 18rpx 0;
+    font-size: 24rpx;
+    line-height: 36rpx;
+}
+/*服务  */
+
+.service {
+    width: 100%;
+    border-top: 18rpx solid #eef1f4;
+    background-color: #fff;
+    padding: 0rpx 30rpx 140rpx;
+    box-sizing: border-box;
+}
+
+.service .service-item .title {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 25rpx 0;
+    box-sizing: border-box;
+}
+
+.service .service-item .title .title-T {
+    font-size: 28rpx;
+    color: #282828;
+}
+
+.service .service-item .title .title-T text {
+    color: #5e95f4;
+}
+
+.service .service-item .title .choose, .cancel {
+    width: 80rpx;
+    height: 40rpx;
+    text-align: center;
+    line-height: 40rpx;
+    font-size: 24rpx;
+    color: #282828;
+    border: 1rpx solid #474747;
+    border-radius: 19rpx;
+}
+
+.service .service-item .title .cancel {
+    border: 1rpx solid #5e95f4;
+    color: #5e95f4;
+}
+
+.service .service-item .service-content {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.service .service-item .service-content .content-item {
+    padding: 15rpx 20rpx;
+    font-size: 24rpx;
+    line-height: 24rpx;
+    color: #282828;
+    box-sizing: border-box;
+    background-color: #f6f5fa;
+    border-radius: 31rpx;
+    margin-right: 10px;
+    margin-bottom: 28rpx;
+}
+
+.acvite {
+    color: #5e95f4 !important;
+    background-color: #e7f3ff !important;
+}
+
+/*model  */
+
+.model {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.model .model-C {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.model .model-C .M-title {
+    width: 100%;
+    height: 94rpx;
+    line-height: 94rpx;
+    font-size: 28rpx;
+    font-weight: 600;
+    background-color: #efefef;
+}
+
+.model .model-C .item {
+    width: 100%;
+    height: 94rpx;
+    font-size: 28rpx;
+    line-height: 94rpx;
+    background-color: #fff;
+    border-top: 1rpx solid #eef1f4;
+}
+
+/*提交  */
+
+.submit {
+    width: 622rpx;
+    height: 74rpx;
+    margin: 0 auto;
+    position: fixed;
+    bottom: 60rpx;
+    left: 50%;
+    margin-left: -311rpx;
+}
+
+.submit image {
+    width: 100%;
+    height: 100%;
+}
+
+.submit text {
+    font-size: 28rpx;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -20rpx;
+    margin-left: -148rpx;
+}

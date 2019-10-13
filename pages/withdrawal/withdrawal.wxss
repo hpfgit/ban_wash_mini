@@ -1,0 +1,67 @@
+/* pages/withdrawal/withdrawal.wxss */
+
+page {
+  background-color: #eef1f4;
+}
+
+.money {
+  color: #5e94f5;
+  font-size: 28rpx;
+  text-align: center;
+  padding-top: 108rpx;
+  padding-bottom: 56rpx;
+  background-color: #fff;
+}
+
+.number {
+  font-size: 48rpx;
+}
+
+.tip {
+  color: #a0a0a2;
+  font-size: 22rpx;
+  padding-bottom: 20rpx;
+  text-align: center;
+  background-color: #fff;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 50rpx;
+  background-color: #fff;
+}
+
+.nav view {
+  border: 1rpx solid #ececec;
+  flex: 1;
+  height: 108rpx;
+  font-size: 28rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav view image {
+  margin-right: 8rpx;
+}
+
+.nav .icon {
+  width: 36rpx;
+  height: 36rpx;
+}
+.zfb {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  height: 72rpx;
+  align-items: center;
+  font-size: 26rpx;
+  margin-top: 20rpx;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+}
+.active {
+  color: #5e94f5;
+}

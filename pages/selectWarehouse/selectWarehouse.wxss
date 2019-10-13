@@ -1,0 +1,48 @@
+page {
+  background: #eef1f4;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular;
+}
+.item {
+  margin-top: 18rpx;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 34rpx 24rpx;
+  padding-right: 0;
+}
+.item_left .h1 {
+  font-size: 28rpx;
+  margin-right: 28rpx;
+}
+.item_left .phone {
+  color: #919191;
+}
+.address {
+  padding: 12rpx 0 20rpx 0;
+}
+.status {
+  color: #f95e0f;
+  background-color: #fff2ec;
+  padding: 6rpx 14rpx;
+}
+.status_no {
+  padding: 6rpx 14rpx;
+  color: #fff;
+  background-image: linear-gradient(90deg, 	#f94649 0%, #f4a524 100%);
+}
+.distance {
+	color: #919191;
+  margin-left: 20rpx;
+}
+.item_right text.is{
+  color: #5e95f4;
+  padding:  20rpx 24rpx;
+  border-left: 2rpx solid #efefef;
+}
+.item_right text.no {
+  color: #919191;
+  padding:  20rpx 24rpx;
+  border-left: 2rpx solid #efefef;
+}

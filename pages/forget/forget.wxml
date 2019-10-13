@@ -1,0 +1,28 @@
+<view class='forget'>
+    忘记密码
+</view>
+<view class='code'>
+    <view class='text'>验证码已通过短信发送至：</view>
+    <view class='code-num'>
+        <text class='spot'></text>
+        <text class='prefix'>+{{num}}</text>
+        <text class='num'>{{value}}</text>
+    </view>
+    <view class='inputCode'>输入获取的验证码：</view>
+    <view class='newCode'>
+        <input type='number' placeholder='验证码（六位数字）' bindinput='codeContent'></input>
+    </view>
+    <view class="again">
+        <text wx:if="{{show}}">再次发送 <text>{{time}}</text> s</text>
+        <text wx:else bindtap='getCode'>再次发送</text>
+    </view>
+    <view class='newWord'>
+        <text class='spot'></text>
+        <text class='password'>设置一个新的密码：</text>
+    </view>
+    <view class='wordInput'>
+        <input type='text' placeholder='设置密码（六位以上）' bindinput='passwordContent'></input>
+    </view>
+</view>
+
+<button type="defaule" class='go' bindtap='go'>▶ 开始鞋途</button>

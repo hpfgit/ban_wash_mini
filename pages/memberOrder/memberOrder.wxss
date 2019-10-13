@@ -1,0 +1,297 @@
+/* page/memberOrder/memberOrder.wxss */
+
+page {
+    background-color: #eef1f4;
+    width: 100%;
+    height: 100%;
+}
+
+.page {
+    width: 100%;
+    height: 100%;
+}
+
+.hidden {
+    overflow-y: hidden;
+}
+
+.card {
+    width: 702rpx;
+    height: 230rpx;
+    margin: 21rpx auto 0;
+    position: relative;
+    background-image: linear-gradient(0deg, #cd9f51 0%, #e2b66b 100%, #e6ba81 100%, #e9bd97 100%),
+                      linear-gradient(#d4a95b, #d4a95b);
+    box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+}
+
+.card image {
+    width: 100%;
+    height: 100%;
+}
+
+.card .content {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    text-align: center;
+    line-height: 0;
+}
+
+.card .content .type {
+    font-size: 40rpx;
+    color: #fff;
+    line-height: 40rpx;
+    margin-top: 70rpx;
+    text-shadow: 0rpx 4rpx 6rpx rgba(0, 0, 0, 0.5);
+}
+
+.card .content .sum {
+    font-size: 26rpx;
+    color: #fff;
+    line-height: 26rpx;
+    margin-top: 19rpx;
+}
+
+/*购买人信息  */
+
+.info {
+    width: 702rpx;
+    background-color: #fff;
+    margin: 20rpx auto 0;
+    border-radius: 6rpx;
+}
+
+.info .top {
+    padding: 30rpx 27rpx;
+    box-sizing: border-box;
+    border-bottom: 1rpx solid #eef1f4;
+    line-height: 0;
+}
+
+.info .top view:nth-child(1) {
+    font-size: 28rpx;
+    font-weight: 600;
+    color: #282828;
+    line-height: 28rpx;
+}
+
+.info .top view:nth-child(2) {
+    font-size: 24rpx;
+    color: #858585;
+    line-height: 24rpx;
+    margin-top: 33rpx;
+}
+
+.info .bottom {
+    width: 100%;
+    height: 75rpx;
+    font-size: 22rpx;
+    color: #282828;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info .bottom image {
+    width: 12rpx;
+    height: 18rpx;
+    margin-left: 11rpx;
+}
+
+/*用户信息  */
+
+.user {
+    width: 702rpx;
+    background-color: #fff;
+    margin: 18rpx auto 0;
+    font-size: 26rpx;
+    color: #282828;
+    border-radius: 6rpx;
+}
+
+.user .name {
+    width: 100%;
+    height: 90rpx;
+    padding: 0 27rpx;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-bottom: 1rpx solid #eef1f4;
+}
+
+.user input {
+    width: 100%;
+}
+
+.user .name view:nth-child(1) {
+    width: 130rpx;
+}
+
+.user .idCard {
+    width: 100%;
+    height: 90rpx;
+    padding: 0 27rpx;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.user .idCard view:nth-child(1) {
+    width: 130rpx;
+}
+
+/*发票  */
+
+.invoice {
+    width: 702rpx;
+    height: 90rpx;
+    background-color: #fff;
+    margin: 18rpx auto 0;
+    padding: 0 27rpx;
+    box-sizing: border-box;
+    border-radius: 6rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 26rpx;
+    color: #282828;
+}
+
+.invoice .right image {
+    width: 12rpx;
+    height: 22rpx;
+    margin-left: 21rpx;
+}
+
+/*确认支付  */
+
+.footer {
+    width: 100%;
+    height: 98rpx;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer .left {
+    padding-left: 40rpx;
+    box-sizing: border-box;
+    line-height: 0;
+}
+
+.footer .left .top .text {
+    font-size: 24rpx;
+    color: #282828;
+    margin-right: 20rpx;
+    line-height: 24rpx;
+}
+
+.footer .left .top .little {
+    font-size: 24rpx;
+    color: #5e95f4;
+    line-height: 24rpx;
+}
+
+.footer .left .top .money {
+    font-size: 34rpx;
+    color: #5e95f4;
+    line-height: 34rpx;
+}
+
+.footer .left .bottom {
+    margin-top: 14rpx;
+    display: flex;
+}
+
+.footer .left .bottom image {
+    width: 22rpx;
+    height: 22rpx;
+    margin-right: 11rpx;
+}
+
+.footer .left .bottom text {
+    font-size: 22rpx;
+    color: #9ba1a8;
+    line-height: 22rpx;
+}
+
+.active {
+    color: #5e95f4 !important;
+}
+
+.footer .button {
+    width: 290rpx;
+    height: 98rpx;
+    text-align: center;
+    line-height: 98rpx;
+    color: #fff;
+    font-size: 28rpx;
+    background-color: #5e95f4;
+    border-radius: 0;
+    border: none;
+}
+
+/*提醒模态框  */
+
+.modal {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 99;
+}
+
+.modal .box {
+    width: 700rpx;
+    height: 526rpx;
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -263rpx;
+    margin-left: -350rpx;
+    padding: 0 50rpx;
+    box-sizing: border-box;
+    border-radius: 10rpx;
+}
+
+.modal .box .img {
+    width: 60rpx;
+    height: 52rpx;
+    margin: 40rpx auto 0;
+}
+
+.modal .box .img image {
+    width: 100%;
+    height: 100%;
+}
+
+.modal .box .title {
+    text-align: center;
+    font-size: 28rpx;
+    line-height: 28rpx;
+    color: #282828;
+    margin-top: 28rpx;
+}
+
+.modal .box .content {
+    font-size: 24rpx;
+    color: #282828;
+    margin-top: 25rpx;
+}
+
+.modal .box .content view {
+    margin-top: 18rpx;
+}

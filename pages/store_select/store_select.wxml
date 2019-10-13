@@ -1,0 +1,6 @@
+<view class="store_select">
+  <view class="button_box">
+    <button size="mini" type="primary" bindtap="to_confirm">确认收货</button>
+    <button size="mini" type="primary" bindtap="assist_go_buy">协助下单</button>
+  </view>
+</view>

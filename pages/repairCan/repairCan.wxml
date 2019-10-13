@@ -1,0 +1,56 @@
+<!--page/repairCan/repairCan.wxml-->
+<view class="page {{model?'noscroll':''}}">
+    <!--商品  -->
+    <view class='goods'>
+        <view class='member' wx:if="{{user_info.is_vip == 0}}">
+            <image src='{{static}}/banlihuiyuan.png'></image>
+            <view class='member-text'>
+                <text>会员7折</text>
+                <text>点击办理 》</text>
+            </view>
+        </view>
+        <view class='shoes'>
+            <image src="{{imgUrl}}{{order_info.goods_left_image}}" mode='aspectFill'></image>
+        </view>
+        <view class='info'>
+            <view class='top'>已选{{num}}项服务</view>
+            <view class='bottom'>
+                <text wx:if="{{callback == ''}}">¥00.00</text>
+                <text wx:else>¥{{callback.is_vip==0?callback.sum_price:callback.sum_price_vip}}</text>
+                <text class='sanjiao' wx:if="{{callback != '' & callback.is_vip==1}}"></text>
+                <text wx:if="{{callback != '' & callback.is_vip==1}}">优惠{{order_info.platform_discount}}元</text>
+            </view>
+        </view>
+    </view>
+    <!-- 建议模块 -->
+    <view wx:if="{{platform_advise != ''}}" class='proposal'>
+        <view class='proposal-title'>
+            <image class='proposal-img' src='../../images/proposal.png'></image>
+            <text class='proposal-t'>修复建议</text>
+        </view>
+        <view class='proposal-content'>
+            {{platform_advise}}
+        </view>
+    </view>
+    <!--服务  -->
+    <view class='service'>
+        <view class='service-item' wx:for="{{bigService}}" wx:key="ins" wx:for-item="its" wx:for-index="ins">
+            <view class='title' wx:for="{{its}}" wx:key="inx" wx:for-item="itm" wx:for-index="inx" wx:if="{{inx == 0}}">
+                <view class='title-T'>
+                    <text>{{num}}</text>/{{bigService.length}} {{itm.server_service_name}}</view>
+                <view class='choose' wx:if="{{!itm.checkeds&&itm.server_service_id != 1}}" data-ins="{{ins}}" data-inx="{{inx}}" bindtap='choose'>选择</view>
+                <view class='cancel' wx:elif="{{itm.checkeds&&itm.server_service_id != 1}}" data-ins="{{ins}}" data-inx="{{inx}}" bindtap='choose'>取消</view>
+            </view>
+            <view class='service-content'>
+                <text class="content-item {{item.checked?'acvite':''}}" wx:for="{{its}}" wx:key="index" wx:for-item="item" wx:for-index="index" data-ins="{{ins}}" data-index="{{index}}" bindtap='single'>
+                    <text>{{item.service_name}}-{{item.item_name}}</text>
+                </text>
+            </view>
+        </view>
+        <!--提交  -->
+    </view>
+    <view class='submit' bindtap='submit'>
+        <image src='{{static}}/begin.png'></image>
+        <text>已选{{num}}项服务，提交订单</text>
+    </view>
+</view>

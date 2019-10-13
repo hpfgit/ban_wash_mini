@@ -1,0 +1,36 @@
+<!--pages/collarGive/collarGive.wxml-->
+<view class='page'>
+    <!--banner图  -->
+    <view class='banner'>
+        <image src='{{static}}/collar_bg.png' class='bg'></image>
+        <image src='{{static}}/collar_default.png' class='man' wx:if="{{state == 0}}"></image>
+        <image src='{{static}}/collar_num.png' class='man' wx:elif="{{state == 1}}"></image>
+        <image src='{{static}}/collar_pass.png' class='man' wx:elif="{{state == 2}}"></image>
+    </view>
+    <!--领用与赠送  -->
+    <view class='title'>
+        领用与赠送
+    </view>
+    <!--输入卡号密码  -->
+    <view class='entry'>
+        <view class="number {{inputBg==1?' inputBg ':' '}}">
+            <input type='text' placeholder='请输入券号' value="{{numbers}}" bindinput='numbers' bindfocus="numberFocus" bindblur="numberBlur"></input>
+            <image src='{{static}}/collar_del.png'></image>
+        </view>
+        <view class="password {{inputBg==2?' inputBg ':' '}}">
+            <input type='text' password="true" placeholder='请输入礼品卡密码' bindinput='password' bindfocus="passFocus" bindblur="passBlur"></input>
+        </view>
+    </view>
+    <!--提示  -->
+    <view class='prompt'>
+        请输入正确的券密后，点击立即领用
+    </view>
+    <!--立即领用  -->
+    <view class='submit' wx:if="{{submit == true}}" bindtap='submit'>
+        <image src='{{static}}/begin.png'></image>
+        <text>立即领用</text>
+    </view>
+    <view class='noSubmit' wx:elif="{{submit == false}}">
+        立即领用
+    </view>
+</view>

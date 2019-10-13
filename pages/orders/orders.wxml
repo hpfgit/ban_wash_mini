@@ -1,0 +1,239 @@
+<wxs module="filter" src="../../utils/utils.wxs"></wxs>
+
+<view class='page'>
+  <form bindsubmit='find' report-submit='true'>
+    <!--订单列表  -->
+    <view class='items' wx:if="{{datas != ''}}">
+      <view class='item clearfix' wx:for="{{datas}}" wx:key="index">
+        <view class='top'>
+          <view class='number' data-id="{{item.id}}">订单编号：{{item.log_no}}</view>
+          <button data-index="{{index}}" bindtap='kefu' class='kefu' open-type="{{openType}}">
+            <text>联系客服</text>
+            <image src='{{static}}/kefu_little.png'></image>
+          </button>
+        </view>
+        <view class='middle' wx:for="{{item.goods}}" wx:key="inx" wx:for-item="itm" wx:for-index="inx">
+          <view class='left'>
+            <image src='{{filter.pipei(itm.left_image, globalApp)}}' mode='aspectFill'></image>
+          </view>
+          <view class='right'>
+            <view class='M-top'>
+              <!-- <view class='title' wx:if="{{itm.buy_item_count != 0 && item.is_need_extra_costs==0}}">已选{{itm.buy_item_count}}项服务</view> -->
+              <!-- <view class='title' wx:if="{{itm.buy_item_count != 0 && item.is_need_extra_costs==0}}">已选{{itm.buy_item_count}}项服务</view> -->
+              <!-- <view class='title' wx:if="{{itm.buy_item_count != 0 && item.is_need_extra_costs==1 && item.extra_costs_pay_status==1}}">已选{{itm.buy_item_count+1}}项服务</view> -->
+              <view class='title' wx:if="{{itm.buy_item_count != 0 && item.is_need_extra_costs==0}}">已选{{goodsArr[index][inx].length}}项服务</view>
+              <view class='title' wx:if="{{itm.buy_item_count != 0 && item.is_need_extra_costs==1 && item.extra_costs_pay_status!=1}}">已选{{goodsArr[index][inx].length}}项服务</view>
+              <view class='title' wx:if="{{itm.buy_item_count != 0 && item.is_need_extra_costs==1 && item.extra_costs_pay_status==1}}">已选{{goodsArr[index][inx].length+1}}项服务</view>
+              <view class='title' wx:elif="{{itm.buy_item_count == 0}}">暂未选择服务</view>
+              <view class='price' wx:if="{{itm.buy_item_count != 0 && itm.goods_order_price!=0 && item.order_type==2}}">¥{{itm.goods_order_price}}
+                <text>¥{{itm.goods_price}}</text>
+              </view>
+              <view class='price' wx:elif="{{itm.buy_item_count != 0 && itm.goods_order_price!=0 && item.order_info}}">¥{{item.order_info.pay_no.pay_amount}}
+                <text>¥{{itm.goods_price}}</text>
+              </view>
+              <view class='price' wx:elif="{{itm.buy_item_count != 0 && itm.goods_order_price!=0 }}">¥{{item.price}}
+                <text>¥{{itm.goods_price}}</text>
+              </view>
+              <view class='price' wx:else="{{itm.buy_item_count == 0 || itm.goods_order_price==0}}">
+                --
+              </view>
+            </view>
+            <view class='M-bottom'>
+              <!-- <view wx:for="{{itm.buy_item}}" wx:key="key" wx:for-item="items" wx:for-index="key">{{items.service_name}}({{items.item_name}})</view> -->
+              <view wx:for="{{goodsArr[index][inx]}}" wx:if="{{items != null}}" wx:key="key" wx:for-item="items" wx:for-index="key">
+                {{items}}
+              </view>
+              <view wx:if="{{item.is_need_extra_costs==1 && item.extra_costs_pay_status==1}}">额外服务</view>
+            </view>
+          </view>
+        </view>
+        <view class='bottom'>
+          <!-- <view class='left' wx:if="{{item.pintuan==1}}">
+                     <view>拼团中，还差1人成团</view>
+                    <view>
+                        <image src="{{static}}/time.png"></image>
+                        <text>{{item.defftime}}</text>
+                    </view> 
+                </view>
+                <view class='left' wx:if="{{item.pintuan==2}}">
+                     <view class='success'>
+                        拼团成功
+                    </view>
+                    <view class='error'>
+                        拼团失败
+                    </view> 
+                </view> -->
+          <!--成功  -->
+          <view class='left'>
+
+          </view>
+          <view class='right'>
+            <!--单双清洗  -->
+            <view class="blue" wx:if="{{item.order_type==1 && item.status==30 && item.order_info.order_status == 10}}" data-index="{{index}}" bindtap='goPay'>
+              去支付
+            </view>
+            <view class='gray' wx:if="{{item.order_type==1 && item.status==30 && item.order_info.order_status == 20}}" data-index="{{index}}" bindtap='goMail'>
+              点击邮寄
+            </view>
+            <view class='blue' wx:if="{{item.order_type==1 && item.status==65 && item.extra_costs_pay_status==0}}" data-status="{{item.extra_costs_pay_status}}" data-index="{{index}}" bindtap='goSupplement'>
+              二次确认
+            </view>
+            <view class='gray' wx:if="{{item.order_type==1 && item.status==110}}" data-index="{{index}}" bindtap='goLogistics'>
+              查看物流
+            </view>
+            <view class='gray' wx:if="{{item.order_type==1 && item.status==110}}" data-index="{{index}}" bindtap='receipt'>
+              确认收货
+            </view>
+            <view class='none' wx:if="{{item.order_type==1 && item.status==120}}" data-index="{{index}}">
+              已收货
+            </view>
+            <view class="gray" wx:if="{{item.order_type==1 && item.status >= 30 &&  item.order_info.order_status > 10}}" data-index="{{index}}" bindtap='goDetails'>
+              查看详情
+            </view>
+
+            <!--多双清洗  -->
+            <view class="blue" wx:if="{{item.order_type==2 && item.status==30 && item.order_info.order_status == 10}}" data-index="{{index}}" bindtap='goPay'>
+              去支付
+            </view>
+            <view class='gray' wx:if="{{item.order_type==2 && item.status==30 && item.order_info.order_status == 20}}" data-index="{{index}}" bindtap='goMail'>
+              点击邮寄
+            </view>
+            <view class='blue' wx:if="{{item.order_type==2 && item.status==65 && item.extra_costs_pay_status==0}}" data-status="{{item.extra_costs_pay_status}}" data-index="{{index}}" bindtap='goSupplement'>
+              二次确认
+            </view>
+            <view class='gray' wx:if="{{item.order_type==2 && item.status==110}}" data-index="{{index}}" bindtap='goLogistics'>
+              查看物流
+            </view>
+            <view class='gray' wx:if="{{item.order_type==2 && item.status==110}}" data-index="{{index}}" bindtap='receipt'>
+              确认收货
+            </view>
+            <view class='none' wx:if="{{item.order_type==2 && item.status==120}}" data-index="{{index}}">
+              已收货
+            </view>
+            <view class="gray" wx:if="{{item.order_type==2 && item.status >= 30  &&  item.order_info.order_status > 10}}" data-index="{{index}}" bindtap='goDetails'>
+              查看详情
+            </view>
+            <!--修复  -->
+            <view class='none' wx:if="{{item.order_type==3 && item.status==10}}" data-index="{{index}}">
+              等待提供方案
+            </view>
+            <view class='gray' wx:if="{{item.order_type==3 && item.status==20}}" data-index="{{index}}" bindtap='goPlan'>
+              查看方案
+            </view>
+            <view class='blue' wx:if="{{item.order_type==3 && item.status==65 && item.extra_costs_pay_status==0}}" data-status="{{item.extra_costs_pay_status}}" data-index="{{index}}" bindtap='goSupplement'>
+              二次确认
+            </view>
+            <view class='gray' wx:if="{{item.order_type==3 && item.status==401}}" data-index="{{index}}" bindtap='goReason'>
+              无法修复，查看原因
+            </view>
+            <!--修改确认订单状态-->
+            <view class='blue' wx:if="{{item.order_type==2 && item.status==22}}" data-index="{{index}}" bindtap='goOrder'>
+              确认订单
+            </view>
+            <view class='blue' wx:if="{{item.order_type==3 && item.status==30 && item.order_info.order_status == 10}}" data-index="{{index}}" bindtap='goPay'>
+              去支付
+            </view>
+            <view class='gray' wx:if="{{item.order_type==3 && item.status==30 && item.order_info.order_status == 20}}" data-index="{{index}}" bindtap='goMail'>
+              点击邮寄
+            </view>
+            <view class='gray' wx:if="{{item.order_type==3 && item.status==110}}" data-index="{{index}}" bindtap='goLogistics'>
+              查看物流
+            </view>
+            <view class='gray' wx:if="{{item.order_type==3 && item.status==110}}" data-index="{{index}}" bindtap='receipt'>
+              确认收货
+            </view>
+            <view class='none' wx:if="{{item.order_type==3 && item.status==120}}" data-index="{{index}}">
+              已收货
+            </view>
+            <view class="gray" wx:if="{{item.order_type==3 && item.status >= 30 &&  item.order_info.order_status > 10 && item.status != 401}}" data-index="{{index}}" bindtap='goDetails'>
+              查看详情
+            </view>
+            <!--改色  -->
+            <view class='none' wx:if="{{item.order_type==4 && item.status==10}}" data-index="{{index}}">
+              正在等待价格
+            </view>
+            <view class='blue' wx:if="{{item.order_type==4 && item.status==22}}" data-tag="8" data-index="{{index}}" bindtap='goOrder'>
+              确认订单
+            </view>
+            <view class='blue' wx:if="{{item.order_type==4 && item.status==65 && item.extra_costs_pay_status==0}}" data-status="{{item.extra_costs_pay_status}}" data-index="{{index}}" bindtap='goSupplement'>
+              二次确认
+            </view>
+            <view class='gray' wx:if="{{item.order_type==4 && item.status==401}}" data-index="{{index}}" bindtap='goReason'>
+              无法改色，查看原因
+            </view>
+            <view class='blue' wx:if="{{item.order_type==4 && item.status==30 && item.order_info.order_status == 10}}" data-index="{{index}}" bindtap='goPay'>
+              去支付
+            </view>
+            <view class='gray' wx:if="{{item.order_type==4 && item.status==30 && item.order_info.order_status == 20}}" data-index="{{index}}" bindtap='goMail'>
+              点击邮寄
+            </view>
+            <view class='gray' wx:if="{{item.order_type==4 && item.status==110}}" data-index="{{index}}" bindtap='goLogistics'>
+              查看物流
+            </view>
+            <view class='gray' wx:if="{{item.order_type==4 && item.status==110}}" data-index="{{index}}" bindtap='receipt'>
+              确认收货
+            </view>
+            <view class='none' wx:if="{{item.order_type==4 && item.status==120}}" data-index="{{index}}">
+              已收货
+            </view>
+            <view class="gray" wx:if="{{item.order_type==4 && item.status >= 30 && item.status != 401}}" data-index="{{index}}" bindtap='goDetails'>
+              查看详情
+            </view>
+            <!--自助服务  -->
+            <view class='gray' wx:if="{{item.order_type==5 && item.status==10}}" data-index="{{index}}" bindtap='goMail'>
+              点击邮寄
+            </view>
+            <view class='gray' wx:if="{{item.order_type==5 && item.status==20}}" data-index="{{index}}" bindtap='goPlan'>
+              查看方案
+            </view>
+            <view class='blue' wx:if="{{item.order_type==5 && item.status==65 && item.extra_costs_pay_status==0}}" data-status="{{item.extra_costs_pay_status}}" data-index="{{index}}" bindtap='goSupplement'>
+              二次确认
+            </view>
+            <view class='gray' wx:if="{{item.order_type==5 && item.status==401}}" data-index="{{index}}" bindtap='goReason'>
+              无法修复，查看原因
+            </view>
+            <view class='blue' wx:if="{{item.order_type==5 && item.status==22}}" data-tag="9" data-index="{{index}}" bindtap='goOrder'>
+              确认订单
+            </view>
+            <view class='blue' wx:if="{{item.order_type==5 && item.status==30 && item.order_info.order_status == 10}}" data-index="{{index}}" bindtap='goPay'>
+              去支付
+            </view>
+            <view class='none' wx:if="{{item.order_type==5 && item.status==40}}" data-index="{{index}}">
+              正在邮寄到平台
+            </view>
+            <view class='gray' wx:if="{{item.order_type==5 && item.status==40}}" data-index="{{index}}" bindtap='goLogisticsSelf'>
+              查看物流
+            </view>
+            <view class='none' wx:if="{{item.order_type==5 && item.status==50}}" data-index="{{index}}">
+              平台已收货，等待出方案
+            </view>
+            <view class='none' wx:if="{{item.order_type==5 && item.status==60}}" data-index="{{index}}">
+              正在验货
+            </view>
+            <!-- <view class='none' wx:if="{{item.order_type==5 && item.status==70}}" data-index="{{index}}">
+                            恭喜您，平台验证通过，即将提供方案
+                        </view> -->
+            <view class='gray' wx:if="{{item.order_type==5 && item.status==110}}" data-index="{{index}}" bindtap='goLogistics'>
+              查看物流
+            </view>
+            <view class='gray' wx:if="{{item.order_type==5 && item.status==110}}" data-index="{{index}}" bindtap='receipt'>
+              确认收货
+            </view>
+            <view class='none' wx:if="{{item.order_type==5 && item.status==120}}" data-index="{{index}}">
+              已收货
+            </view>
+            <view class="gray" wx:if="{{item.order_type==5 && item.status >= 30 && item.status != 40 && item.status != 50 && item.status != 60  && item.status != 401}}" data-index="{{index}}" bindtap='goDetails'>
+              查看详情
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='no' wx:elif="{{datas == '' && delay == false}}">
+      <image src='{{static}}/no_orders.png'></image>
+    </view>
+    <!-- 确认收货模态 -->
+    <modal hidden="{{hidden}}" title="确认收货？" confirm-text="是" cancel-text="否" bindcancel="cancel" bindconfirm="confirm">
+    </modal>
+  </form>
+</view>

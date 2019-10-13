@@ -1,0 +1,403 @@
+
+page {
+    background: #eef1f4;
+    font-size: 25rpx;
+}
+image {
+    width: 100%;
+    height: 100%;
+}
+.twoConfirm {
+    
+}
+.main {
+    margin-bottom: 98rpx;
+}
+.twoConfirm .card {
+    padding: 0 30rpx;
+    background: #fff;
+    border-radius: 18rpx;
+    margin-top: 16rpx;
+}
+.twoConfirm .card .card-title {
+    height: 80rpx;
+    line-height: 80rpx;
+    border-bottom: 2rpx solid #eef1f4;
+    display: flex;
+    position: relative;
+    align-items: center;
+}
+.twoConfirm .card .card-title .left {
+    display: flex;
+    align-items: center;
+}
+.twoConfirm .card .card-title .card-title-warn {
+    width: 24rpx;
+    height: 24rpx;
+}
+.twoConfirm .card .card-title .card-title-text {
+    font-weight: bold;
+    margin-left: 20rpx;
+}
+/* 客服 */
+.twoConfirm .card .card-title .right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    font-size: 25rpx;
+}
+.twoConfirm .card .card-title .right image {
+    width: 30rpx;
+    height: 30rpx;
+    margin-right: 10rpx;
+}
+/* 卡片内容 */
+.twoConfirm .card .card-content {
+    padding: 20rpx 0; 
+}
+
+/* 图片 */
+
+/* 卡片一说明文案 */
+.explain {
+    line-height: 36rpx;
+    margin-bottom: 20rpx;
+}
+.explain text:first-child {
+    color: #5e94f4;
+    margin-right: 8rpx;
+}
+.card-title-line {
+    width: 8rpx;
+    height: 24rpx;
+    vertical-align: middle;
+}
+
+/* 卡片二 */
+.twoConfirm .card.two-card .card-title-text {
+    color: #5e94f4;
+}
+.twoConfirm .card.two-card .card-content {
+    display: flex;
+    line-height: 1;
+}
+.twoConfirm .card.two-card .img-box {
+    width: 128rpx;
+    height: 128rpx;
+    border-radius: 8rpx;
+    background: #999;
+    margin-right: 22rpx;
+    overflow: hidden;
+}
+.twoConfirm .card.two-card .card-content .service-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding-top: 18rpx;
+}
+.twoConfirm .card.two-card .card-content .service-info .s-top {
+    display: flex;
+    position: relative;
+    margin-bottom: 40rpx;
+}
+.twoConfirm .card.two-card .card-content .service-info .s-top .price {
+    font-size: 25rpx;
+}
+.twoConfirm .card.two-card .card-content .service-info .s-top .s-top-right {
+    flex: 1;
+    position: absolute;
+    right: 0;
+    font-size: 18rpx;
+}
+.twoConfirm .card.two-card .card-content .service-info .s-bottom {
+    display: flex;
+    font-weight: 500;
+    color: #989898;
+    font-size: 20rpx;
+}
+.twoConfirm .card.two-card .card-content .service-info .s-bottom .service-item{
+    border: 2rpx solid #989898;
+    border-radius: 8rpx;
+    padding: 5rpx;
+    margin-right: 12rpx;
+}
+
+/* 卡片三 */
+.twoConfirm .card.three-card {
+    line-height: 1;
+}
+.twoConfirm .card.three-card .card-title {
+    display: flex;
+    align-items: center;
+}
+.image-list {
+    /* display: flex; */
+    /* justify-content: space-between; */
+}
+.image-list .image-item {
+    float: left;
+    width: 148rpx;
+    margin-right: 24rpx;
+    height: 148rpx;
+    border-radius: 8rpx;
+    background: #999;
+    position: relative;
+    margin-bottom: 24rpx;
+}
+.play {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255,255,255,.4);
+    border-radius: 8rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.play image {
+    width: 38rpx;
+    height: 66rpx;
+}
+.three-card-text {
+    margin-bottom: 30rpx;
+}
+
+/* 按钮盒子 */ 
+.btn-box {
+    display: flex;
+    justify-content: space-between;
+    padding: 40rpx 40rpx 60rpx;
+}
+.btn-box .btn-item {
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    padding: 18rpx 30rpx;
+    border-radius: 18rpx;
+    font-size: 20rpx;
+    width: 200rpx;
+}
+.btn-box .btn-item.active {
+    color: #fff;
+    background: #718bf8;
+}
+
+/* 底部 */
+.footer {
+    position: fixed;
+    height: 98rpx;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    display: flex;
+    line-height: 1;
+}
+.footer .footer-right {
+    width: 240rpx;
+    background: #718bf8;
+    text-align: center;
+    line-height: 98rpx;
+    color: #fff;
+    font-weight: bold;
+}
+.footer .footer-left {
+    flex: 1;
+    padding: 20rpx 0 20rpx 30rpx;
+    font-weight: bold;
+    font-size: 20rpx;
+}
+.footer-left-top {
+    color: #5f6266;
+    margin-bottom: 20rpx;
+}
+.footer-left-bottom .need-f {
+    border-right: 2rpx solid;
+    padding-right: 10rpx;
+    margin-right: 10rpx;
+}
+.footer-left-bottom .actual-f {
+    color: #5e95f4;
+}
+.footer-left-bottom .actual-f .actual-price {
+    font-size: 25rpx;
+}
+
+
+
+
+/* 支付弹窗样式 */
+
+
+.modal {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10;
+}
+
+.modal .box {
+    width: 100%;
+    background-color: #fff;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+
+.modal .box .title {
+    width: 100%;
+    height: 88rpx;
+    padding: 0 24rpx;
+    box-sizing: border-box;
+    font-size: 28rpx;
+    color: #282828;
+    border-bottom: 2rpx solid #f2f2f2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.modal .box .title image {
+    width: 25rpx;
+    height: 25rpx;
+}
+
+.modal .box .money {
+    width: 100%;
+    height: 120rpx;
+    line-height: 120rpx;
+    padding: 0 24rpx;
+    box-sizing: border-box;
+    font-size: 36rpx;
+    color: #282828;
+    font-weight: 600;
+    border-bottom: 1rpx solid #f2f2f2;
+}
+
+.modal .box .item {
+    width: 100%;
+    height: 100rpx;
+    padding: 0 24rpx;
+    box-sizing: border-box;
+    border-bottom: 1rpx solid #f2f2f2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.modal .box .item .left {
+    display: flex;
+    align-items: center;
+}
+
+.modal .box .item .left image {
+    width: 40rpx;
+    height: 35rpx;
+    margin-right: 23rpx;
+}
+
+.modal .box .item .left text {
+    font-size: 28rpx;
+    color: #282828;
+}
+
+.modal .box .item .right image {
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.modal .box .submit {
+    width: 100%;
+    height: 106rpx;
+    text-align: center;
+    line-height: 106rpx;
+    background-color: #5e95f4;
+    font-size: 28rpx;
+    color: #fff;
+}
+
+
+/* 提示弹出框 */
+
+
+.modals {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    padding: 0 50rpx;
+    box-sizing: border-box;
+}
+
+.modals .box {
+    width: 100%;
+    background-color: #fff;
+    border-radius: 10rpx;
+    padding: 35rpx 40rpx 50rpx;
+    box-sizing: border-box;
+}
+
+.modals .box .title {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 28rpx;
+    color: #282828;
+    font-weight: 600;
+}
+
+.modals .box .title image {
+    width: 22rpx;
+    height: 22rpx;
+}
+
+.modals .box .gray {
+    font-size: 24rpx;
+    color: #666;
+    margin-top: 35rpx;
+}
+
+.modals .box .blue {
+    font-size: 24rpx;
+    color: #5e94f4;
+    margin-top: 25rpx;
+}
+
+.modals .box .continue {
+    width: 410rpx;
+    height: 64rpx;
+    margin: 60rpx auto 0;
+    background-color: #5e95f4;
+    color: #fff;
+    font-size: 26rpx;
+    text-align: center;
+    line-height: 64rpx;
+    border-radius: 32rpx;
+}
+
+.modals .box .cancel {
+    width: 410rpx;
+    height: 64rpx;
+    margin: 20rpx auto 0;
+    border: 1rpx solid #5e95f4;
+    color: #5e95f4;
+    font-size: 26rpx;
+    text-align: center;
+    line-height: 64rpx;
+    border-radius: 32rpx;
+}

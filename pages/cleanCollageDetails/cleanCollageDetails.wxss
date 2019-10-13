@@ -1,0 +1,608 @@
+/* page/cleanCollageDetails.wxss */
+
+page {
+    background-color: #eef1f4;
+}
+
+/*填写邮寄信息  */
+.yongpin {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9;
+}
+
+.yongpin image {
+    width: 630rpx;
+    height: 494rpx;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -315rpx;
+    margin-top: -247rpx;
+}
+.mail {
+    width: 100%;
+    height: 128rpx;
+    position: relative;
+}
+
+.mail .bg {
+    width: 100%;
+    height: 100%;
+}
+
+.mail .mail-content {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0 24rpx;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mail .mail-content .img image {
+    width: 34rpx;
+    height: 38rpx;
+    vertical-align: middle;
+    margin-right: 23rpx;
+}
+
+.mail .mail-content .img text {
+    font-size: 36rpx;
+    color: #fff;
+    display: inline-block;
+}
+
+.mail .mail-content .right image {
+    width: 15rpx;
+    height: 27rpx;
+}
+
+/*洗护服务/用品  */
+
+.wash {
+    width: 100%;
+    height: 130rpx;
+    background-color: #fff;
+    border-top: 18rpx solid #eef1f4;
+    border-bottom: 18rpx solid #eef1f4;
+    display: flex;
+}
+
+.wash .service {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.wash image {
+    width: 80rpx;
+    height: 80rpx;
+    margin-left: 29rpx;
+    margin-right: 30rpx;
+    vertical-align: middle;
+}
+
+.wash view view:first-child {
+    font-size: 28rpx;
+    color: rgb(40, 40, 40);
+}
+
+.wash view view:last-child {
+    font-size: 22rpx;
+    color: rgb(123, 125, 128);
+}
+
+.wash .articles {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    border-left: 1rpx solid rgb(238, 238, 238);
+}
+
+/*用户信息  */
+
+.user {
+    width: 100%;
+    background-color: #fff;
+    padding: 33rpx 0 29rpx;
+    box-sizing: border-box;
+    border-bottom: 18rpx solid #eef1f4;
+}
+
+.user .userInfo {
+    padding-left: 24rpx;
+    box-sizing: border-box;
+    margin-bottom: 10rpx;
+}
+
+.user .userInfo image {
+    width: 22rpx;
+    height: 26rpx;
+    margin-right: 17rpx;
+    vertical-align: middle;
+}
+
+.user .userInfo text {
+    font-size: 28rpx;
+    color: rgb(40, 40, 40);
+    margin-right: 42rpx;
+}
+
+.user .address {
+    padding-left: 64rpx;
+    padding-right: 42rpx;
+    box-sizing: border-box;
+    font-size: 26rpx;
+    color: rgb(123, 125, 128);
+    line-height: 40rpx;
+}
+
+/*拼团信息  */
+
+.userBg {
+    width: 100%;
+    height: 42rpx;
+}
+
+.collage {
+    width: 100%;
+    background-color: #fff;
+    margin-top: -15rpx;
+}
+
+.collage .time {
+    width: 100%;
+    text-align: center;
+    font-size: 30rpx;
+    font-weight: 600;
+    color: rgb(40, 40, 40);
+}
+
+.collage .time .num {
+    color: #5e94f5;
+}
+
+.collage .time .times {
+    display: inline-block;
+    width: 42rpx;
+    height: 42rpx;
+    background-color: rgb(40, 40, 40);
+    color: #fff;
+    border-radius: 8rpx;
+}
+
+.collage .fail {
+    width: 100%;
+    text-align: center;
+    font-size: 30rpx;
+    font-weight: 600;
+    color: rgb(40, 40, 40);
+}
+
+.collage .fail text {
+    color: red;
+}
+
+.collage .success {
+    width: 100%;
+    text-align: center;
+    font-size: 30rpx;
+    font-weight: 600;
+    color: rgb(40, 40, 40);
+}
+
+.collage .success text {
+    color: #5e94f5;
+}
+
+.collage .users {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 30rpx;
+}
+
+.collage .users .imgItem {
+    width: 70rpx;
+    height: 70rpx;
+    border-radius: 50%;
+    margin-right: 14rpx;
+    position: relative;
+}
+
+.collage .users image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.collage .users .imgItem:nth-child(1) {
+    border: 1px solid #5e94f5;
+}
+
+.collage .users .imgItem:nth-child(1)::before {
+    content: '团长';
+    font-size: 18rpx;
+    text-align: center;
+    color: #fff;
+    background-color: #5e94f5;
+    width: 50rpx;
+    height: 25rpx;
+    border-radius: 12rpx;
+    position: absolute;
+    bottom: -1rpx;
+    left: 50%;
+    margin-left: -25rpx;
+    z-index: 66;
+}
+
+.collage .users .imgItem .newImg {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.collage .users .miandan {
+    width: 57rpx;
+    height: 30rpx;
+    position: absolute;
+    right: -3rpx;
+    top: -8rpx;
+}
+
+.collage .invite {
+    width: 100%;
+    text-align: center;
+    position: relative;
+    margin-top: 40rpx;
+}
+
+.collage .invite image {
+    width: 702rpx;
+    height: 74rpx;
+}
+
+.collage .invite text {
+    width: 100%;
+    height: 74rpx;
+    line-height: 74rpx;
+    font-size: 26rpx;
+    color: #fff;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.collage .rule {
+    width: 100%;
+    height: 86rpx;
+    padding: 0 25rpx;
+    box-sizing: border-box;
+    border-top: 1px solid rgb(238, 238, 238);
+    margin-top: 24rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.collage .rule .rule-title {
+    font-size: 26rpx;
+    color: rgb(40, 40, 40);
+}
+
+.collage .rule .rule-right text {
+    font-size: 24rpx;
+    color: rgb(123, 125, 128);
+}
+
+.collage .rule .rule-right image {
+    width: 11rpx;
+    height: 19rpx;
+    margin-left: 20rpx;
+}
+
+/*BAN球鞋澡堂  */
+
+.shoes {
+    width: 100%;
+    margin-top: 18rpx;
+    background-color: #fff;
+    /* padding: 0 24rpx; */
+    box-sizing: border-box;
+}
+
+.shoes .shoes-title {
+    width: 100%;
+    height: 70rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1rpx solid #eef1f4;
+    position: relative;
+    padding: 0 24rpx;
+    box-sizing: border-box;
+}
+
+.shoes .shoes-title .title-left {
+    font-size: 28rpx;
+    color: rgb(40, 40, 40);
+}
+
+.shoes .shoes-title .title-left image {
+    width: 24rpx;
+    height: 22rpx;
+    margin-right: 12rpx;
+}
+
+.shoes .shoes-title .title-right {
+    font-size: 26rpx;
+    color: rgb(40, 40, 40);
+    position: absolute;
+    right: 24rpx;
+
+}
+
+.shoes .shoes-title .title-right image {
+    width: 30rpx;
+    height: 26rpx;
+    margin-left: 10rpx;
+}
+
+.shoes .shoes-C {
+    width: 100%;
+    padding: 22rpx 0rpx;
+    box-sizing: border-box;
+    border-bottom: 18rpx solid #f2f2f2;
+    /* margin-bottom: 18rpx; */
+}
+
+.shoes .shoes-C .shoes-C-content {
+    display: flex;
+    justify-content: flex-start;
+    border-bottom: 2rpx solid #f2f2f2;
+    padding: 0 24rpx;
+}
+.shoes .shoes-C .supplement {
+    display: flex;
+    font-size: 25rpx;
+    height: 85rpx;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2rpx solid #f2f2f2;
+    padding: 0 24rpx;
+}
+
+.shoes .shoes-C .supplement .supplementText {
+   
+}
+.shoes .shoes-C .supplement .supplementText image {
+    margin-left: 22rpx;
+}
+.drop_down {
+    width: 26rpx;
+    height: 16rpx;
+    color: #b2b2b2;
+}
+.fuwuInfo {
+    font-size: 25rpx;
+    padding: 30rpx 24rpx 0;
+}
+.fuwuInfoTop {
+    display: flex;
+    justify-content: space-between;
+}
+.fuwuInfo .fuwuInfo-left {
+    display: flex;
+}
+.shoes .shoes-C .C-left {
+    width: 126rpx;
+    height: 126rpx;
+    margin-right: 22rpx;
+}
+
+.fuwuInfo-list {
+
+}
+.fuwuInfo-list .fwItem-box {
+    display: flex;
+}
+.fuwuInfo-list .fuwuInfo-item {
+    padding: 30rpx 0;
+    border-bottom: 2rpx solid #f2f2f2;
+}
+.fuwuInfo-list .fuwuInfo-item .fwItem-title {
+    font-weight: bold;
+    margin-right: 20rpx;
+}
+.fwItem-list-item {
+    float: left;
+    margin-right: 20rpx;
+}
+
+
+
+
+.shoes .shoes-C .C-left image {
+    width: 100%;
+    height: 100%;
+}
+
+.shoes .shoes-C .C-right {
+    width: 549rpx;
+}
+
+.shoes .shoes-C .C-right .C-price {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 26rpx;
+    color: rgb(40, 40, 40);
+    margin-top: 10rpx;
+}
+
+.shoes .shoes-C .C-right .C-fuwu {
+    margin-top: 39rpx;
+    display: flex;
+    /* flex-wrap: wrap; */
+}
+
+.shoes .shoes-C .C-right .C-fuwu .type1 view {
+    padding: 4rpx 7rpx;
+    text-align: center;
+    line-height: 28rpx;
+    font-size: 22rpx;
+    color: #5e94f5;
+    border: 1rpx solid #5e94f5;
+    border-radius: 6rpx;
+    margin-right: 12rpx;
+    margin-bottom: 12rpx;
+}
+
+.type2Box {
+   white-space: nowrap;
+}
+.shoes .shoes-C .C-right .C-fuwu .type2 {
+    display: inline-block;
+    padding: 4rpx 7rpx;
+    text-align: center;
+    line-height: 28rpx;
+    font-size: 22rpx;
+    color: #5e94f5;
+    border: 1rpx solid #5e94f5;
+    border-radius: 6rpx;
+    margin-right: 12rpx;
+    margin-bottom: 12rpx;
+}
+
+.shoes .shoes-B {
+    width: 100%;
+    height: 60rpx;
+    line-height: 60rpx;
+    font-size: 26rpx;
+    display: flex;
+    justify-content: space-between;
+}
+
+/*服务介绍  */
+
+.intro {
+    width: 100%;
+    margin-top: 18rpx;
+    background-color: #fff;
+    padding: 0 25rpx;
+    box-sizing: border-box;
+}
+
+.intro .intro-item {
+    padding: 30rpx 0;
+    border-bottom: 1rpx solid rgb(242, 242, 242);
+    font-size: 26rpx;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.intro .intro-item .father {
+    width: 25%;
+    font-weight: 600;
+}
+
+.intro .intro-item .child {
+    width: 100%;
+}
+
+.intro .intro-item .child text {
+    font-size: 26rpx;
+    font-weight: 400;
+    margin-right: 14rpx;
+}
+
+/*订单信息  */
+
+.order {
+    width: 100%;
+    margin-top: 18rpx;
+    padding: 0 25rpx;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+
+.order .order-top {
+    padding: 30rpx 0;
+    box-sizing: border-box;
+    font-size: 26rpx;
+    color: rgb(95, 98, 102);
+    border-bottom: 1rpx solid rgb(238, 238, 238);
+}
+
+.order .order-top view:first-child {
+    margin-bottom: 23rpx;
+}
+
+.order .order-top view text {
+    width: 66rpx;
+    height: 30rpx;
+    font-size: 24rpx;
+    border: 1px solid rgb(152, 152, 152);
+    border-radius: 6rpx;
+    margin-left: 40rpx;
+}
+
+.order .order-bottom {
+    padding: 30rpx 0;
+    box-sizing: border-box;
+    font-size: 26rpx;
+    color: rgb(95, 98, 102);
+}
+
+.order .order-bottom view:first-child {
+    margin-bottom: 23rpx;
+}
+
+/*付款金额  */
+
+.pay {
+    width: 100%;
+    margin-top: 18rpx;
+    padding: 0rpx 25rpx;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+
+.pay .pay-item {
+    width: 100%;
+    height: 85rpx;
+    font-size: 26rpx;
+    color: rgb(40, 40, 40);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.pay .discount view:last-child {
+    color: #5e94f5;
+}
+
+.pay .real {
+    font-size: 28rpx;
+    font-weight: 600;
+    border-top: 1rpx solid #eef1f4;
+}
+
+
+/* 补充 */
+
+.supplementImg image {
+    width: 132rpx;
+    height: 34rpx;
+}

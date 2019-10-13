@@ -1,0 +1,59 @@
+<!--page/colorSubmit/colorSubmit.wxml-->
+<view class='page'>
+    <!--main部分  -->
+    <view class='main'>
+        <view class='main-info'>
+            <view class='icon'>
+                <image src='{{static}}/finish.png'></image>
+            </view>
+            <view>需求订单已提交</view>
+            <view>我们已将需求订单提交给工作人员</view>
+            <view>工作人员将在
+                <text>24小时内</text>为您提供相应方案</view>
+        </view>
+        <view class='flow'>
+            <view class='flow-icon'>
+                <image src='{{static}}/flow.png'></image>
+                <text>修复服务流程</text>
+            </view>
+            <view class='content'>
+                1.提交修复订单 -> 2.工作人员提供方案 -> 3.确认方案并付款 -> 4.邮寄 开始改色
+            </view>
+        </view>
+    </view>
+    <!--您还可以进行以下操作  -->
+    <view class='more'>
+        <view class='title'>
+            您可以进行以下操作
+        </view>
+        <view class='more-C'>
+            <view class='see default' bindtap='coms'>
+                <view class='left'>
+                    <view class='left-title'>
+                        查看订单详情
+                    </view>
+                    <view class='left-content'>
+                        产看订单状态，了解洗护信息，查阅洗护方案，更多信息随时知道！
+                    </view>
+                </view>
+                <view class='right'>
+                    <image src="{{static}}/right.png"></image>
+                </view>
+            </view>
+            <view class='public default'>
+                <view class='left'>
+                    <view class='left-title'>
+                        官方公众号
+                    </view>
+                    <view class='left-content'>
+                        关注官方微信公众号【{{copy}}】并绑定账号，订单信息随时提醒，方案报价随时查看，更有各种优惠不断送！
+                    </view>
+                </view>
+                <view class='right' bindtap='copy'>
+                    <view>复制</view>
+                    <view>微信号</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

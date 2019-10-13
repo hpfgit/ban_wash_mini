@@ -1,0 +1,71 @@
+<!--page/specialSubmit/specialSubmit.wxml-->
+<view class='page'>
+    <!--main部分  -->
+    <view class='main'>
+        <view class='main-info'>
+            <view class='icon'>
+                <image src='{{static}}/finish.png'></image>
+            </view>
+            <view>我们已收到您的需求</view>
+            <view>请您及时邮寄您的鞋子</view>
+            <view class='mail' bindtap='mail'>
+                点击开始邮寄
+            </view>
+            <view class='prompt'>
+                我们在签收后将有可能和您电话沟通，请保持电话畅通
+            </view>
+        </view>
+        <view class='flow'>
+            <view class='flow-icon'>
+                <image src='{{static}}/flow.png'></image>
+                <text>自助下单流程</text>
+            </view>
+            <view class='content'>
+                <text>1.提交需求单</text>
+                <image src='{{static}}/jiantou.png'></image>
+                <text>2.邮寄至平台</text>
+                <image src='{{static}}/jiantou.png'></image>
+                <text>3.工作人员将在签收后12小时内根据您所选服务项目来评估价格</text>
+                <image src='{{static}}/jiantou.png'></image>
+                <text>4.选择方案并付款</text>
+                <image src='{{static}}/jiantou.png'></image>
+                <text>5.开始修复</text>
+            </view>
+        </view>
+    </view>
+    <!--您还可以进行以下操作  -->
+    <view class='more'>
+        <view class='title'>
+            您可以进行以下操作
+        </view>
+        <view class='more-C'>
+            <view class='see default' bindtap='coms'>
+                <view class='left'>
+                    <view class='left-title'>
+                        查看订单详情
+                    </view>
+                    <view class='left-content'>
+                        产看订单状态，了解洗护信息，查阅洗护方案，更多信息随时知道！
+                    </view>
+                </view>
+                <view class='right'>
+                    <image src="{{static}}/right.png"></image>
+                </view>
+            </view>
+            <view class='public default'>
+                <view class='left'>
+                    <view class='left-title'>
+                        官方公众号
+                    </view>
+                    <view class='left-content'>
+                        关注官方微信公众号【{{copy}}】并绑定账号，订单信息随时提醒，方案报价随时查看，更有各种优惠不断送！
+                    </view>
+                </view>
+                <view class='right' bindtap='copy'>
+                    <view>复制</view>
+                    <view>微信号</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

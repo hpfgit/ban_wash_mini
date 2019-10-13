@@ -1,0 +1,205 @@
+<view class="twoConfirm h1">
+    <!-- 卡片一 -->
+    <view class='card'>
+        <view class='card-title'>
+            <view class='left'>
+                <image class='card-title-warn' src='../../images/warning.png'></image>
+                <text class='card-title-text'>您有{{careLog_goods.length}}双鞋子需要进行二次确认</text>
+            </view>
+            <button class='right' bindtap='kefu' open-type="{{openType}}">
+                <image src='https://static.tosneaker.com/assets/care/images_ma/kefu_little.png'></image>
+                <text>联系客服</text>
+            </button>
+        </view>
+        <view class='card-content'>
+            <view class='explain'>
+                <text>*</text>
+                <text>因在线沟通的局限性, 我们在收到鞋子后根据鞋子的实际情况发现了新的问题, 为了达到更好的洗护效果, 您可以选择这些服务项目。 (价格享受与母订单相同的折扣)</text>
+            </view>
+            <view class='explain'>
+                <text>*</text>
+                <text class='weight'>如您有任何异议可点击联系客服, 客服会为您详细解答。</text>
+                <text>我们承诺一切均为了更好的洗护, 不会额外收取您任何费用。</text>
+            </view>
+        </view>
+    </view>
+ 
+
+    <view class='main'>
+        <view class='items' wx:for="{{careLog_goods}}" wx:key="index" wx:for-item="item" wx:for-index="index">
+                       <!-- 卡片二 -->
+            <view class='card two-card'>
+                <view class='card-title'>
+                    <text class='card-title-text'>第{{index + 1}}双鞋子</text>
+                </view>
+                <view class='card-content'>
+                    <view class='img-box'>
+                        <image src='{{imgUrl}}{{item.left_image}}' data-url="{{imgUrl}}{{item.left_image}}" bindtap='bigImg' mode='aspectFill'></image>
+                    </view>
+                    <view class='service-info weight'>
+                        <view class='s-top'>
+                            <view class='s-top-left'>
+                                已选{{item.buy_item.length}}项服务
+                            </view>
+                            <view class='s-top-right'>
+                                <text>￥<text class='price'>{{data.care_log.extra_costs_vip_price}}</text></text>
+                            </view>
+                        </view>
+                        <view class='s-bottom'>
+                            <view class='service-item' wx:for="{{item.buy_item}}" wx:key="inx" wx:for-item="itm" wx:for-index="inx">
+                                {{itm.server_service_name}}
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+
+            <!-- 卡片三 -->
+            <view class='card three-card' wx:for="{{item.extra_costs}}" wx:key="idx" wx:for-item="i" wx:for-index="idx">
+                <view class='card-title'>
+                    <image class='card-title-line' src='../../images/920_line.png'></image>
+                    <text class='card-title-text'>{{i.item}}(￥{{i.price}})</text>
+                </view>
+                <view class='card-content'>
+                    <view class='three-card-text'>
+                        <text>{{i.comments}}</text>
+                    </view>
+                    <view class='image-list clearfix'>
+
+                        <!-- 视频 -->
+                        <!-- <view class='image-item video' wx:for="{{i.videos}}" wx:key="videosIndex" wx:for-item="videos" wx:for-index="videosIndex">
+                            <view>{{videos}}</view>
+                            <image src='{{imgUrl}}{{videos}}?vframe/png/offset/1' mode='aspectFill'></image>
+                            <view class='play'>
+                                <image src='../../images/920_bofang.png' data-index="{{videosIndex}}" bindtap='bofang'></image>
+                            </view>
+                        </view> -->
+                        <!-- 音频 -->
+                        <!-- <view class='image-item audio' wx:for="{{i.audios}}" wx:key="audioIndex" wx:for-item="audios" wx:for-index="audioIndex">
+                            <image src='{{imgUrl}}/assets/care/static/icon/audio_default_img.png' mode='aspectFill'></image>
+                            <view class='play'>
+                                <image src='../../images/920_bofang.png' class='bofang' data-index="{{audioIndex}}" bindtap='audio'></image>
+                            </view>
+                        </view> -->
+                        <view class='image-item' wx:for="{{i.images}}" wx:key="iex" wx:for-item="k" wx:for-index="iex">
+                            <image src='{{imgUrl}}{{k}}' data-url="{{imgUrl}}{{k}}" data-index="{{index}}" data-itemindex="{{idx}}" data-imgindex="{{iex}}" bindtap='itemBigImg'></image>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <!-- 按钮盒子 -->
+            <view class='btn-box'>
+                <view class='btn-item {{sendArr[index].choose == 1 ? "active": ""}}' data-index="{{index}}" data-choose="1" bindtap='confirm'>
+                    <text>确认付款</text>
+                    <text>继续进行原项目</text>
+                </view>
+                <view class='btn-item {{sendArr[index].choose == 2 ? "active": ""}}' data-index="{{index}}" data-choose="2" bindtap='continue'>
+                    <text>拒绝支付</text>
+                    <text>继续进行原项目</text>
+                </view>
+                <view class='btn-item {{sendArr[index].choose == 3 ? "active": ""}}' data-index="{{index}}" data-choose="3" bindtap='cancel'>
+                    <text>拒绝支付</text>
+                    <text>取消该子订单</text>
+                </view>
+            </view>
+        </view>
+    </view>
+
+
+    <!-- 底部 -->
+    <view class='footer'>
+        <view class='footer-left'>
+            <view class='footer-left-top'>
+                <text>付款{{paymentNum}}项, 拒付{{continueNum}}项, 取消{{cancelNum}}项</text>
+            </view>
+            <view class='footer-left-bottom'>
+                <text class='need-f'>需付￥{{goods.length == 0?"0":needF}}</text>
+                <text>实付<text class='actual-f'>￥<text class='actual-price'>{{goods.length == 0?"0":actualF}}</text></text></text>
+            </view>
+        </view>
+        <view class='footer-right' bindtap='truePay'>
+            确认提交
+        </view>
+    </view>
+
+
+
+
+    <!-- 确认提交弹框 -->
+
+
+     <view class='modal' wx:if="{{pay}}">
+        <view class='box'>
+            <view class='title'>
+                <text>请选择支付方式</text>
+                <image src='{{static}}/add_pay_close.png' bindtap='closePay'></image>
+            </view>
+            <view class='money'>
+                ¥ {{resultF}}
+            </view>
+            <!-- 余额支付 -->
+            <view class='yue item' data-index="1" bindtap='select'>
+                <view class='left'>
+                    <image src='{{static}}/add_pay_yue_type.png'></image>
+                    <text class="{{data.order_price>data.user_wallet_last_money?'noPay':''}}">余额支付(剩余 ¥{{datas.user_wallet_last_money}})</text>
+                </view>
+                <view class='right'>
+                    <image src='{{static}}/add_pay_choose_no.png' wx:if="{{!yue}}"></image>
+                    <image src='{{static}}/add_pay_choose_yes.png' wx:else></image>
+                </view>
+            </view>
+            <!-- 洗护卡支付 -->
+            <view class='card item' data-index="2" bindtap='select'>
+                <view class='left'>
+                    <image src='{{static}}/add_pay_card_type.png'></image>
+                    <text class="{{data.order_price>data.user_carecard_last_money?'noPay':''}}">洗护卡支付(剩余 ¥{{datas.user_carecard_last_money}})</text>
+                </view>
+                <view class='right'>
+                    <image src='{{static}}/add_pay_choose_no.png' wx:if="{{!card}}"></image>
+                    <image src='{{static}}/add_pay_choose_yes.png' wx:else></image>
+                </view>
+            </view>
+            <!-- 微信支付 -->
+            <view class='card item' data-index="3" bindtap='select'>
+                <view class='left'>
+                    <image src='{{static}}/add_pay_wx_type.png'></image>
+                    <text>微信支付</text>
+                </view>
+                <view class='right'>
+                    <image src='{{static}}/add_pay_choose_no.png' wx:if="{{!wx}}"></image>
+                    <image src='{{static}}/add_pay_choose_yes.png' wx:else></image>
+                </view>
+            </view>
+            <view class='submit' bindtap='submit'>
+                立即支付
+            </view>
+        </view>
+    </view>
+
+     <!-- 点击拒绝付款弹出 -->
+    <view class='modals' wx:if="{{modal}}">
+        <view class='box'>
+            <view class='title'>
+                <view></view>
+                <view>免费协议</view>
+                <image src='../../images/920_close.png' bindtap='close'></image>
+            </view>
+            <view class='gray'>
+                我们已将事先可预料的情况为您描述清楚，若您选择拒绝支付，可能会造成洗护效果达不到预期，因此造成的后果由您自身承担，敬请谅解。
+            </view>
+            <view class='blue'>
+                * 部分情况下会造成损伤情况加重，例如脱胶或老化的鞋子若未进行修复就直接清洗则会造成损伤加重等情况, 根据每双鞋子的不同情况，我们会尽最大程度去避免损伤。取消订单后退额会自动转入APP【我的钱包】。
+            </view>
+            <view class='continue' bindtap='changeStatus'>
+                确认, 并同意
+            </view>
+            <view class='cancel' bindtap='close'>
+                关闭
+            </view>
+        </view>
+    </view>
+</view>
+
+<!-- 视频播放器 -->
+<video src='{{video}}' wx:if="{{isVideo}}" autoplay="{{true}}" id='myVideo1' bindfullscreenchange="startScreenChange" show-center-play-btn="{{false}}" ustom-cache="{{false}}" direction="{{90}}">
+</video>

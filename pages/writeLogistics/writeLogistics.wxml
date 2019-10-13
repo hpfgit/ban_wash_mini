@@ -1,0 +1,138 @@
+<!--pages/writeLogistics/writeLogistics.wxml-->
+<view class='page'>
+    <!--border  -->
+    <view class='border'>
+        <image src='{{static}}/border.png'></image>
+    </view>
+    <!--收货信息  -->
+    <view class='collect'>
+        <view class='img'>
+            <image src='{{static}}/address.png'></image>
+        </view>
+        <view class='info'>
+            <view class='top'>
+                <view class='left'>
+                    收货人：BAN LAB {{address.consignee_name}}
+                </view>
+                <view class='right'>
+                    {{address.consignee_mobile}}
+                </view>
+            </view>
+            <view class='bottom'>
+              <view class='left'>
+                {{address.consignee_address}}
+              </view>
+                <view class='right'>
+                  <button type='primary' bindtap='selectWarehouse' class='btn_hover' size='mini'>选择其他仓</button>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class='tab_box'>
+      <view class='btn_box'>
+        <view class="{{mail_mode == 1 ? 'active' : ''}}" bindtap='to_stored'>邮寄到仓</view>
+        <view class="{{mail_mode == 2 ? 'active' : ''}}"  bindtap='to_nearby'>附近接收点</view>
+      </view>
+    </view>
+    <!-- 邮寄到仓底部内容 -->
+    <view class='to_stored_box' wx:if="{{mail_mode == 1}}">
+        <!--物流单号/物流信息  -->
+      <view class='logistics'>
+          <view class='company default'>
+              物流公司
+              <text>*</text>
+          </view>
+          <view class='companyInput'>
+              <!-- <input type='text' value="{{num2}}" bindinput='company' placeholder='请手动填写物流公司'></input> -->
+              <!-- <view class='companyName' bindtap='chooseCompany'>{{num2}}</view> -->
+              <picker bindchange="bindPickerChange" value="{{index}}" range="{{companys}}">
+                  <view class='companyName' wx:if="{{default}}">请选择物流公司</view>
+                  <view class='companyName' wx:else>{{companys[index]}}</view>
+              </picker>
+              <image src='../../images/drop_down.png'></image>
+          </view>
+          <view class='listNumber default'>
+              物流单号
+              <text>*</text>
+          </view>
+          <view class='listInput'>
+              <input type='number' value="{{num1}}" bindinput='change' placeholder='请手动填写物流单号'></input>
+              <image src='{{static}}/sweep.png' bindtap='sweep'></image>
+          </view>
+      </view>
+      <!--注意事项  -->
+      <view class='prompt'>
+          <view class='title'>
+              <view class='img'>
+                  <image src='{{static}}/dengpao.png'></image>
+              </view>
+              <view class='text'>
+                  注意事项
+              </view>
+          </view>
+          <view class='content'>
+              <view class='circle'>
+              </view>
+              <view class='text'>
+                  随鞋附带纸条。因为快递单上的信息往往无法辨认，建议您随鞋附带一张便签置于包裹内，写明您的BAN ID或者订单编号。
+              </view>
+          </view>
+          <view class='content'>
+              <view class='circle'>
+              </view>
+              <view class='text'>
+                  回寄使用统一包装。回寄时我们会使用统一的纸箱包装，因此可能无法保留您的配盒及其他附属配件（如鞋撑，手提袋, 备用鞋带，现金等）, 请勿将以上物品随鞋快递，谢谢您的配合。
+              </view>
+          </view>
+          <view class='content'>
+              <view class='circle'>
+              </view>
+              <view class='text'>
+                  拒收一切到付快递.因仓库每天出库入库数量巨大，我们拒收一切到付快递，请务必确认好不要使用到付快递，否则因此所耽误的时间我们不予负责！
+              </view>
+          </view>
+      </view>
+    </view>
+    <!-- 邮寄到附近接收点底部内容 -->
+    <view class='to_nearby_box' wx:else>
+      <view class='code_box'>
+        <view class='show_code'>出示二维码</view>
+        <view class='code'>
+          <image src='{{qrcode}}'></image>
+        </view>
+        <view class='code_text'>
+          <text>送至任意门店向店员出示此条码即可完成送货</text>
+        </view>
+      </view>
+      <view class='shops'>
+        <view wx:for="{{nearbyList}}" wx:key ="index" class='shop_item'>
+          <view class='shop_item_left'>
+            <view class='shop_item_top'>
+              <view class='shop_item_name'>BAN LAB {{item.consignee_name}}</view>
+              <view class='shop_item_phone c_91'>{{item.mb_phone}}</view>
+            </view> 
+            <view class='shop_item_bottom'>
+              <view class='shop_item_address'>
+                <text class='address'>{{item.area_info + item.address}}</text>
+                <text class='distance c_91'>距您{{item.distance}}km</text>
+              </view>
+            </view>
+          </view>
+          <view class='shop_item_right'>
+            <view data-latitude="{{item.latitude}}" data-longitude='{{item.longitude}}' bindtap='open_map' class='open_map'>
+              <image class='open_icon' src='../../images/map.png'></image>
+              <view>地图</view>
+            </view>
+             <view data-phone='{{item.mb_phone}}' bindtap='open_phone' class='open_phone'>
+                <image class='open_icon' src='../../images/phone.png'></image>
+                <view>电话</view>
+             </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!--提交  -->
+    <view class='submit' wx:if="{{mail_mode == 1}}" bindtap='submit'>
+        <text>提交</text>
+    </view>
+</view>

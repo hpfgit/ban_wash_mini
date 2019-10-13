@@ -1,0 +1,18 @@
+<view class='login'>
+    账号登录
+</view>
+<view class='phone'>
+    <view class='phone-num'>
+        <text class='spot'></text>
+        <text class='prefix'>+{{num}}</text>
+        <text class='num'>{{value}}</text>
+    </view>
+    <view class='input'>
+        <input type='text' placeholder='输入密码，开始鞋途吧' bindinput='inputPass'></input>
+        <image src='{{static}}/pass.png' bindtap='forget'></image>
+    </view>
+    <view class='text'>
+        输入密码后请点击 <text>“开始鞋途”</text>
+    </view>
+</view>
+<button type="defaule" class='go' bindtap='go'>▶ 开始鞋途</button>

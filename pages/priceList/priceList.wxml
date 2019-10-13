@@ -1,0 +1,2 @@
+<!--page/priceList/priceList.wxml-->
+<web-view src="https://mini.tosneaker.com/m/#/priceList"></web-view>

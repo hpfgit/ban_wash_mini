@@ -1,0 +1,16 @@
+<!--page/repairNO/repairNo.wxml-->
+<view class='page'>
+    <image src='{{static}}/big_bg.png' class='bg'></image>
+    <view class='main'>
+        <image src='{{static}}/white_bg.png' class='white'></image>
+        <view class='main-info'>
+            <image src='{{static}}/logo.png' class='logo'></image>
+            <view class='title'>很抱歉无法为您提供{{text}}服务</view>
+            <image src='{{imgUrl}}{{data[0].left_image}}' class='shoes'></image>
+            <!-- <image src='{{static}}/dashed.png' class='dashed'></image> -->
+            <view class='reason'>
+                {{data[0].can_not_reason}}
+            </view>
+        </view>
+    </view>
+</view>

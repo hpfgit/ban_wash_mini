@@ -1,0 +1,117 @@
+<!--page/colorHome/colorHome.wxml-->
+<view class="page {{yongpin== true?'none':''}}">
+    <form bindsubmit='find' report-submit='true'>
+        <!--header  -->
+        <view class='header'>
+            <view class='top'>
+                <swiper class="swiper" circular='true' autoplay="true" interval="5000" duration="1000" indicator-color='#9aa1ab' indicator-active-color='#fff'>
+                    <block wx:for="{{image}}" wx:for-index="index" wx:key="index">
+                        <swiper-item>
+                            <image src="{{imgUrl}}{{item.path}}" class="bg" />
+                        </swiper-item>
+                    </block>
+                </swiper>
+                <button bindtap='kefu' form-type='submit' hover-class="btn-hover">
+                    <image src='{{static}}/kefu.png' class='kefu'></image>
+                </button>
+                <!-- <button bindtap='kefu' form-type='submit' hover-class="btn-hover" wx:if="{{tixing==1}}" animation='{{animationKefu}}'>
+                    <image src='{{static}}/kefu_gif.png' class='kefu'></image>
+                </button> -->
+            </view>
+            <view class='tab'>
+                <view class='changeColor'>
+                    改色
+                </view>
+                <navigator url='/pages/repairHome/repairHome' open-type='reLaunch' hover-class='other-navigator-hover'>
+                    <view class='repair'>
+                        修复补色
+                    </view>
+                </navigator>
+            </view>
+        </view>
+        <!--开始改色  -->
+        <view class='main'>
+            <view class='support'>
+                <image src='{{static}}/change_color_support.png'></image>
+            </view>
+            <view class='part'>
+                <image src='{{static}}/change_color_part1.png'></image>
+                <image src='{{static}}/change_color_part2.png'></image>
+                <image src='{{static}}/change_color_part3.png'></image>
+                <image src='{{static}}/change_color_part4.png'></image>
+                <image src='{{static}}/change_color_part5.png'></image>
+                <image src='{{static}}/change_color_part6.png'></image>
+            </view>
+            <view class='submit' bindtap='begin'>
+                <image src='{{static}}/begin.png'></image>
+                <text>开始改色</text>
+            </view>
+            <view class='know'>
+                <image src='{{static}}/change_color_know.png'></image>
+                <view>
+                    改色仅支持
+                    <text>纯色的无图案方案</text>，如需其他复杂变动可查看定制板块
+                </view>
+            </view>
+        </view>
+        <!-- 服务流程 -->
+        <view class='flows'>
+            <view class='title'>
+                <image src='{{static}}/change_color_flows.png'></image>
+            </view>
+            <view class='step'>
+                <view class='item'>
+                    <text>1.提交需求单</text>
+                    <image src='{{static}}/change_color_line_right.png' class='lineRight'></image>
+                </view>
+                <view class='item'>
+                    <text>2.工作人员提供方案</text>
+                    <image src='{{static}}/change_color_line_bottom.png' class='lineBottom'></image>
+                </view>
+                <view class='item'>
+                    <text>4.邮寄 开始改色</text>
+                    <image src='{{static}}/change_color_line_left.png' class='lineLeft'></image>
+                </view>
+                <view class='item'>
+                    <text>3.确认方案并付款</text>
+                </view>
+            </view>
+        </view>
+        <!--工具推荐  -->
+        <!-- <view class='tool'>
+            <view class='title'>
+                <image src='{{static}}/tool.png'></image>
+            </view>
+            <view class='img'>
+                <image src='{{static}}/xihu_bg_tool.png'></image>
+            </view>
+        </view> -->
+        <!--底部导航栏  -->
+        <view class='footer'>
+            <button class='footer-item' bindtap='goClean' form-type='submit' hover-class="btn-hover">
+                <image src='{{static}}/biaoxi_tab.png'></image>
+                <view>精洗标洗</view>
+            </button>
+            <button class='footer-item' bindtap='goYongpin' form-type='submit' hover-class="btn-hover">
+                <image src='{{static}}/yongpin.png'></image>
+                <view>洗护用品</view>
+            </button>
+            <button class='footer-item' bindtap='goXiuFu' form-type='submit' hover-class="btn-hover">
+                <image src='{{static}}/xiufu.png'></image>
+                <view>修复洗护</view>
+            </button>
+            <button class='footer-item' bindtap='goService' form-type='submit' hover-class="btn-hover">
+                <image src='{{static}}/tesefuwu.png'></image>
+                <view>自助服务</view>
+            </button>
+            <button class='footer-item' bindtap='cleanOrder' form-type='submit' hover-class="btn-hover">
+                <image src='{{static}}/xihudingdan.png'></image>
+                <view>洗护订单</view>
+            </button>
+        </view>
+        <!--洗护用品  -->
+        <view class='yongpin' wx:if="{{yongpin == true}}" bindtap='yongpin'>
+            <image src='{{static}}/xihu_big.png'></image>
+        </view>
+    </form>
+</view>

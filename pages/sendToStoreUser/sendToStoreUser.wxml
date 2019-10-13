@@ -1,0 +1,257 @@
+<view class="sendToStoreUser">
+  <view class="top">当前用户信息</view>
+  <view class="info_all">
+    <view class="info_all_left">
+      <image class="portrait" src="https://static.tosneaker.com{{user.avatar}}"></image>
+      <view class="info">
+        <view class="name">用户昵称: {{user.name}}</view>
+        <view class="phone">手机号:{{user.mobile}}</view>
+      </view>
+    </view>
+    <view class="scanCode">
+      <button size="mini" type="default" bindtap="scanCode">扫码获取</button>
+    </view>
+  </view>
+  <!-- tab -->
+  <view class="tab">
+    <view class="tab_main">
+      <view bindtap="change_tab" data-index="1" class="tab_item {{is_tab == 1?'active':''}}">清洗</view>
+      <view bindtap="change_tab" data-index="2" class="tab_item {{is_tab == 2?'active':''}}">修复</view>
+    </view>
+    <view class="line" style="left:{{is_tab == 1?'135':'515'}}rpx;"></view>
+  </view>
+
+  <!-- 清洗 -->
+  <view wx:if="{{is_tab == 1}}" class="wash">
+    <view class="list">
+      <view wx:for="{{morePriceArr}}" wx:key="{{index}}" class="item">
+        <image wx:if="{{!item.img}}" class="goods_img" src="{{static}}/upload.png" data-index="{{index}}" bindtap="add_item_img"></image>
+        <image wx:else class="goods_img" src="{{item.img}}" data-index="{{index}}" bindtap="add_item_img"></image>
+        <view class="right">
+          <view class="select clearfix">
+            <view class="cz fl {{item.currentTab == 0 ? 'active': ''}}" data-current="0" bindtap='change_select' data-index='{{index}}'>皮质</view>
+            <view class="cz fl {{item.currentTab == 1 ? 'active': ''}}" data-current="1" bindtap='change_select' data-index='{{index}}'>翻毛皮</view>
+            <view class="cz fl {{item.currentTab == 2 ? 'active': ''}}" data-current="2" bindtap='change_select' data-index='{{index}}'>其他面料</view>
+            <view class='remove' wx:if="{{index != 0}}" data-index='{{index}}' bindtap='remove'>
+              <image src='/images/920_close.png'></image>
+            </view>
+          </view>
+          <swiper current='{{item.currentTab}}' style='height: 80rpx;'>
+            <swiper-item>
+              <!-- 皮质 -->
+              <view class='PZ'>
+                <view class='picker'>{{item.PZ.name}}</view>
+                <view class='move' data-index='{{index}}' bindtap="show_module">
+                  <text wx:if="{{item.PZ.num.length == 0}}">附加服务</text>
+                  <text class="b_color" wx:else>附加服务({{item.PZ.num}})</text>
+                  <image src="{{static}}//right.png"></image>
+                </view>
+              </view>
+            </swiper-item>
+            <!-- 翻毛皮 -->
+            <swiper-item>
+              <view class='FMP'>
+                <view class='picker'>{{item.PK.name}}</view>
+                <view class='move' data-index='{{index}}' bindtap="show_module">
+                  <text wx:if="{{item.PK.num.length == 0}}">附加服务</text>
+                  <text class="b_color" wx:else>附加服务({{item.PK.num}})</text>
+                  <image src="{{static}}//right.png"></image>
+                </view>
+              </view>
+            </swiper-item>
+            <!-- 其他面料 -->
+            <swiper-item>
+              <view class='QT'>
+                <view class='picker'>{{item.SP.name}}</view>
+                <view class='move' data-index='{{index}}' bindtap="show_module">
+                  <text wx:if="{{item.SP.num.length == 0}}">附加服务</text>
+                  <text class="b_color" wx:else>附加服务({{item.SP.num}})</text>
+                  <image src="{{static}}//right.png"></image>
+                </view>
+              </view>
+            </swiper-item>
+          </swiper>
+        </view>
+      </view>
+    </view>
+    <view class='wash_btnBox'>
+      <view class="add_btn" bindtap='add'>
+        <image src="{{static}}/add.png"></image>
+        <text>再加一双</text>
+      </view>
+      <view class='empty' bindtap='empty'>
+        <text>清空列表</text>
+      </view>
+    </view>
+    <!-- 添加附加服务模态框 -->
+    <view class='addService' wx:if="{{serviceMuch == true}}">
+      <view class='items' wx:for="{{morePriceArr}}" wx:for-item="items" wx:for-index="indexs" wx:key="indexs">
+        <view class='box' wx:if="{{indexs == indexService}}">
+          <view class='title'>
+            附加服务
+          </view>
+          <view class='content'>
+            <!-- 发黄去氧化 -->
+            <view class='item' wx:for="{{items.data}}" wx:for-item="item" wx:for-index="index" wx:key="index" wx:if="{{item.id==10}}">
+              <view class='top'>
+                <image src='{{static}}/addService1.png'></image>
+                <text>{{item.name}}</text>
+              </view>
+              <view class='bottom'>
+                <view wx:for="{{item.item}}" wx:key="indx" wx:for-item="itm" wx:for-index="inx">
+                  <!-- 皮质 -->
+                  <text wx:if="{{itm.pz_is_show == 1 && items.currentTab == 0}}" class="{{itm.selectPZ?'addActive':''}}" bindtap='servierSureMuch' data-current="{{items.currentTab}}" data-indexs="{{indexs}}" data-index="{{index}}" data-inx="{{inx}}" data-num="1">{{itm.item_name}}</text>
+                  <!-- 翻毛皮 -->
+                  <text wx:if="{{itm.pz_is_show == 1 && items.currentTab == 1}}" class="{{itm.selectFMP?'addActive':''}}" bindtap='servierSureMuch' data-current="{{items.currentTab}}" data-indexs="{{indexs}}" data-index="{{index}}" data-inx="{{inx}}" data-num="1">{{itm.item_name}}</text>
+                  <!-- 其他面料 -->
+                  <text wx:if="{{itm.pz_is_show == 1 && items.currentTab == 2}}" class="{{itm.selectQT?'addActive':''}}" bindtap='servierSureMuch' data-current="{{items.currentTab}}" data-indexs="{{indexs}}" data-index="{{index}}" data-inx="{{inx}}" data-num="1">{{itm.item_name}}</text>
+                </view>
+              </view>
+            </view>
+            <!-- 整体护理 -->
+            <view class='item' wx:for="{{items.data}}" wx:for-item="item" wx:for-index="index" wx:key="index" wx:if="{{item.id==6}}">
+              <view class='top'>
+                <image src='{{static}}/addService2.png'></image>
+                <text>整体{{item.name}}</text>
+              </view>
+              <view class='bottom'>
+                <view wx:for="{{item.item}}" wx:key="indx" wx:for-item="itm" wx:for-index="inx">
+                  <!-- 皮质 -->
+                  <text wx:if="{{items.currentTab == 0 && itm.pz_is_show == 1 && inx==0}}" class="{{itm.selectPZ?'addActive':''}}" bindtap='servierSureMuch' data-current="{{items.currentTab}}" data-indexs="{{indexs}}" data-index="{{index}}" data-inx="{{inx}}" data-num="2">基础版</text>
+                  <text wx:if="{{items.currentTab == 0 && itm.pz_is_show == 1 && inx==1}}" class="{{itm.selectPZ?'addActive':''}}" bindtap='servierSureMuch' data-current="{{items.currentTab}}" data-indexs="{{indexs}}" data-index="{{index}}" data-inx="{{inx}}" data-num="2">高级版</text>
+                  <!-- 翻毛皮 -->
+                  <text wx:if="{{items.currentTab == 1 && itm.pz_is_show == 1 && inx==0}}" class="{{itm.selectFMP?'addActive':''}}" bindtap='servierSureMuch' data-current="{{items.currentTab}}" data-indexs="{{indexs}}" data-index="{{index}}" data-inx="{{inx}}" data-num="2">基础版</text>
+                  <text wx:if="{{items.currentTab == 1 && itm.pz_is_show == 1 && inx==1}}" class="{{itm.selectFMP?'addActive':''}}" bindtap='servierSureMuch' data-current="{{items.currentTab}}" data-indexs="{{indexs}}" data-index="{{index}}" data-inx="{{inx}}" data-num="2">高级版</text>
+                  <!-- 其他 -->
+                  <text wx:if="{{items.currentTab == 2 && itm.pz_is_show == 1 && inx==0}}" class="{{itm.selectQT?'addActive':''}}" bindtap='servierSureMuch' data-current="{{items.currentTab}}" data-indexs="{{indexs}}" data-index="{{index}}" data-inx="{{inx}}" data-num="2">基础版</text>
+                  <text wx:if="{{items.currentTab == 2 && itm.pz_is_show == 1 && inx==1}}" class="{{itm.selectQT?'addActive':''}}" bindtap='servierSureMuch' data-current="{{items.currentTab}}" data-indexs="{{indexs}}" data-index="{{index}}" data-inx="{{inx}}" data-num="2">高级版</text>
+                </view>
+              </view>
+            </view>
+            <!-- 防尘处理 -->
+            <view class='item' wx:for="{{items.data}}" wx:for-item="item" wx:for-index="index" wx:key="index" wx:if="{{item.id==7}}">
+              <view class='top'>
+                <image src='{{static}}/addService3.png'></image>
+                <text>防护处理</text>
+              </view>
+              <view class='bottom'>
+                <view wx:for="{{item.item}}" wx:key="indx" wx:for-item="itm" wx:for-index="inx">
+                  <!-- 皮质 -->
+                  <text wx:if="{{items.currentTab == 0 && itm.pz_is_show == 1}}" class="{{itm.selectPZ?'addActive':''}}" bindtap='servierSureMuch' data-current="{{items.currentTab}}" data-indexs="{{indexs}}" data-index="{{index}}" data-inx="{{inx}}" data-num="3">防水防尘防污处理（非永久性）</text>
+                  <!-- 翻毛皮 -->
+                  <text wx:if="{{items.currentTab == 1 && itm.pz_is_show == 1}}" class="{{itm.selectFMP?'addActive':''}}" bindtap='servierSureMuch' data-current="{{items.currentTab}}" data-indexs="{{indexs}}" data-index="{{index}}" data-inx="{{inx}}" data-num="3">防水防尘防污处理（非永久性）</text>
+                  <!-- 其他 -->
+                  <text wx:if="{{items.currentTab == 2 && itm.pz_is_show == 1}}" class="{{itm.selectQT?'addActive':''}}" bindtap='servierSureMuch' data-current="{{items.currentTab}}" data-indexs="{{indexs}}" data-index="{{index}}" data-inx="{{inx}}" data-num="3">防水防尘防污处理（非永久性）</text>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class='prompt'>
+            提示：翻毛皮材质建议勾选[基础护理]，效果更佳。
+          </view>
+          <view class='button'>
+            <view class='sure' data-indexs="{{indexs}}" bindtap='sureMuch'>
+              <image src='{{static}}/addServiceSure.png'></image>
+              <text>确定</text>
+            </view>
+            <view class='cancel' data-indexs="{{indexs}}" data-current="{{items.currentTab}}" bindtap='cancelMuch'>
+              取消
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 清洗提交按钮 -->
+    <view class='submit' bindtap='singleSubmit'>
+      <image src='{{static}}/xiadan.png'></image>
+      <view class='xiadan'>共￥{{qx_price}}元|去下单</view>
+    </view>
+  </view>
+
+  <!-- 修复 -->
+  <view wx:if="{{is_tab == 2}}" class="repair">
+    <form bindsubmit='find' report-submit='true'>
+      <!--添加图片  -->
+      <view class='imgs'>
+        <view class='img-item' wx:for="{{imgs}}" wx:key="index" wx:for-index='index' wx:for-item="item" data-index="{{index}}" bindtap='uploadPic'>
+          <view class='default' wx:if="{{item.pic == ''}}">
+            <image src="{{item.default}}"></image>
+          </view>
+          <view class='pic' wx:else>
+            <image src='{{item.pic}}' mode='aspectFill'></image>
+          </view>
+        </view>
+      </view>
+      <!--选填  -->
+      <view class='selection'>
+        <view class='selection-title'>
+          <image src='{{static}}/wenhao.png'></image>
+          <text>请阐述一下具体问题，以便工作人员注意查看<text>(选填)</text></text>
+        </view>
+        <view class='selection-C'>
+          <button form-type='submit' hover-class="btn-hover" class="{{item.checked==true?' active ':' '}} selection-item" wx:for="{{choose}}" wx:for-item="item" wx:for-index="index" wx:key="index" data-index="{{index}}" data-text="{{item.text}}" bindtap='choose'>
+            {{item.text}}
+            <image src='{{static}}/sanjiao.png' wx:if="{{item.checked}}"></image>
+          </button>
+          <view class='fill'>
+          </view>
+        </view>
+      </view>
+      <!--备注  -->
+      <view class='remarks'>
+        <view class='remarks-title'>
+          <text>备注</text>
+          <view class='fanli'>
+            <image src="{{static}}/fanli.png"></image>
+            <text>范例</text>
+          </view>
+        </view>
+        <view class='text'>
+          <textarea class='areas' cursor-spacing="100" auto-height placeholder='请输入备注信息（至少10字）' maxlength="{{max}}" bindinput='input'>
+            <text class='currentWordNumber'>{{currentWordNumber}}/{{max}}</text>
+          </textarea>
+        </view>
+        <view class='upload'>
+          <view class='display'>
+            <view class='voice'>
+              <view class='voice-item' wx:for="{{voiceItem}}" wx:key="index" wx:for-index="index">
+                <image class='voiceBox' src='https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3143598853,690910552&fm=27&gp=0.jpg'></image>
+                <text bindtap='bofang' class='bofang' wx:if="{{zanting==1}}">▶</text>
+                <text bindtap='zanting' class='zanting' wx:elif="{{zanting==2}}">||</text>
+                <text bindtap='deleVoice' class='delete' data-index="{{index}}">X</text>
+              </view>
+            </view>
+            <view class='pic'>
+              <view class='pic-item' wx:for="{{picItem}}" wx:key="index" wx:for-item="item" wx:for-index="index">
+                <image src='{{item}}' data-index="{{index}}" bindtap='bigPic' mode='aspectFill'></image>
+                <text data-index="{{index}}" bindtap='delePic'>X</text>
+              </view>
+            </view>
+            <view class='video'>
+              <view class='video-item' wx:for="{{videoItem}}" wx:key="index" wx:for-item="item" wx:for-index="index">
+                <video id='myVideo' bindfullscreenchange="startScreenChange" show-center-play-btn="{{videois1}}" ustom-cache="{{false}}" direction="{{90}}" src='{{item}}' data-index="{{index}}" bindplay="play"></video>
+                <cover-view data-index="{{index}}" bindtap='deleVideo'>X</cover-view>
+              </view>
+            </view>
+          </view>
+          <view class='handle'>
+            <image src='{{static}}/yuyin.png' bindtap='startVoice'></image>
+            <image src='{{static}}/xiangji.png' bindtap='addPic'></image>
+            <image src='{{static}}/shipin.png' bindtap="addVideo"></image>
+          </view>
+        </view>
+      </view>
+      <!--提交  -->
+      <view class='submit'>
+        <view class='submit-btn' bindtap='submit'>
+          <image src='{{static}}/begin.png'></image>
+          <text>提交订单</text>
+        </view>
+        <view class='submit-text'>
+          工作人员将在12小时内为您提供修复方案
+        </view>
+      </view>
+      <image src='{{static}}/yuyin_gif.gif' class='yuyin-gif' wx:if="{{yuyinTrue == true}}"></image>
+    </form>
+  </view>
+</view>

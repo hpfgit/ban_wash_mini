@@ -1,0 +1,16 @@
+<!--pages/setPayPas/setPayPas.wxml-->
+<view class="container">
+  <view class="title">支付宝提现密码</view>
+  <view class="money">
+    <text class="label">提现密码</text><input placeholder="提现密码" bindinput="txpas" type="password"></input>
+  </view>
+  <view class="money">
+    <input placeholder="请输入短信验证码" bindinput="code" style="padding-left: 0;text-align: left;"></input><text class="label" class="{{codeFlag === true ? 'code' : 'getCode'}}" bindtap="getCode">{{timeStr}}</text>
+  </view>
+</view>
+<view class='submit' bindtap='singleSubmit'>
+  <image src='{{static}}/xiadan.png'></image>
+  <view class='xiadan'>
+    确认修改
+  </view>
+</view>

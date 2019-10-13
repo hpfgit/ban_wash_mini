@@ -1,0 +1,66 @@
+/* pages/drawal/drawal.wxss */
+page {
+  box-sizing: border-box;
+  background-color: #eef1f4;
+}
+
+.container {
+  background-color: #fff;
+  padding: 30rpx 20rpx;
+}
+
+.zfb {
+  border-bottom: 1rpx solid #eef1f4;
+  padding-bottom: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.zfb,.title {
+  font-size: 24rpx;
+}
+
+.money {
+  display: flex;
+  margin-top: 40rpx;
+  margin-bottom: 40rpx;
+  border-bottom: 1rpx solid #eef1f4;
+}
+
+.money input {
+  padding-left: 20rpx;
+  font-size: 26rpx;
+}
+
+.tip {
+  display: flex;
+  justify-content: space-between;
+  font-size: 26rpx;
+}
+
+.tip view:nth-of-type(2) {
+  color: #666;
+}
+
+.submit {
+  width: 632rpx;
+  height: 74rpx;
+  position: relative;
+  margin: 38rpx auto;
+}
+
+.submit image {
+  width: 100%;
+  height: 100%;
+}
+
+.submit .xiadan {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  line-height: 74rpx;
+  font-size: 28rpx;
+  color: #fff;
+  position: absolute;
+  left: 0;
+  top: 0;
+}

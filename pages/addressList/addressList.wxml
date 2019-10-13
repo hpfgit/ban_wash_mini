@@ -1,0 +1,131 @@
+<view class='page'>
+    <!--地址列表  -->
+    <view class='all'>
+        <view class='item' bindtap='select_add' data-index='{{index}}' wx:for="{{data}}" wx:key="index" wx:for-item="item" wx:for-index="index">
+            <image src='{{static}}/default_address_text.png' class='textImg' wx:if="{{item.is_default == 1}}"></image>
+            <view class='left'>
+                <image src='{{static}}/default_address.png' wx:if="{{item.is_default == 1}}"></image>
+                <image src='{{static}}/no_default_address.png' wx:else></image>
+            </view>
+            <view class='middle'>
+                <view>{{item.consignee_name}}</view>
+                <view>{{item.area_info}}{{item.address}}</view>
+                <view>{{item.mb_phone}}</view>
+            </view>
+            <view class='right'>
+                <image src="{{static}}/open_edit.png" data-index="{{index}}" bindtap='edit'></image>
+            </view>
+        </view>
+    </view>
+    <!--添加新地址  -->
+    <view class='add' bindtap='addNewAddress'>
+        <image src='{{static}}/add_address.png'></image>
+        <text>添加新地址</text>
+    </view>
+    <!--添加新地址模态框  -->
+    <view class='addModule' wx:if="{{addModule==true}}">
+        <view class='new'>
+            <image src='{{static}}/cancle_address.png' class='close' bindtap='closeAdd'></image>
+            <view class='name common'>
+                <view class='title'>姓名</view>
+                <view class='input'>
+                    <input type='text' placeholder='请输入姓名' bindinput='addName'></input>
+                </view>
+            </view>
+            <view class='phone common'>
+                <view class='title'>电话</view>
+                <view class='input'>
+                    <input type='number' placeholder='输入手机号' maxlength='11' bindinput='addPhone'></input>
+                </view>
+            </view>
+            <view class='diqu common'>
+                <view class='title'>所在地区</view>
+                <view class='input' bindtap='selectDistrict'>
+                    <view wx:if="{{!addInfo}}">选择所在地区</view>
+                    <view wx:else>{{addInfo}}</view>
+                </view>
+            </view>
+            <view class='address common'>
+                <view class='title'>详细地址</view>
+                <view class='input'>
+                    <input type='text' placeholder='请输入详细地址...' bindinput='addAddress'></input>
+                </view>
+            </view>
+            <view class='default'>
+                <view>设置默认地址</view>
+                <switch bindchange="switchChange" />
+            </view>
+            <view class='confirmAdd' bindtap='confirmAdd'>
+                <image src='{{static}}/confirmAdd.png'></image>
+                <text>确认添加</text>
+            </view>
+        </view>
+    </view>
+    <!--编辑地址模态框  -->
+    <view class='addModule' wx:if="{{reviseModule == true}}">
+        <view class='new'>
+            <image src='{{static}}/cancle_address.png' class='close' bindtap='closeRevise'></image>
+            <image src='{{static}}/del_address.png' class='del' bindtap='delRevise'></image>
+            <view class='name common'>
+                <view class='title'>姓名</view>
+                <view class='input'>
+                    <input type='text' placeholder='请输入姓名' value="{{name}}" bindinput='addName'></input>
+                </view>
+            </view>
+            <view class='phone common'>
+                <view class='title'>电话</view>
+                <view class='input'>
+                    <input type='number' placeholder='输入手机号' maxlength='11' value="{{phone}}" bindinput='addPhone'></input>
+                </view>
+            </view>
+            <view class='diqu common'>
+                <view class='title'>所在地区</view>
+                <view class='input' bindtap='selectDistrict'>
+                    <view>{{editInfo}}</view>
+                </view>
+            </view>
+            <view class='address common'>
+                <view class='title'>详细地址</view>
+                <view class='input'>
+                    <input type='text' placeholder='请输入详细地址...' value="{{address}}" bindinput='addAddress'></input>
+                </view>
+            </view>
+            <view class='default'>
+                <view>设置默认地址</view>
+                <switch wx:if="{{isDefault==1}}" checked bindchange="switchChange" />
+                <switch wx:else bindchange="switchChange" />
+            </view>
+            <view class='confirmAdd' bindtap='confirmRevise'>
+                <image src='{{static}}/confirmAdd.png'></image>
+                <text>确认修改</text>
+            </view>
+        </view>
+    </view>
+    <!--地区弹出层  -->
+    <view class="dialog-mask" style="z-index:11;visibility:{{addressMenuIsShow ? 'visible': 'hidden'}}" bindtap="hideCitySelected" />
+    <view class="picker-view" animation="{{animationAddressMenu}}" style="visibility:{{addressMenuIsShow ? 'visible':'hidden'}}">
+        <view style="height:10% ;width:95%;margin-top:10rpx">
+            <text catchtap="cityCancel">取消</text>
+            <text style="float: right" catchtap="citySure">确定</text>
+        </view>
+        <!--"可以显示默认的城市，使用后级联选择城市反应很慢就不使用了-->
+        <picker-view style="width: 100%; height: 300px;" bindchange="cityChange" value="{{value}}" wx:key="">
+            <picker-view-column>
+                <view wx:for="{{provinces}}" wx:key="index" class="picker-item">
+                    {{item.name}}</view>
+            </picker-view-column>
+            <picker-view-column>
+                <view wx:for="{{citys}}" class="picker-item" wx:key="index">
+                    {{item.name}}</view>
+            </picker-view-column>
+            <picker-view-column>
+                <view wx:for="{{areas}}" class="picker-item" wx:key="index">
+                    {{item.name}}</view>
+            </picker-view-column>
+        </picker-view>
+    </view>
+    <!--暂无地址  -->
+    <view class='noAddress' wx:if="{{data == ''}}">
+        暂无收货地址
+    </view>
+</view>

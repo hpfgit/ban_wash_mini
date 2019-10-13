@@ -1,0 +1,15 @@
+<!--pages/drawalDetail/drawalDetail.wxml-->
+<view>
+<view class="no" wx:if="{{!details.length}}">暂无数据</view>
+  <view class="details" wx:for="{{details}}" wx:key="{{index}}">
+    <view class="icon">
+      <image src="../../images/detail.png"></image>
+    </view>
+    <view class="title">
+      <text>{{item.created_at}}</text>
+    </view>
+    <view class="number">
+      -{{cash_amount}}
+    </view>
+  </view>
+</view>

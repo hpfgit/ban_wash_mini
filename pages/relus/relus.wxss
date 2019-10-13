@@ -1,0 +1,63 @@
+/* pages/relus/relus.wxss */
+page {
+  border-top: 2rpx solid #e6e6e6;
+  padding: 30rpx;
+  box-sizing: border-box;
+  line-height: 1;
+}
+.card {
+  margin-bottom: 60rpx;
+}
+.card .card-top {
+  display: flex;
+}
+.card .card-top image {
+  width: 28rpx;
+	height: 30rpx;
+  margin-right: 10rpx;
+}
+.card .card-top .top-left {
+	font-family: PingFang-SC-Bold;
+	font-size: 28rpx;
+	line-height: 40rpx;
+  font-weight: bold;
+	color: #282828;
+}
+.card .card-content .text {
+  padding: 25rpx 30rpx 0 35rpx;
+	font-family: PingFang-SC-Medium;
+	font-size: 26rpx;
+	line-height: 40rpx;
+	color: #858585;
+}
+.card .card-content .table-box {
+  padding: 25rpx 30rpx 0 35rpx;
+}
+.table {
+	font-family: PingFang-SC-Medium;
+	font-size: 26rpx;
+	color: #282828;
+}
+.table .tr, .table .th {
+  display: flex;
+	height: 80rpx;
+  line-height: 80rpx;
+	border: solid 1rpx #e0e0e0;
+  border-bottom: 0;
+}
+.table .tr:last-child {
+	border-bottom: solid 1rpx #e0e0e0;
+}
+.table .th {
+  background: #e6e6e6;
+}
+.table .tr .td:first-child, .table .th .td:first-child {
+  flex: 0 0 240rpx;
+  border-right: 2rpx solid  #e0e0e0;
+}
+.table .tr .td:last-child, .table .th .td:last-child {
+  flex: 1;
+}
+.table .tr .td, .table .th .td {
+  text-align: center;
+}

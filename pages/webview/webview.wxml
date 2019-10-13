@@ -1,0 +1,17 @@
+<!--page/logistics/logistics.wxml-->
+<view class='page'>
+  <view class='logistics'>
+    <view class='item' wx:for="{{data}}" wx:key="key" wx:for-item="item" wx:for-index="index" bindtap="goto100" data-index="{{index}}">
+      <view class='round' wx:if="{{data.length != 1}}"></view>
+      <view class='content {{index === data.length - 1 ? "content-active" : ""}}'>
+        <view class='left'>
+          <view class="text {{item.op_info.type=='verified-unpass'?'problem':''}}">{{item.status}}</view>
+          <view class="time {{item.op_info.type=='verified-unpass'?'problem':''}}">{{item.time}}</view>
+        </view>
+      </view>
+    </view>
+    <view class='item' wx:if="{{!data.length}}">
+      <text class="no">{{no_text}}</text>
+    </view>
+  </view>
+</view>

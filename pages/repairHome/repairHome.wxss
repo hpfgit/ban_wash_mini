@@ -1,0 +1,328 @@
+/* page/repairHome/repairHome.wxss */
+
+page {
+    width: 100%;
+    height: 100%;
+    background-color: #eef1f4;
+}
+
+.hidden {
+    height: 100%;
+    overflow-y: hidden;
+}
+
+/*banner图  */
+
+.page {
+    width: 100%;
+    height: 100%;
+    padding-bottom: 126rpx;
+}
+
+.banner {
+    width: 100%;
+    height: 340rpx;
+    position: relative;
+}
+
+.banner .bannerBg {
+    width: 100%;
+    height: 100%;
+}
+.banner .swiper_box image {
+  width: 100%;
+  height: 100%;
+}
+.banner button {
+    width: 66rpx;
+    height: 66rpx;
+    position: absolute;
+    top: 24rpx;
+    right: 24rpx;
+}
+
+.banner .kefu {
+    width: 66rpx;
+    height: 66rpx;
+    /* position: absolute;
+    top: 10rpx;
+    right: 24rpx; */
+}
+
+/*修复流程介绍  */
+
+.middle {
+    width: 100%;
+    /* height: 428rpx; */
+    background-color: #fff;
+    padding-bottom: 26rpx;
+    box-sizing: border-box;
+}
+
+.middle .repair {
+    width: 728rpx;
+    height: 356rpx;
+    margin-left: 7rpx;
+    margin-top: -84rpx;
+    position: relative;
+    z-index: 9;
+}
+
+.middle .repair .bg {
+    width: 100%;
+    height: 100%;
+}
+
+.middle .repair .douhao {
+    width: 30rpx;
+    height: 26rpx;
+    position: absolute;
+    left: 47rpx;
+    top: 42rpx;
+}
+
+.middle .repair .biaozhun {
+    width: 113rpx;
+    height: 26rpx;
+    position: absolute;
+    right: 39rpx;
+    top: 44rpx;
+}
+
+.middle .repair .type {
+    /* width: 100%; */
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 141rpx;
+    top: 100rpx;
+}
+
+.middle .repair .type .point {
+    width: 8rpx;
+    height: 8rpx;
+    border-radius: 50%;
+    background-color: #fff;
+    margin-left: 14rpx;
+    margin-right: 14rpx;
+}
+
+.middle .repair .type image {
+    width: 127rpx;
+    height: 31rpx;
+}
+
+.middle .repair .step {
+    display: flex;
+    position: absolute;
+    left: 41rpx;
+    top: 171rpx;
+}
+
+.middle .repair .step .item {
+    width: 210rpx;
+    height: 82rpx;
+    text-align: center;
+    line-height: 82rpx;
+    font-size: 22rpx;
+    color: #282828;
+    background-color: #fff;
+    margin-right: 12rpx;
+    border-radius: 6rpx;
+    position: relative;
+}
+
+.middle .repair .step .item image {
+    width: 48rpx;
+    height: 20rpx;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.middle .repair .major {
+    font-size: 22rpx;
+    color: #fff;
+    position: absolute;
+    left: 224rpx;
+    top: 294rpx;
+}
+
+/*开始修复  */
+
+.middle .begin {
+    width: 622rpx;
+    height: 74rpx;
+    margin: 0 auto;
+    position: relative;
+    margin-top: 10rpx;
+}
+
+.middle .begin image {
+    width: 100%;
+    height: 100%;
+}
+
+.middle .begin text {
+    font-size: 28rpx;
+    color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -56rpx;
+    margin-top: -22rpx;
+}
+
+/*出场式修复  */
+
+.out {
+    width: 100%;
+    margin-top: 18rpx;
+    background-color: #fff;
+    padding: 36rpx;
+    box-sizing: border-box;
+}
+
+.out .out-title {
+    width: 100%;
+    text-align: center;
+}
+
+.out .out-title image {
+    width: 137rpx;
+    height: 27rpx;
+}
+
+.out .out-content {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 41rpx;
+}
+
+.out .out-content .out-item view {
+    font-size: 22rpx;
+    color: #4d5257;
+    line-height: 30rpx;
+    font-family: PingFang-SC-Medium;
+}
+
+.out .out-content .out-item:nth-child(1) image {
+    width: 55rpx;
+    height: 50rpx;
+}
+
+.out .out-content .out-item:nth-child(2) image {
+    width: 50rpx;
+    height: 50rpx;
+}
+
+.out .out-content .out-item:nth-child(3) image {
+    width: 47rpx;
+    height: 54rpx;
+}
+
+/*效果展示  */
+
+.effect {
+    width: 100%;
+    margin-top: 36rpx;
+    background-color: #fff;
+    /* padding-bottom: 126rpx; */
+}
+
+.effect .effect-title {
+    width: 180rpx;
+    height: 56rpx;
+    position: relative;
+}
+
+.effect .effect-title image {
+    width: 182rpx;
+    height: 56rpx;
+    margin-top: -20rpx;
+}
+
+.effect .effect-title text {
+    font-size: 28rpx;
+    color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -56rpx;
+    margin-top: -35rpx;
+}
+
+.effect .effect-image {
+    width: 100%;
+    margin-top: 25rpx;
+    margin-bottom: 75rpx;
+}
+
+.effect .effect-image .effect-item {
+    width: 368rpx;
+    /* height: 614rpx; *//* margin-bottom: 14rpx; */
+}
+
+.effect .effect-image .effect-item:nth-child(odd) {
+    float: left;
+}
+
+.effect .effect-image .effect-item:nth-child(even) {
+    float: right;
+}
+
+.effect .effect-image .effect-item image {
+    width: 100%;
+    height: 100%;
+}
+
+/*底部导航栏  */
+
+.footer {
+    position: fixed;
+    bottom: 58rpx;
+    left: 50%;
+    width: 652rpx;
+    height: 106rpx;
+    margin-left: -326rpx;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 53rpx;
+}
+
+.footer .footer-item image {
+    width: 36rpx;
+    height: 38rpx;
+}
+
+.footer .footer-item view {
+    font-size: 22rpx;
+    color: #fff;
+}
+
+/*洗护用品  */
+
+.yongpin {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9;
+}
+
+.yongpin image {
+    width: 630rpx;
+    height: 494rpx;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -315rpx;
+    margin-top: -247rpx;
+}

@@ -1,0 +1,78 @@
+/* pages/setPayPas/setPayPas.wxss */
+page {
+    box-sizing: border-box;
+    background-color: #eef1f4;
+  }
+  
+  .container {
+    background-color: #fff;
+  }
+  
+  .title {
+    font-size: 24rpx;
+    padding: 20rpx 20rpx;
+    background-color: #eef1f4;
+  }
+  
+  .money {
+    display: flex;
+    align-items: center;
+    font-size: 28rpx;
+    padding: 20rpx;
+    border: 1rpx solid #eef1f4;
+  }
+  
+  .money input {
+    padding-left: 20rpx;
+    font-size: 26rpx;
+    flex: 1;
+    text-align: right;
+  }
+  
+  .tip {
+    display: flex;
+    justify-content: space-between;
+    font-size: 26rpx;
+  }
+  
+  .tip view:nth-of-type(2) {
+    color: #666;
+  }
+  
+  .submit {
+    width: 632rpx;
+    height: 74rpx;
+    position: relative;
+    margin: 38rpx auto;
+  }
+  
+  .submit image {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .submit .xiadan {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 74rpx;
+    font-size: 28rpx;
+    color: #fff;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  
+  .fail {
+    color: #ff0000;
+    font-size: 24rpx;
+    text-align: center;
+  }
+  
+  .code {
+    color: #666;
+  }
+  
+  .getCode {
+    color: #5e94f5;
+  }

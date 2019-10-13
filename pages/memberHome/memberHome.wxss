@@ -1,0 +1,302 @@
+/* page/memberHome/memberHome.wxss */
+
+page {
+  width: 100%;
+  height: 100%;
+  background-color: #eef1f4;
+}
+
+.hidden {
+  height: 100%;
+  overflow-y: hidden;
+}
+
+.page {
+  padding-bottom: 126rpx;
+}
+
+/*banner部分  */
+
+.banner {
+  width: 100%;
+  height: 364rpx;
+  position: relative;
+}
+
+.banner .bg {
+  width: 100%;
+  height: 100%;
+}
+
+.banner .code-box {
+  width: 100%;
+  height: 88rpx;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.banner .code-box .code {
+  width: 130rpx;
+  height: 50rpx;
+  background-color: #fff;
+  border-radius: 25rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 46rpx;
+}
+
+.banner .code-box .code image {
+  width: 20rpx;
+  height: 20rpx;
+  margin-right: 4rpx;
+}
+
+.banner .code-box .code text {
+  font-size: 22rpx;
+  color: #000;
+}
+
+.banner .user {
+  width: 100%;
+  position: absolute;
+  top: 100rpx;
+  left: 0;
+  padding: 0 60rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+}
+
+.banner .user .left {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.banner .user .left .img {
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+  margin-right: 22rpx;
+}
+
+.banner .user .left .img image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.banner .user .left .info {
+  width: 70%;
+}
+
+.banner .user .left .info view:nth-child(1) {
+  font-size: 28rpx;
+  color: #fff;
+}
+
+.banner .user .left .info view:nth-child(2) {
+  font-size: 30rpx;
+  color: #cce8ff;
+}
+
+.banner .user .left .info view:nth-child(2) text {
+  font-size: 22rpx;
+}
+
+.banner .user .right {
+  text-align: center;
+}
+
+.banner .user .right image {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.banner .user .right view {
+  font-size: 22rpx;
+  color: #fff;
+}
+
+.banner .tab {
+  width: 100%;
+  height: 100rpx;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.banner .tab .default {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner .tab .default:nth-child(1) {
+  border-right: 2rpx solid rgba(0, 0, 0, 0.1);
+}
+
+.banner .tab .default:nth-child(2) {
+  border-right: 2rpx solid rgba(0, 0, 0, 0.1);
+}
+
+.banner .tab .default image {
+  width: 52rpx;
+  height: 52rpx;
+  margin-right: 15rpx;
+}
+
+.banner .tab .default text {
+  font-size: 26rpx;
+  color: #fff;
+}
+
+/*会员等级  */
+
+.grade {
+  width: 100%;
+  background-color: #fff;
+}
+
+.grade .title {
+  width: 100%;
+  padding: 39rpx 0;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grade .title .line {
+  width: 20rpx;
+  height: 6rpx;
+  background-color: #282828;
+}
+
+.grade .title .text {
+  font-size: 28rpx;
+  color: #282828;
+  margin: 0 15rpx;
+}
+
+.grade .table {
+  width: 702rpx;
+  padding-bottom: 40rpx;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.grade .table .thead {
+  width: 100%;
+  height: 64rpx;
+  display: flex;
+}
+
+.grade .table .thead view {
+  text-align: center;
+  line-height: 64rpx;
+  background-color: #f7f7f7;
+  font-size: 24rpx;
+  color: #a0a0a2;
+  border-top: 1rpx solid #ececec;
+  border-right: 1rpx solid #ececec;
+}
+
+.grade .table .thead view:nth-child(1) {
+  width: 172rpx;
+  border-left: 1rpx solid #ececec;
+}
+
+.grade .table .thead view:nth-child(2) {
+  width: 264rpx;
+}
+
+.grade .table .thead view:nth-child(3) {
+  width: 264rpx;
+}
+
+.grade .table .tbody {
+  width: 100%;
+  height: 84rpx;
+  display: flex;
+}
+
+.grade .table .tbody view {
+  text-align: center;
+  line-height: 84rpx;
+  font-size: 24rpx;
+  color: #a0a0a2;
+  border-right: 1rpx solid #ececec;
+  border-bottom: 1rpx solid #ececec;
+}
+
+.grade .table .tbody view:nth-child(1) {
+  width: 172rpx;
+  border-left: 1rpx solid #ececec;
+}
+
+.grade .table .tbody view:nth-child(2) {
+  width: 264rpx;
+}
+
+.grade .table .tbody view:nth-child(3) {
+  width: 264rpx;
+}
+
+/*底部导航栏  */
+
+.footer {
+  position: fixed;
+  bottom: 58rpx;
+  left: 50%;
+  width: 652rpx;
+  height: 106rpx;
+  margin-left: -326rpx;
+  background-color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 53rpx;
+}
+
+.footer .footer-item image {
+  width: 36rpx;
+  height: 38rpx;
+}
+
+.footer .footer-item view {
+  font-size: 22rpx;
+  color: #fff;
+}
+
+/*洗护用品  */
+
+.yongpin {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9;
+}
+
+.yongpin image {
+  width: 630rpx;
+  height: 494rpx;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -315rpx;
+  margin-top: -247rpx;
+}

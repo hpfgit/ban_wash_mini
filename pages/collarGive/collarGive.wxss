@@ -1,0 +1,138 @@
+/* pages/collarGive/collarGive.wxss */
+
+/*banner图  */
+
+.banner {
+    width: 100%;
+    height: 320rpx;
+    position: relative;
+}
+
+.banner .bg {
+    width: 100%;
+    height: 100%;
+}
+
+.banner .man {
+    width: 424rpx;
+    height: 210rpx;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -212rpx;
+}
+
+/*领用与赠送  */
+
+.title {
+    text-align: center;
+    font-size: 26rpx;
+    line-height: 26rpx;
+    font-weight: 600;
+    color: #282828;
+    margin-top: 40rpx;
+}
+
+/*输入卡号和密码  */
+
+.entry {
+    width: 100%;
+    margin-top: 40rpx;
+    padding: 0 95rpx;
+    box-sizing: border-box;
+}
+
+.entry .number {
+    width: 100%;
+    height: 90rpx;
+    background-color: #f9f9f9;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30rpx;
+    box-sizing: border-box;
+    border-radius: 10rpx;
+}
+
+/*输入框背景色  */
+
+.inputBg {
+    box-shadow: 0rpx 0rpx 5rpx #5e95f4;
+}
+
+.entry .number input {
+    width: 95%;
+    font-size: 24rpx;
+    color: #282828;
+}
+
+.entry .number image {
+    width: 36rpx;
+    height: 36rpx;
+}
+
+.entry .password {
+    width: 100%;
+    height: 90rpx;
+    background-color: #f9f9f9;
+    padding: 0 30rpx;
+    box-sizing: border-box;
+    border-radius: 10rpx;
+    margin-top: 50rpx;
+    display: flex;
+    align-items: center;
+}
+
+.entry .password input {
+    width: 100%;
+    font-size: 24rpx;
+    color: #282828;
+}
+
+/*提示  */
+
+.prompt {
+    width: 100%;
+    text-align: center;
+    font-size: 20rpx;
+    color: #4b525b;
+    margin-top: 80rpx;
+}
+
+/*立即领用  */
+
+.submit {
+    width: 560rpx;
+    height: 90rpx;
+    margin: 30rpx auto 0;
+    position: relative;
+}
+
+.submit image {
+    width: 100%;
+    height: 100%;
+}
+
+.submit text {
+    font-size: 26rpx;
+    font-weight: 600;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -52rpx;
+    margin-top: -17rpx;
+}
+
+.noSubmit {
+    width: 560rpx;
+    height: 90rpx;
+    background-color: #ccd4e0;
+    border-radius: 45rpx;
+    margin: 30rpx auto 0;
+    font-size: 26rpx;
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+    line-height: 90rpx;
+}

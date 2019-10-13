@@ -1,0 +1,37 @@
+<!--pages/voucher/voucher.wxml-->
+<view class='page'>
+    <view class='banner'>
+        <image src='{{static}}/voucher_banner.png'></image>
+    </view>
+    <!--券密信息  -->
+    <view class='main'>
+        <view class='box'>
+            <image src='{{static}}/voucher_bg.png' class='bg'></image>
+            <image src='{{static}}/voucher_card.png' class='card'></image>
+            <view class='info'>
+                <view class='top'>
+                    <view class='item'>
+                        <text>券号</text>
+                        <text>{{options.card_number}}</text>
+                    </view>
+                    <view class='item'>
+                        <text>密码</text>
+                        <text>{{options.card_password}}</text>
+                    </view>
+                    <view class='item'>
+                        <text>面额</text>
+                        <text>¥{{options.money}}</text>
+                    </view>
+                    <view class='item'>
+                        <text>状态</text>
+                        <text wx:if="{{options.enabled==0}}">已领用</text>
+                        <text wx:elif="{{options.enabled==1}}">未领用</text>
+                    </view>
+                </view>
+                <view class='bottom'>
+                    -请妥善保管券密，工作人员不会以任何形式向您索要此信息-
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

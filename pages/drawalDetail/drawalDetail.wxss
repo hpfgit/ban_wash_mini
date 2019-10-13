@@ -1,0 +1,27 @@
+/* pages/drawalDetail/drawalDetail.wxss */
+page {
+  background-color: #eef1f4;
+}
+.details {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+image {
+  vertical-align: middle;
+}
+.icon image {
+  width: 72rpx;
+  height: 72rpx;
+}
+.title {
+  font-size: 26rpx;
+}
+.no {
+  text-align: center;
+  height: 72rpx;
+  line-height: 72rpx;
+  background-color: #fff;
+  margin-top: 20rpx;
+  font-size: 28rpx;
+}

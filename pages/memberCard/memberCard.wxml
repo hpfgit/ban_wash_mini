@@ -1,0 +1,92 @@
+<!--page/memberCard/memberCard.wxml-->
+<view class='page'>
+    <form bindsubmit='find' report-submit='true'>
+        <!--banner部分  -->
+        <view class='banner'>
+            <image src='{{static}}/change_member_banner.png' class='bg'></image>
+            <button bindtap='kefu' class='custBtn' open-type="{{openType}}">
+                <image src='{{static}}/kefu.png' class='kefu'></image>
+            </button>
+            <!-- <button bindtap='kefu' form-type='submit' hover-class="btn-hover" wx:if="{{tixing==1}}" animation='{{animationKefu}}'>
+                <image src='{{static}}/kefu_gif.png' class='kefu'></image>
+            </button> -->
+        </view>
+        <!--账户充值/电子洗护卡  -->
+        <view class='main'>
+            <view class="swiper-tab">
+                <view class="swiper-tab-list {{currentTab==0 ? 'active' : ''}}" data-current="0" bindtap="swichNav">账户充值</view>
+                <view class="swiper-tab-list {{currentTab==1 ? 'active' : ''}}" data-current="1" bindtap="swichNav">电子洗护卡</view>
+            </view>
+            <swiper current="{{currentTab}}" class="swiper-box" duration="300" style="min-height:{{winHeight}}rpx" bindchange="bindChange">
+                <swiper-item class="recharge">
+                    <view class='item' wx:for="{{data}}" wx:key="index" wx:for-item="item" wx:for-index="index" data-index="{{index}}" bindtap='choose'>
+                        <image src='{{static}}/select_card.png' wx:if="{{item.recharge == true}}" class='select'></image>
+                        <view class='money' wx:if="{{item.price != 0}}">{{item.price}}元</view>
+                        <view class='money' wx:elif="{{item.price == 0 && item.recharge != true}}">{{item.name}}</view>
+                        <view class='money' wx:elif="{{item.price == 0 && item.recharge == true}}">
+                            <input type='number' maxlength="4" focus bindinput="customRecharge"></input>
+                        </view>
+                        <view class='text'>{{item.commit}}</view>
+                    </view>
+                </swiper-item>
+                <swiper-item class="card">
+                    <view class='info'>
+                        <text>卡片面额</text>
+                        <text>（购买成功后，请至订单中心查看券密或领用）</text>
+                    </view>
+                    <view class='item' wx:for="{{data}}" wx:key="index" wx:for-item="item" wx:for-index="index" data-index="{{index}}" bindtap='choose'>
+                        <image src='{{static}}/select_card.png' wx:if="{{item.card == true}}" class='select'></image>
+                        <view class='money' wx:if="{{item.price != 0}}">{{item.name}}</view>
+                        <view class='money' wx:elif="{{item.price == 0 && item.card != true}}">{{item.name}}</view>
+                        <view class='money' wx:elif="{{item.price == 0 && item.card == true}}">
+                            <input type='number' maxlength="4" focus bindinput="customCard"></input>
+                        </view>
+                        <view class='text'>{{item.commit}}</view>
+                    </view>
+                </swiper-item>
+            </swiper>
+            <view class='submit' bindtap='submit'>
+                <image src='{{static}}/begin.png'></image>
+                <text>{{submitName}}</text>
+            </view>
+            <view class='news'>
+                <text>获取券密快速领用</text>
+                <text class='line'>|</text>
+                <text>什么是洗护卡？</text>
+            </view>
+            <view class='advert'>
+                <image src='{{static}}/member_ad.png'></image>
+            </view>
+        </view>
+        <!--洗护卡余额  -->
+        <view class='balance'>
+            <view class='title'>
+                <text></text>
+                <text>洗护卡余额</text>
+            </view>
+            <view class='content'>
+                <view class='left'>
+                    <text>{{user_info.care_card_count}}</text>
+                    <text></text>
+                    <text>元</text>
+                </view>
+                <view class='right'>
+                    <view bindtap='goCollar'>
+                        <text>领用与赠送</text>
+                        <image src='{{static}}/member_sanjiao.png'></image>
+                    </view>
+                    <view bindtap='goCareCardOrder'>
+                        <text>洗护卡订单</text>
+                        <image src='{{static}}/member_sanjiao.png'></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <!--我是有底线的 -->
+        <view class='baseline'>
+            <text>——</text>
+            <text>我是有底线的</text>
+            <text>——</text>
+        </view>
+    </form>
+</view>

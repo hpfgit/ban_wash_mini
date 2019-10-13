@@ -1,0 +1,88 @@
+<!--page/memberOrder/memberOrder.wxml-->
+<view class="page {{modal?'hidden':''}}">
+    <!--充值类型  -->
+    <view class='card'>
+        <image src='{{static}}/memberOrder_bg.png'></image>
+        <view class='content'>
+            <view class='type'>洗护卡</view>
+            <view class='sum'>充值金额：{{typeMoney}}元</view>
+        </view>
+    </view>
+    <!--购买人信息  -->
+    <view class='info'>
+        <view class='top'>
+            <view>购买人信息</view>
+            <view>为保障您的资金安全，购买洗护卡需要输入账户实名认证信息</view>
+        </view>
+        <view class='bottom' bindtap='modal'>
+            <text>谨防诈骗行为提醒</text>
+            <image src='{{static}}/right.png'></image>
+        </view>
+    </view>
+    <!--提醒模态框  -->
+    <view class='modal' wx:if="{{modal==true}}" bindtap='hide'>
+        <view class='box'>
+            <view class='img'>
+                <image src='{{static}}/member_notice.png'></image>
+            </view>
+            <view class='title'>
+                谨防诈骗信息提醒
+            </view>
+            <view class='content'>
+                <view>1.谨防扫描他人提供的支付二维码</view>
+                <view>2.谨防他人索要账户或洗护卡券密</view>
+                <view>3.一旦被骗，请立即报警并联系BAN客服，我们将配合您挽回受骗损失</view>
+                <view>4.非BAN官方授权渠道购买的洗护卡，有违法嫌疑时，我们有权中断洗护卡服务功能</view>
+                <view>5.请保持警惕，谨防被骗</view>
+            </view>
+        </view>
+    </view>
+    <!--用户信息  -->
+    <view class='user'>
+        <view class='name'>
+            <view>
+                姓名
+            </view>
+            <view wx:if="{{user_info.truename!=''}}">
+                {{user_info.truename}}
+            </view>
+            <input wx:else type='text' bindinput='trueName' value='{{trueName}}' placeholder='请输入真实姓名'></input>
+        </view>
+        <view class='idCard'>
+            <view>
+                身份证
+            </view>
+            <view wx:if="{{user_info.id_card!=''}}">
+                {{user_info.id_card}}
+            </view>
+            <input wx:else type='idcard' bindinput='idcard' value="{{id_card}}" placeholder="请输入身份证号"></input>
+        </view>
+    </view>
+    <!--发票  -->
+    <view class='invoice'>
+        <view class='left'>发票</view>
+        <view class='right'>
+            <text>如需发票请购买后联系客服</text>
+            <!-- <image src='{{static}}/right.png'></image> -->
+        </view>
+    </view>
+    <!--确认支付  -->
+    <view class='footer'>
+        <view class='left'>
+            <view class='top'>
+                <text class='text'>实付款</text>
+                <text class='little'>¥</text>
+                <text class='money'>{{typeMoney}}</text>
+                <!-- <text class='little'>.00</text> -->
+            </view>
+            <view class='bottom'>
+                <image src='{{static}}/member_budui.png' wx:if="{{!checked}}" bindtap='radioChange'></image>
+                <image src='{{static}}/member_dui.png' wx:elif="{{checked}}" bindtap='radioChange'></image>
+                <text class="{{checked?'active':''}}" bindtap='goZhangcheng'>我已阅读并同意《洗护卡章程》</text>
+            </view>
+        </view>
+        <view class='right'>
+            <button class='button' disabled='{{click}}' bindtap='submit'>确认支付</button>
+        </view>
+    </view>
+</view>

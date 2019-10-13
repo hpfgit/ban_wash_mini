@@ -1,0 +1,229 @@
+<!--pages/payment/payment.wxml-->
+<view class="page {{modal?'hidden':''}}">
+    <!--banner背景图  -->
+    <view class='banner'>
+        <image src='{{static}}/add_pay_banner.png'></image>
+    </view>
+    <!--升级状态  -->
+    <view class='state'>
+        <image src='{{static}}/add_pay_state_bg.png' class='bg'></image>
+        <image src='{{static}}/add_pay_upgrade.png' class='state-red' wx:if="{{data.level_up_status==1}}"></image>
+        <image src='{{static}}/add_pay_end.png' class='state-red' wx:elif="{{data.level_up_status==0}}"></image>
+        <image src='{{static}}/add_pay_rocket.png' class='rocket'></image>
+        <view class='goods-img'>
+            <image src='{{imgUrl}}{{left_image}}' mode='aspectFill'></image>
+        </view>
+        <view class='service'>
+            <view class='item' wx:for="{{server_name}}" wx:key="index" wx:for-item="item" wx:for-index="index">
+                {{item}}
+            </view>
+        </view>
+        <view class='text'>
+            我在BAN LAB球鞋洗护实验室邀请好友来升级，求帮助！
+        </view>
+    </view>
+    <!--会员级别  -->
+    <view class='level'>
+        <!--当前等级  -->
+        <view class='now-level'>
+            <view class='left'>
+                <text>当前级别：</text>
+                <image src='{{static}}/grade0.png' wx:if="{{data.user_level==0}}"></image>
+                <text wx:if="{{data.user_level==0}}">普通会员</text>
+                <image src='{{static}}/grade1.png' wx:if="{{data.user_level==1}}"></image>
+                <text wx:if="{{data.user_level==1}}">星会员</text>
+                <image src='{{static}}/grade2.png' wx:if="{{data.user_level==2}}"></image>
+                <text wx:if="{{data.user_level==2}}">黄金会员</text>
+                <image src='{{static}}/grade3.png' wx:if="{{data.user_level==3}}"></image>
+                <text wx:if="{{data.user_level==3}}">铂金会员</text>
+                <image src='{{static}}/grade4.png' wx:if="{{data.user_level==4}}"></image>
+                <text wx:if="{{data.user_level==4}}">钻石会员</text>
+                <image src='{{static}}/grade5.png' wx:if="{{data.user_level==5}}"></image>
+                <text wx:if="{{data.user_level==5}}">振金会员</text>
+            </view>
+            <view class='right' wx:if="{{time!='已结束'}}">
+                {{time}} 后结束
+            </view>
+            <view class='right' wx:else>
+                {{time}}
+            </view>
+        </view>
+        <!--等级条  -->
+        <view class='strip'>
+            <view class='level-name'>
+                <view class="item {{data.user_level==0?'levelBg':''}}">
+                    <text>普通</text>
+                </view>
+                <view class="item {{data.user_level==1?'levelBg':''}}">
+                    <text>星</text>
+                </view>
+                <view class="item {{data.user_level==2?'levelBg':''}}">
+                    <text>黄金</text>
+                </view>
+                <view class="item {{data.user_level==3?'levelBg':''}}">
+                    <text>铂金</text>
+                </view>
+                <view class="item {{data.user_level==4?'levelBg':''}}">
+                    <text>钻石</text>
+                </view>
+                <view class="item {{data.user_level==5?'levelBg':''}}">
+                    <image src='{{static}}/add_pay_crown.png' wx:if="{{data.user_level < 5}}"></image>
+                    <image src='../../images/huangguan_white.png' wx:else></image>
+                    <text>振金</text>
+                </view>
+            </view>
+            <view class='progress'>
+                <!-- <progress percent='50' active stroke-width='16' activeColor='#5e94f5' backgroundColor='#eee'></progress> -->
+                <view class='floor'>
+                    <view class='size' animation="{{animationGrade}}">
+                    </view>
+                </view>
+            </view>
+            <view class='prompt' wx:if="{{data.user_level <= 4 && data.user_level == 0}}">
+                再多{{data.need_points}}点经验将升至星会员
+            </view>
+            <view class='prompt' wx:if="{{data.user_level <= 4 && data.user_level == 1}}">
+                再多{{data.need_points}}点经验将升至黄金会员
+            </view>
+            <view class='prompt' wx:if="{{data.user_level <= 4 && data.user_level == 2}}">
+                再多{{data.need_points}}点经验将升至铂金会员
+            </view>
+            <view class='prompt' wx:if="{{data.user_level <= 4 && data.user_level == 3}}">
+                再多{{data.need_points}}点经验将升至钻石会员
+            </view>
+            <view class='prompt' wx:if="{{data.user_level <= 4 && data.user_level == 4}}">
+                再多{{data.need_points}}点经验将升至振金会员
+            </view>
+            <view class='prompt' wx:if="{{data.user_level >= 5}}">
+                您已经是尊贵的振金会员
+            </view>
+        </view>
+        <!--当前价格  -->
+        <view class='price'>
+            <image src='{{static}}/add_pay_now_price_yinyin.png' class='bg'></image>
+            <view class='now-price'>
+                <image src='{{static}}/add_pay_price.png'></image>
+                <view class='price-box'>
+                    <text>¥</text>
+                    <text>{{data.order_price}}</text>
+                </view>
+            </view>
+            <view class='now-text'>
+                <view class='left'>
+                    <text>当前价格</text>
+                    <text>升级会员更多折扣~</text>
+                </view>
+                <view class='right'>
+                    <image src='{{static}}/add_pay_youhui.png'></image>
+                    <view class='youhui-box'>
+                        <text>已优惠</text>
+                        <text>¥{{data.coupon_price}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <!--横线  -->
+        <view class='line'>
+        </view>
+        <!--会员等级table标  -->
+        <view class='table'>
+            <view class='thead'>
+                <view>会员等级</view>
+                <view>标洗/精洗</view>
+                <view>其他服务项目</view>
+            </view>
+            <view class='tbody' wx:for="{{table}}" wx:key="index" wx:if="{{index<5}}">
+                <view>{{item.level_name}}</view>
+                <view wx:if="{{item.wash_reduction == 10}}">无折扣</view>
+                <view wx:else>{{item.wash_reduction}}折</view>
+                <view wx:if="{{item.other_reduction == 10}}">无折扣</view>
+                <view wx:else>{{item.other_reduction}}折</view>
+            </view>
+            <view class='tbody' wx:for="{{table}}" wx:key="index" wx:if="{{index==5}}">
+                <view>{{item.level_name}}</view>
+                <view>劲爆价格</view>
+                <view>超低折扣</view>
+            </view>
+        </view>
+    </view>
+    <!--微信通知  -->
+    <view class='notice'>
+        <view class='left'>
+            <image src='{{static}}/add_pay_wx.png'></image>
+            <text>建议开启微信通知，订单详情随时知晓</text>
+        </view>
+        <!-- <view class='right'>
+            <image src='{{static}}/right.png'></image>
+        </view> -->
+    </view>
+    <!--分享规则  -->
+    <view class='rule'>
+        <view class='title'>
+            <text>—</text>
+            <text>分享规则</text>
+            <text>—</text>
+        </view>
+        <view class='content'>
+            <text>1.每邀请一位好友帮加速，即可获得随机份数经验值。</text>
+            <text>2.经验值仅用于本次订单的会员升级，享受更低折扣。</text>
+        </view>
+    </view>
+    <!--支付、邀请  -->
+    <view class='payment'>
+        <view class='pay' bindtap='pay' wx:if="{{data.is_already_pay==0}}">
+            前往支付
+        </view>
+        <view class='pay' wx:elif="{{data.is_already_pay==1}}">
+            已支付
+        </view>
+        <button open-type="share" hover-class='btn-hover' class='invite'>
+            <image src='{{static}}/add_pay_invite.png'></image>
+            <text>邀请好友来升级</text>
+        </button>
+    </view>
+    <!--支付弹窗 -->
+    <view class='modal' wx:if="{{modal == true}}">
+        <view class='box'>
+            <view class='title'>
+                <text>请选择支付方式</text>
+                <image src='{{static}}/add_pay_close.png' bindtap='close'></image>
+            </view>
+            <view class='money'>
+                ¥ {{data.order_price}}
+            </view>
+            <view class='yue item' data-index="1" bindtap='select'>
+                <view class='left'>
+                    <image src='{{static}}/add_pay_yue_type.png'></image>
+                    <text class="{{data.order_price>data.user_wallet_last_money?'noPay':''}}">余额支付(剩余 ¥{{data.user_wallet_last_money}})</text>
+                </view>
+                <view class='right'>
+                    <image src='{{static}}/add_pay_choose_no.png' wx:if="{{!yue}}"></image>
+                    <image src='{{static}}/add_pay_choose_yes.png' wx:else></image>
+                </view>
+            </view>
+            <view class='card item' data-index="2" bindtap='select'>
+                <view class='left'>
+                    <image src='{{static}}/add_pay_card_type.png'></image>
+                    <text class="{{data.order_price>data.user_carecard_last_money?'noPay':''}}">洗护卡支付(剩余 ¥{{data.user_carecard_last_money}})</text>
+                </view>
+                <view class='right'>
+                    <image src='{{static}}/add_pay_choose_no.png' wx:if="{{!card}}"></image>
+                    <image src='{{static}}/add_pay_choose_yes.png' wx:else></image>
+                </view>
+            </view>
+            <view class='card item' data-index="3" bindtap='select'>
+                <view class='left'>
+                    <image src='{{static}}/add_pay_wx_type.png'></image>
+                    <text>微信支付</text>
+                </view>
+                <view class='right'>
+                    <image src='{{static}}/add_pay_choose_no.png' wx:if="{{!wx}}"></image>
+                    <image src='{{static}}/add_pay_choose_yes.png' wx:else></image>
+                </view>
+            </view>
+            <view class='submit' bindtap='submit'>
+                立即支付
+            </view>
+        </view>
+    </view>
+</view>

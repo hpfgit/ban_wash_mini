@@ -1,0 +1,61 @@
+<!--pages/careCardOrder/careCardOrder.wxml-->
+<view class="page {{moudle==true?'hidden':''}}">
+    <view class='box'>
+        <!--电子卡  -->
+        <view class='E-card' wx:for="{{orders}}" wx:key="index" wx:for-item="item" wx:for-index="index">
+            <view class='date'>
+                <image src='{{static}}/buy_date.png'></image>
+                <text class='num'>{{item.nian}}</text>
+                <text class='num'>{{item.yue}}</text>
+            </view>
+            <view class='card' wx:for="{{item.items}}" wx:key="inx" wx:for-item="itm" wx:for-index="inx" wx:if="{{itm.order_type==2}}">
+                <view class='left'>
+                    <image src='{{static}}/E_card.png'></image>
+                    <view>¥
+                        <text>{{itm.give_pionts}}</text>
+                    </view>
+                </view>
+                <view class='middle'>
+                    <view class='top'>BAN洗护卡(电子卡)</view>
+                    <view class='bottom'>Sneaker Shower</view>
+                </view>
+                <view class='right' bindtap='see' data-number="{{itm.card_number}}">
+                    查看券密
+                </view>
+            </view>
+            <view class='direct' wx:for="{{item.items}}" wx:key="inx" wx:for-item="itm" wx:for-index="inx" wx:if="{{itm.order_type==1}}">
+                <view class='left'>
+                    <image src='{{static}}/direct.png'></image>
+                    <view>¥
+                        <text>{{itm.give_pionts}}</text>
+                    </view>
+                </view>
+                <view class='middle'>
+                    <view class='top'>BAN洗护卡(直存)</view>
+                    <view class='bottom'>Sneaker Shower</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!--短信验证码  -->
+    <view class='code' wx:if="{{moudle==true}}">
+        <view class='codeBox'>
+            <image src='{{static}}/collar_del.png' class='cancel' bindtap='cancel'></image>
+            <view class='title'>请填写收到的
+                <text>验证码</text>，验证身份</view>
+            <view class='inputCode'>
+                <input type='number' placeholder='请填写验证码' bindinput='captcha'></input>
+                <view class='num' wx:if="{{isCode==true}}">{{time}}</view>
+                <view class='again' wx:else bindtap='again'>重新发送</view>
+            </view>
+            <view class='submit' bindtap='submit'>
+                <image src='{{static}}/begin.png'></image>
+                <text>确认提交</text>
+            </view>
+        </view>
+    </view>
+    <!--暂无洗护卡订单  -->
+    <view class='noOrder' wx:if="{{orders==''}}">
+        暂无洗护卡订单
+    </view>
+</view>

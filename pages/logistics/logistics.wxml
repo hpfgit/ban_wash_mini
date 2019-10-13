@@ -1,0 +1,42 @@
+<!--pages/logistics/logistics.wxml-->
+<view class='page'>
+    <view class='order'>
+        <view class='img'>
+            <image src='{{imgData}}'></image>
+        </view>
+        <view class='info'>
+            <view wx:if="{{chenggong == 1 && data.delivery_status==1}}">物流状态：在途中</view>
+            <view wx:elif="{{chenggong == 1 && data.delivery_status==2}}">物流状态：正在派件</view>
+            <view wx:elif="{{chenggong == 1 && data.delivery_status==3}}">物流状态：已签收</view>
+            <view wx:elif="{{chenggong == 1 && data.delivery_status==4}}">物流状态：派送失败</view>
+            <!-- <view wx:if="{{chenggong == 1}}">承运公司：{{data.exp_name}}</view>
+            <view wx:if="{{chenggong == 0}}">承运公司：未查询到承运公司</view>
+            <view wx:if="{{chenggong == 1}}">订单编号：{{data.waybill_no}}</view>
+            <view wx:if="{{chenggong == 0}}">订单编号：{{express_no}}</view> -->
+            <view>承运公司：{{data.exp_name}}</view>
+            <view wx:if="{{chenggong == 1}}">订单编号：{{data.waybill_no}}</view>
+            <view wx:if="{{chenggong == 0}}">订单编号：{{express_no}}</view>
+        </view>
+    </view>
+    <view class='logistics'>
+        <view class='title'>物流信息</view>
+        <view class='items'>
+            <view class='item' wx:for="{{data.waybill_trace}}" wx:key="index" wx:for-item="item" wx:for-index="index">
+                <view class='round'></view>
+                <view class='content'>
+                    <view>
+                        <view class='text'>{{item.status}}</view>
+                        <view class='time'>{{item.time}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!--为查询到  -->
+    <view class='no' wx:if="{{chenggong==0}}">
+        未查询到物流中转信息
+    </view>
+    <!-- <view class='no'>
+        因顺丰官网对外只开放了部分单号的物流信息，故会造成部分顺丰单号我们无法获取物流信息。您可通过顺丰官网查询，因此造成的不便尽请谅解。
+    </view> -->
+</view>

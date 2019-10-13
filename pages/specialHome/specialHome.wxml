@@ -1,0 +1,83 @@
+<!--page/specialHome/specialHome.wxml-->
+
+<view class="page {{yongpin==true?'hidden':''}}">
+    <form bindsubmit='find' report-submit='true'>
+        <!--banner部分  -->
+        <view class='banner'>
+            <image src='{{static}}/zizhu_bg.png' class='bg'></image>
+            <button bindtap='kefu' class='custBtn' open-type="{{openType}}">
+                <image src='{{static}}/kefu.png' class='kefu'></image>
+            </button>
+            <!-- <button bindtap='kefu' form-type='submit' hover-class="btn-hover" wx:if="{{tixing==1}}" animation='{{animationKefu}}'>
+                <image src='{{static}}/kefu_gif.png' class='kefu'></image>
+            </button> -->
+            <view class='main'>
+                <view class='main-T'>
+                    自助服务
+                </view>
+                <view class='main-C'>
+                    选择任意服务均需默认选择精洗服务，未进行完全清洗的鞋子会影响修复程度
+                </view>
+            </view>
+        </view>
+        <!--选项部分  -->
+        <view class='choose'>
+            <view class='options'>
+                <view class='item' wx:for="{{data}}" wx:key="index">
+                    <image src='{{static}}/choose.png'></image>
+                    <text>{{item.text}}</text>
+                </view>
+            </view>
+            <view class='xiadan' bindtap='xiadan'>
+                <view class='order'>
+                    自助下单
+                </view>
+            </view>
+        </view>
+        <!--自助下单流程  -->
+        <view class='flow'>
+            <view class='top'>
+                <image src='{{static}}/flow.png'></image>
+                <text>自助下单流程</text>
+            </view>
+            <view class='content'>
+                <text>1.提交需求单</text>
+                <image src='{{static}}/jiantou.png'></image>
+                <text>2.邮寄至平台</text>
+                <image src='{{static}}/jiantou.png'></image>
+                <text>3.工作人员将在签收后12小时内根据您所选服务项目来评估价格</text>
+                <image src='{{static}}/jiantou.png'></image>
+                <text>4.选择方案并付款</text>
+                <image src='{{static}}/jiantou.png'></image>
+                <text>5.开始修复</text>
+            </view>
+        </view>
+        <!--tabbar  -->
+        <view class='footer'>
+            <button class='footer-item' bindtap='goClean' form-type='submit' hover-class="btn-hover">
+                <image src='../../images/918_clear.png'></image>
+                <view>精洗修复</view>
+            </button>
+            <button class='footer-item' bindtap='goYongpin' form-type='submit' hover-class="btn-hover">
+                <image src='../../images/918_yongpin.png'></image>
+                <view>洗护用品</view>
+            </button>
+            <!-- <button class='footer-item' bindtap='colorChange' form-type='submit' hover-class="btn-hover">
+                <image src='{{static}}/gaise.png'></image>
+                <view>改色补色</view>
+            </button>
+            <button class='footer-item' bindtap='goXiuFu' form-type='submit' hover-class="btn-hover">
+                <image src='{{static}}/xiufu.png'></image>
+                <view>修复洗护</view>
+            </button> -->
+            <button class='footer-item' bindtap='cleanOrder' form-type='submit' hover-class="btn-hover">
+                <image src='../../images/918_order.png'></image>
+                <view>洗护订单</view>
+            </button>
+        </view>
+        <!--洗护用品  -->
+        <view class='yongpin' wx:if="{{yongpin == true}}" bindtap='yongpin'>
+            <image src='{{static}}/xihu_big.png'></image>
+        </view>
+    </form>
+</view>

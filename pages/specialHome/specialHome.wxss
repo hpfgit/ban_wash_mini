@@ -1,0 +1,218 @@
+/* page/specialHome/specialHome.wxss */
+
+page {
+    width: 100%;
+    height: 100%;
+    background-color: #eef1f4;
+}
+
+.hidden {
+    height: 100%;
+    overflow-y: hidden;
+}
+
+.page {
+    padding-bottom: 126rpx;
+}
+
+.banner {
+    width: 100%;
+    height: 600rpx;
+    position: relative;
+}
+
+.banner .bg {
+    width: 100%;
+    height: 100%;
+}
+
+.banner button {
+    width: 66rpx;
+    height: 66rpx;
+    position: absolute;
+    top: 24rpx;
+    right: 24rpx;
+}
+
+.banner .kefu {
+    width: 66rpx;
+    height: 66rpx;
+    /* position: absolute;
+    top: 12rpx;
+    right: 24rpx; */
+}
+
+.banner .main {
+    position: absolute;
+    top: 340rpx;
+    left: 37rpx;
+}
+
+.banner .main .main-T {
+    font-size: 36rpx;
+    font-weight: 600;
+    color: #5e95f4;
+    text-shadow: #ccc 0.1em 0.1em 0.2em;
+}
+
+.banner .main .main-C {
+    padding-right: 43rpx;
+    box-sizing: border-box;
+    font-size: 24rpx;
+    color: #5e95f4;
+    line-height: 30rpx;
+    margin-top: 20rpx;
+}
+
+/*选择部分  */
+
+.choose {
+    width: 710rpx;
+    background-color: #fff;
+    margin: -96rpx auto 0;
+    border-radius: 10rpx;
+    position: relative;
+    z-index: 9;
+    box-shadow: 0rpx 0rpx 20rpx #ccc;
+}
+
+.choose .options {
+    padding: 39rpx 20rpx 11rpx;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border-bottom: 1rpx solid #eef1f4;
+}
+
+.choose .options .item {
+    width: 33.33%;
+    line-height: 25rpx;
+    margin-bottom: 29rpx;
+}
+
+.choose .options .item image {
+    width: 16rpx;
+    height: 16rpx;
+    margin-right: 12rpx;
+}
+
+.choose .options .item text {
+    font-size: 26rpx;
+    color: #282828;
+}
+
+.choose .xiadan {
+    padding: 30rpx 0;
+}
+
+.choose .xiadan .order {
+    width: 630rpx;
+    height: 74rpx;
+    text-align: center;
+    line-height: 74rpx;
+    background-color: #5e95f4;
+    border-radius: 8rpx;
+    margin: 0 auto;
+    font-size: 28rpx;
+    color: #fff;
+}
+
+/*自助下单流程  */
+
+.flow {
+    width: 100%;
+    background-color: #fff;
+    margin-top: 18rpx;
+    /* padding-bottom: 126rpx; */
+}
+
+.flow .top {
+    width: 210rpx;
+    height: 47rpx;
+    margin: 0 auto;
+    position: relative;
+}
+
+.flow .top image {
+    width: 100%;
+    height: 100%;
+}
+
+.flow .top text {
+    font-size: 26rpx;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -78rpx;
+    margin-top: -17rpx;
+}
+
+.flow .content {
+    text-align: center;
+    padding: 40rpx 26rpx;
+    box-sizing: border-box;
+    font-size: 26rpx;
+    color: #282828;
+    line-height: 40rpx;
+}
+
+.flow .content image {
+    width: 20rpx;
+    height: 12rpx;
+    margin-left: 23rpx;
+    margin-right: 12rpx;
+    vertical-align: middle;
+    margin-top: -4rpx;
+}
+
+/*底部导航栏  */
+
+.footer {
+    position: fixed;
+    bottom: 58rpx;
+    left: 50%;
+    width: 652rpx;
+    height: 106rpx;
+    margin-left: -326rpx;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 53rpx;
+}
+
+.footer .footer-item image {
+    width: 36rpx;
+    height: 38rpx;
+}
+
+.footer .footer-item view {
+    font-size: 22rpx;
+    color: #fff;
+}
+
+
+/*洗护用品  */
+
+.yongpin {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9;
+}
+
+.yongpin image {
+    width: 630rpx;
+    height: 494rpx;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -315rpx;
+    margin-top: -247rpx;
+}

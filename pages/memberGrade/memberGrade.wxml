@@ -1,0 +1,80 @@
+<!--page/memberGrade/memberGrade.wxml-->
+<view class='page'>
+    <!--banner  -->
+    <view class='banner'>
+        <image src='{{static}}/memberGrade_bg.png' class='bg'></image>
+        <view class='rule'>
+            <navigator url="/pages/rankRule/rankRule" hover-class="other-navigator-hover">
+                <text>等级规则</text>
+            </navigator>
+        </view>
+        <view class='name'>
+            {{user_info.level_name}}
+        </view>
+        <view class='time' wx:if="{{user_info.level_end_time!=null}}">
+            有效期至{{user_info.level_end_time}}
+        </view>
+        <view class='bar'>
+            <view class='move' style="position:absolute;left:{{percent}}%;top:0;">{{num}}
+                <image src='{{static}}/memberGrade_sanjiao.png'></image>
+            </view>
+            <progress percent="{{percent}}" active stroke-width="5" activeColor="#78a3f1" backgroundColor="#33465f" />
+            <view class='fixed' wx:if="{{total>=2000}}">{{total}}+</view>
+            <view class='fixed' wx:else>{{total}}</view>
+        </view>
+        <view class='remind' wx:if="{{num<2000}}">
+            <text class='one'>升级</text>
+            <text class='two'>再获取{{user_info.next_level_need_points}}积分升级成为{{user_info.next_level_name}}</text>
+        </view>
+        <view class='prompt'>
+            <view class='left'>
+                提示：有效期更新后等级积分重新计算
+            </view>
+            <view class='right' bindtap='look_info'>
+                <text>查看详情</text>
+                <image src='{{static}}/more.png'></image>
+            </view>
+        </view>
+    </view>
+    <!--智能分析  -->
+    <view class='analysis'>
+        <view class='title'>
+            <text class='line'></text>
+            <text class='text'>智能分析</text>
+            <text class='line'></text>
+        </view>
+        <view class='contrast'>
+            与钻石会员对比
+        </view>
+        <view class='discount'>
+            <image class='left' src='{{static}}/left_yinhao.png'></image>
+            <image class='right' src='{{static}}/right_yinhao.png'></image>
+            <text>根据BAN用户消费，成为钻石会员一年可为您节省共3770元</text>
+        </view>
+        <view class='table'>
+            <view class='th'>
+                <view>优惠服务项目</view>
+                <view>优惠金额</view>
+            </view>
+            <view class='tb'>
+                <view>可享清洁优惠</view>
+                <view>¥ 680</view>
+            </view>
+            <view class='tb'>
+                <view>可省修复费用</view>
+                <view>¥ 2685</view>
+            </view>
+            <view class='tb'>
+                <view>可享活动专属优惠</view>
+                <view>¥ 400</view>
+            </view>
+            <view class='tf'>
+                <view>成为钻石会员一年为您节省¥3770元</view>
+            </view>
+        </view>
+        <view class='integral' bindtap='integral'>
+            <image src='{{static}}/begin.png'></image>
+            <text>立即获取更多积分</text>
+        </view>
+    </view>
+</view>

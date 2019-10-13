@@ -1,0 +1,261 @@
+<!--pages/payShare/payShare.wxml-->
+<view class="page {{draw==true?'hidden':''}} {{Doubling==true?'hidden':''}} {{success==true?'hidden':''}}">
+    <!--banner背景图  -->
+    <view class='banner'>
+        <image src='{{static}}/add_pay_banner.png'></image>
+    </view>
+    <!--升级状态  -->
+    <view class='state'>
+        <image src='{{static}}/add_pay_state_bg.png' class='bg'></image>
+        <image src='{{static}}/add_pay_upgrade.png' class='state-red' wx:if="{{data.level_up_status==1}}"></image>
+        <image src='{{static}}/add_pay_end.png' class='state-red' wx:elif="{{data.level_up_status==0}}"></image>
+        <image src='{{static}}/add_pay_rocket.png' class='rocket'></image>
+        <view class='goods-img'>
+            <image src='{{imgUrl}}{{left_image}}' mode='aspectFill'></image>
+        </view>
+        <view class='service'>
+            <view class='item' wx:for="{{server_name}}" wx:key="index" wx:for-item="item" wx:for-index="index">
+                {{item}}
+            </view>
+        </view>
+        <view class='text'>
+            我在BAN LAB球鞋洗护实验室邀请好友来升级，求帮助！
+        </view>
+    </view>
+    <!--会员级别  -->
+    <view class='level'>
+        <!--当前等级  -->
+        <view class='now-level'>
+            <view class='left'>
+                <text>当前级别：</text>
+                <image src='{{static}}/grade0.png' wx:if="{{data.user_level==0}}"></image>
+                <text wx:if="{{data.user_level==0}}">普通会员</text>
+                <image src='{{static}}/grade1.png' wx:if="{{data.user_level==1}}"></image>
+                <text wx:if="{{data.user_level==1}}">星会员</text>
+                <image src='{{static}}/grade2.png' wx:if="{{data.user_level==2}}"></image>
+                <text wx:if="{{data.user_level==2}}">黄金会员</text>
+                <image src='{{static}}/grade3.png' wx:if="{{data.user_level==3}}"></image>
+                <text wx:if="{{data.user_level==3}}">铂金会员</text>
+                <image src='{{static}}/grade4.png' wx:if="{{data.user_level==4}}"></image>
+                <text wx:if="{{data.user_level==4}}">钻石会员</text>
+                <image src='{{static}}/grade5.png' wx:if="{{data.user_level==5}}"></image>
+                <text wx:if="{{data.user_level==5}}">振金会员</text>
+            </view>
+            <view class='right' wx:if="{{time!='已结束'}}">
+                {{time}} 后结束
+            </view>
+            <view class='right' wx:else>
+                {{time}}
+            </view>
+        </view>
+        <!--等级条  -->
+        <view class='strip'>
+            <view class='level-name'>
+                <view class="item {{data.user_level==0?'levelBg':''}}">
+                    <text>普通</text>
+                </view>
+                <view class="item {{data.user_level==1?'levelBg':''}}">
+                    <text>星</text>
+                </view>
+                <view class="item {{data.user_level==2?'levelBg':''}}">
+                    <text>黄金</text>
+                </view>
+                <view class="item {{data.user_level==3?'levelBg':''}}">
+                    <text>铂金</text>
+                </view>
+                <view class="item {{data.user_level==4?'levelBg':''}}">
+                    <text>钻石</text>
+                </view>
+                <view class="item {{data.user_level==5?'levelBg':''}}">
+                    <image src='{{static}}/add_pay_crown.png' wx:if="{{data.user_level < 5}}"></image>
+                    <image src='../../images/huangguan_white.png' wx:else></image>
+                    <text>振金</text>
+                </view>
+            </view>
+            <view class='progress'>
+                <!-- <progress percent='50' active stroke-width='16' activeColor='#5e94f5' backgroundColor='#eee'></progress> -->
+                <view class='floor'>
+                    <view class='size' animation="{{animationGrade}}">
+                    </view>
+                </view>
+            </view>
+            <view class='prompt' wx:if="{{data.user_level <= 4 && data.user_level == 0}}">
+                再多{{data.need_points}}点经验将升至星会员
+            </view>
+            <view class='prompt' wx:if="{{data.user_level <= 4 && data.user_level == 1}}">
+                再多{{data.need_points}}点经验将升至黄金会员
+            </view>
+            <view class='prompt' wx:if="{{data.user_level <= 4 && data.user_level == 2}}">
+                再多{{data.need_points}}点经验将升至铂金会员
+            </view>
+            <view class='prompt' wx:if="{{data.user_level <= 4 && data.user_level == 3}}">
+                再多{{data.need_points}}点经验将升至钻石会员
+            </view>
+            <view class='prompt' wx:if="{{data.user_level <= 4 && data.user_level == 4}}">
+                再多{{data.need_points}}点经验将升至振金会员
+            </view>
+            <view class='prompt' wx:if="{{data.user_level >= 5}}">
+                您已经是尊贵的振金会员
+            </view>
+        </view>
+        <!--横线  -->
+        <view class='line'>
+        </view>
+        <!--立即帮他升级  -->
+        <view class='upgrade' bindtap='upgrade' wx:if="{{more == false}}">
+            <image src='{{static}}/begin.png'></image>
+            <text>立即帮TA升级</text>
+        </view>
+        <!--帮他找更多人加速  -->
+        <button open-type="share" hover-class='btn-hover' id='1' class='morePeople' wx:if="{{more == true}}">
+            帮TA找更多人升级
+        </button>
+        <view class='beginClean' bindtap='goClean' wx:if="{{more == true}}">
+            <image src='{{static}}/begin.png'></image>
+            <text>开始洗护</text>
+        </view>
+    </view>
+    <!--宣传图  -->
+    <view class='xuanchuan'>
+        <image src='{{static}}/add_pay_xuanchuan.png'></image>
+    </view>
+    <!--如何使用BAN小程序  -->
+    <view class='use'>
+        <view class='title'>
+            如何使用BAN微信小程序？
+        </view>
+        <view class='item'>
+            <view class='top'>
+                <text class='spot'></text>
+                <text>首页下拉可以看到最近使用的小程序</text>
+            </view>
+            <view class='bottom'>
+                <image src='{{static}}/add_pay_open1.png'></image>
+            </view>
+        </view>
+        <view class='item'>
+            <view class='top'>
+                <text class='spot'></text>
+                <text>发现入口-小程序列表可直接搜索 [ <text class='italic'>BAN LAB球鞋洗护实验室</text> ] 小程序
+                </text>
+            </view>
+            <view class='bottom'>
+                <image src='{{static}}/add_pay_open2.png'></image>
+            </view>
+        </view>
+        <view class='item'>
+            <view class='top'>
+                <text class='spot'></text>
+                <view>点击右上角
+                    <image src='{{static}}/add_pay_dian.png'></image>添加小程序到桌面</view>
+            </view>
+            <view class='bottom'>
+                <image src='{{static}}/add_pay_open3.png'></image>
+            </view>
+        </view>
+    </view>
+    <!--抽奖  -->
+    <view class='animation' wx:if="{{draw==true}}">
+        <view class='box'>
+            <image src='{{static}}/add_pay_blue_rocket.png' class='rocket'></image>
+            <view class='title'>
+                正在帮您的好友抽取经验值...
+            </view>
+            <view class='content'>
+                <view class="{{index == indexSelect?'active item':'item'}}" wx:for="{{priceInfo.jiangpin}}" wx:key="index" wx:for-item="item" wx:for-index="index">
+                    <view class='top'>
+                        <text>{{item.prize}}</text>
+                        <text>点</text>
+                    </view>
+                    <view class='bottom'>
+                        经验值
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!--分享翻倍  -->
+    <view class='doubling' bindtap='hide' wx:if="{{Doubling==true}}">
+        <view class='box'>
+            <image src='{{static}}/add_pay_blue_rocket.png' class='rocket'></image>
+            <view class='text1'>
+                <text>—</text>
+                <text>帮好友获得{{priceInfo.yes.prize}}点经验值</text>
+                <text>—</text>
+            </view>
+            <view class='text2'>
+                好友回赠一个{{priceInfo.user_coupon_info.usage}}
+            </view>
+            <view class='voucher'>
+                <view class='left'>
+                    <image src='{{static}}/add_pay_voucher_left.png'></image>
+                    <view class='top'>
+                        <text>¥</text>
+                        <text>{{priceInfo.user_coupon_info.rule_deduct}}</text>
+                    </view>
+                    <view class='bottom'>
+                        满69元可用
+                    </view>
+                </view>
+                <view class='right'>
+                    <view class='top'>
+                        <image src='{{static}}/add_pay_voucher_right.png'></image>
+                        <text>球鞋洗护券</text>
+                    </view>
+                    <view class='bottom'>
+                        每人仅限领取一次
+                    </view>
+                </view>
+            </view>
+            <button open-type="share" hover-class='btn-hover' id='2' class='share'>
+                <image src='{{static}}/begin.png'></image>
+                <text>分享翻倍</text>
+            </button>
+            <view class='next' bindtap='cancel'>
+                <text>前往洗护</text>
+            </view>
+        </view>
+    </view>
+    <!--分享成功 -->
+    <view class='success' wx:if="{{success==true}}">
+        <view class='box'>
+            <image src='{{static}}/add_pay_blue_rocket.png' class='rocket'></image>
+            <view class='text1'>
+                <text>—</text>
+                <text>分享成功 洗护券额已翻倍</text>
+                <text>—</text>
+            </view>
+            <view class='text2'>
+                洗护券已放入BAN账户
+            </view>
+            <view class='voucher'>
+                <view class='left'>
+                    <image src='{{static}}/add_pay_voucher_left.png'></image>
+                    <view class='top'>
+                        <text>¥</text>
+                        <text>{{coupons.coupon.rule_deduct}}</text>
+                    </view>
+                    <view class='bottom'>
+                        满69元可用
+                    </view>
+                </view>
+                <view class='right'>
+                    <view class='top'>
+                        <image src='{{static}}/add_pay_voucher_right.png'></image>
+                        <text>球鞋洗护券</text>
+                    </view>
+                    <view class='bottom'>
+                        每人仅限领取一次
+                    </view>
+                </view>
+            </view>
+            <view class='share' bindtap='goClean'>
+                <image src='{{static}}/begin.png'></image>
+                <text>开始洗护</text>
+            </view>
+            <view class='next' bindtap='cancel'>
+                <text>下次再说</text>
+            </view>
+        </view>
+    </view>
+</view>

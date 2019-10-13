@@ -1,0 +1,2 @@
+<!--pages/chatPage/chatPage.wxml-->
+<web-view src='{{url}}' bindmessage="test"></web-view>

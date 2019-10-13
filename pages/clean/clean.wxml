@@ -1,0 +1,515 @@
+<view class="page {{flow==true?'hidden':''}} {{service==true?'hidden':''}} {{yongpin==true?'hidden':''}} {{modal==true?'hidden':''}}">
+  <form bindsubmit='find' report-submit='true'>
+    <view class='top'>
+      <swiper class="swiper" circular='true' autoplay="true" interval="5000" duration="1000" indicator-color='#9aa1ab' indicator-active-color='#fff'>
+        <block wx:for="{{image}}" wx:for-index="index" wx:key="index">
+          <swiper-item>
+            <image src="{{imgUrl}}{{item.path}}" class="slide-image" bindtap='show' />
+          </swiper-item>
+        </block>
+      </swiper>
+      <button bindtap='kefu' class='custBtn' open-type="{{openType}}">
+        <image src='{{static}}/kefu.png' class='kefu'></image>
+      </button>
+    </view>
+    <!--清洗选择  -->
+    <view class='table-a'>
+      <view class="tab {{tab==1?'select':''}}" bindtap='tabSwitchSingle'>
+        <image src='{{static}}/bg.png' wx:if="{{tab==1}}"></image>
+        <text>单双清洗</text>
+      </view>
+      <view class="tab {{tab == 2?'select':''}}" bindtap='tabSwitchMuch'>
+        <image src='{{static}}/bg.png' wx:if="{{tab==2}}"></image>
+        <text>多双清洗</text>
+      </view>
+      <view class='tab' bindtap="sendToStore">送至门店</view>
+    </view>
+    <!--球鞋材质选择(单双)  -->
+    <view class='single' wx:if="{{tab==1}}">
+      <view class='swiper-tab'>
+        <view class="swiper-tab-item{{currentTab==0?' active ':' '}}" data-current="0" bindtap='clickTab'>皮质面料</view>
+        <view class="swiper-tab-item{{currentTab==1?' active ':' '}}" data-current="1" bindtap='clickTab'>翻毛皮</view>
+        <view class="swiper-tab-item{{currentTab==2?' active ':' '}}" data-current="2" bindtap='clickTab'>其他面料</view>
+      </view>
+      <swiper current="{{currentTab}}" duration="300" bindchange="swiperTab" style='height:{{winHeight}}rpx;'>
+        <swiper-item>
+          <view class='pizhi'>
+            <view class='content'>
+              <!-- <view class='picker' bindtap='chooseWash'> -->
+              <view class='picker'>
+                <text>{{priceArr.PZ.name}}</text>
+              </view>
+              <view class='attach' bindtap='attach'>
+                <text wx:if="{{priceArr.PZ.num == ''}}">附加服务</text>
+                <text wx:else class='checked'>附加服务({{priceArr.PZ.num}})</text>
+                <image src='{{static}}/right.png'></image>
+              </view>
+            </view>
+          </view>
+        </swiper-item>
+        <swiper-item>
+          <view class='pizhi'>
+            <view class='content'>
+              <!-- <view class='picker' bindtap='chooseWash'> -->
+              <view class='picker'>
+                <text>{{priceArr.PK.name}}</text>
+              </view>
+              <view class='attach' bindtap='attach'>
+                <text wx:if="{{priceArr.PK.num == ''}}">附加服务</text>
+                <text wx:else class='checked'>附加服务({{priceArr.PK.num}})</text>
+                <image src='{{static}}/right.png'></image>
+              </view>
+            </view>
+          </view>
+        </swiper-item>
+        <swiper-item>
+          <view class='pizhi'>
+            <view class='content'>
+              <!-- <view class='picker' bindtap='chooseWash'> -->
+              <view class='picker'>
+                <text>{{priceArr.SP.name}}</text>
+              </view>
+              <view class='attach' bindtap='attach'>
+                <text wx:if="{{priceArr.SP.num == ''}}">附加服务</text>
+                <text wx:else class='checked'>附加服务({{priceArr.SP.num}})</text>
+                <image src='{{static}}/right.png'></image>
+              </view>
+            </view>
+          </view>
+        </swiper-item>
+      </swiper>
+      <view class='submit' bindtap='singleSubmit'>
+        <image src='{{static}}/xiadan.png'></image>
+        <view class='xiadan'>共￥{{money}}元
+          <text><text wx:if="{{reason != ''}}" class="old_price">￥{{oldMoney}}</text>|</text>去下单</view>
+        <image src='{{static}}/change_clean_seven.png' class='eight'></image>
+        <view wx:if="{{reason != ''}}" class="zk">
+          <image src="../../images/zk_bg.png"></image>
+          {{reason}}
+        </view>
+      </view>
+    </view>
+    <!--球鞋材质选择(多双)  -->
+    <view class='temp' wx:if="{{tab==2}}">
+      <view wx:for="{{morePriceArr}}" wx:key="index" wx:for-item="item" wx:for-index="index">
+        <view class='swiper-tab'>
+          <view class='num'>{{index+1}}</view>
+          <view class="swiper-tab-item{{item.currentTab==0?' active ':' '}}" data-current="0" data-index="{{index}}" bindtap='clickTabMuch'>皮质面料</view>
+          <view class="swiper-tab-item{{item.currentTab==1?' active ':' '}}" data-current="1" data-index="{{index}}" bindtap='clickTabMuch'>翻毛皮</view>
+          <view class="swiper-tab-item{{item.currentTab==2?' active ':' '}}" data-current="2" data-index="{{index}}" bindtap='clickTabMuch'>其他面料</view>
+          <view class='remove' wx:if="{{index != 0}}" data-index='{{index}}' bindtap='remove'>
+            <image src='/images/920_close.png'></image>
+          </view>
+        </view>
+        <swiper current="{{item.currentTab}}" duration="500" data-index='{{index}}' bindchange="swiperTabMuch" style='height:{{winHeight}}rpx'>
+          <swiper-item>
+            <view class='pizhi'>
+              <view class='content'>
+                <!-- <view class='picker' data-index="{{index}}" bindtap='chooseWashMore'> -->
+                <view class='picker'>
+                  <text>{{item.PZ.name}}</text>
+                </view>
+                <view class='attach' data-index="{{index}}" bindtap='attachMuch'>
+                  <text wx:if="{{item.PZ.num == ''}}">附加服务</text>
+                  <text wx:else class='checked'>附加服务({{item.PZ.num}})</text>
+                  <image src='{{static}}/right.png'></image>
+                </view>
+              </view>
+            </view>
+          </swiper-item>
+          <swiper-item>
+            <view class='pizhi'>
+              <view class='content'>
+                <!-- <view class='picker' data-index="{{index}}" bindtap='chooseWashMore'> -->
+                <view class='picker'>
+                  <text>{{item.PK.name}}</text>
+                </view>
+                <view class='attach' data-index="{{index}}" bindtap='attachMuch'>
+                  <text wx:if="{{item.PK.num == ''}}">附加服务</text>
+                  <text wx:else class='checked'>附加服务({{item.PK.num}})</text>
+                  <image src='{{static}}/right.png'></image>
+                </view>
+              </view>
+            </view>
+          </swiper-item>
+          <swiper-item>
+            <view class='pizhi'>
+              <view class='content'>
+                <!-- <view class='picker' data-index="{{index}}" bindtap='chooseWashMore'> -->
+                <view class='picker'>
+                  <text>{{item.SP.name}}</text>
+                </view>
+                <view class='attach' data-index="{{index}}" bindtap='attachMuch'>
+                  <text wx:if="{{item.SP.num == ''}}">附加服务</text>
+                  <text wx:else class='checked'>附加服务({{item.SP.num}})</text>
+                  <image src='{{static}}/right.png'></image>
+                </view>
+              </view>
+            </view>
+          </swiper-item>
+        </swiper>
+      </view>
+      <view class='btnBox'>
+        <view class='add' bindtap='add'>
+          <image src='{{static}}/add.png'></image>
+          <text>再加一双</text>
+        </view>
+        <view class='empty' bindtap='empty'>
+          <text>清空列表</text>
+        </view>
+      </view>
+      <view class='submit' bindtap='moreSubmit'>
+        <image src='{{static}}/xiadan.png'></image>
+        <view class='xiadan'>共{{moneyMuch}}元
+          <text><text wx:if="{{reason != ''}}" class="old_price">￥{{old_moneyMuch}}</text>|</text>去下单</view>
+        <image src='{{static}}/change_clean_seven.png' class='eight'></image>
+        <view wx:if="{{reason != ''}}" class="zk">
+          <image src="../../images/zk_bg.png"></image>
+          {{reason}}
+        </view>
+      </view>
+    </view>
+    <!--标洗/精洗（单双）  -->
+    <view class='wash' wx:if="{{wash}}" bindtap='hideWash'>
+      <view class='box' animation='{{animationData}}' wx:for="{{data}}" wx:key="index" wx:for-item="item" wx:for-index="index" wx:if="{{item.id==1}}">
+        <view class='title'>标洗/精洗</view>
+
+        <view class='option' wx:for="{{item.item}}" wx:key="inx" wx:for-item="itm" wx:index="inx">
+
+          <view wx:if="{{currentTab == 0 && itm.pz_is_show==1}}" data-text="{{itm.item_name}}" bindtap='chooseText' data-server_service_id="{{item.server_service_id}}" data-service_id="{{itm.id}}" data-service_name="{{item.name}}" data-material="{{currentTab+1}}"
+            data-item="{{itm.id}}" data-service="{{itm.service_id}}">{{itm.item_name}}</view>
+          <!-- <view wx:elif="{{currentTab == 0 && itm.pz_is_show==0}}">{{itm.item_name}}(暂不支持)</view> -->
+
+          <view wx:if="{{currentTab == 1 && itm.pk_is_show==1}}" data-text="{{itm.item_name}}" bindtap='chooseText' data-server_service_id="{{item.server_service_id}}" data-service_id="{{itm.id}}" data-service_name="{{item.name}}" data-material="{{currentTab+1}}"
+            data-item="{{itm.id}}" data-service="{{itm.service_id}}">{{itm.item_name}}</view>
+          <!-- <view wx:elif="{{currentTab == 1 && itm.pk_is_show==0}}">{{itm.item_name}}(暂不支持)</view> -->
+
+          <view wx:if="{{currentTab == 2 && itm.sp_is_show==1}}" data-text="{{itm.item_name}}" bindtap='chooseText' data-server_service_id="{{item.server_service_id}}" data-service_id="{{itm.id}}" data-service_name="{{item.name}}" data-material="{{currentTab+1}}"
+            data-item="{{itm.id}}" data-service="{{itm.service_id}}">{{itm.item_name}}</view>
+          <!-- <view wx:elif="{{currentTab == 2 && itm.sp_is_show==0}}">{{itm.item_name}}(暂不支持)</view> -->
+        </view>
+      </view>
+    </view>
+    <!--标洗/精洗(多双)  -->
+    <view class='wash' wx:if="{{washMuch}}" bindtap='hideWash'>
+      <view class='items' wx:if="{{indexClean==indexs}}" wx:for="{{morePriceArr}}" wx:for-item="items" wx:key="indexs" wx:for-index="indexs">
+        <view class='box' animation='{{animationData}}' wx:for="{{data}}" wx:key="index" wx:for-item="item" wx:for-index="index" wx:if="{{item.id==1}}">
+          <view class='title'>标洗/精洗</view>
+
+          <view class='option' wx:for="{{item.item}}" wx:key="inx" wx:for-item="itm" wx:index="inx">
+            <view wx:if="{{items.currentTab == 0 && itm.pz_is_show==1}}" data-text="{{itm.item_name}}" bindtap='chooseTextMuch' data-indexs="{{indexs}}" data-server_service_id="{{item.server_service_id}}" data-service_name="{{item.name}}" data-item_name="{{itm.item_name}}"
+              data-material="{{items.currentTab+1}}" data-item="{{itm.id}}" data-service="{{itm.service_id}}">{{itm.item_name}}</view>
+            <!-- <view wx:elif="{{items.currentTab == 0 && itm.pz_is_show==0}}">{{itm.item_name}}(暂不支持)</view> -->
+
+            <view wx:if="{{items.currentTab == 1 && itm.pk_is_show==1}}" data-text="{{itm.item_name}}" bindtap='chooseTextMuch' data-indexs="{{indexs}}" data-server_service_id="{{item.server_service_id}}" data-service_name="{{item.name}}" data-item_name="{{itm.item_name}}"
+              data-material="{{items.currentTab+1}}" data-item="{{itm.id}}" data-service="{{itm.service_id}}">{{itm.item_name}}</view>
+            <!-- <view wx:elif="{{items.currentTab == 1 && itm.pk_is_show==0}}">{{itm.item_name}}(暂不支持)</view> -->
+
+            <view wx:if="{{items.currentTab == 2 && itm.sp_is_show==1}}" data-text="{{itm.item_name}}" bindtap='chooseTextMuch' data-indexs="{{indexs}}" data-server_service_id="{{item.server_service_id}}" data-service_name="{{item.name}}" data-item_name="{{itm.item_name}}"
+              data-material="{{items.currentTab+1}}" data-item="{{itm.id}}" data-service="{{itm.service_id}}">{{itm.item_name}}</view>
+            <!-- <view wx:elif="{{items.currentTab == 2 && itm.sp_is_show==0}}">{{itm.item_name}}(暂不支持)</view> -->
+          </view>
+        </view>
+      </view>
+    </view>
+    <!--单双附加服务  -->
+    <view class='addService' wx:if="{{service == true}}">
+      <view class='box'>
+        <view class='title'>
+          附加服务
+        </view>
+        <view class='content'>
+          <view class='item' wx:for="{{data}}" wx:for-item="item" wx:for-index="index" wx:key="index" wx:if="{{item.id==10}}">
+            <view class='top'>
+              <image src='{{static}}/addService1.png'></image>
+              <text>{{item.name}}</text>
+            </view>
+            <view class='bottom'>
+              <view wx:for="{{item.item}}" wx:key="indx" wx:for-item="itm" wx:for-index="inx">
+                <text wx:if="{{currentTab == 0 && itm.pz_is_show == 1}}" class="{{itm.singlePZ?'addActive':''}}" bindtap='servierChoose1' data-name='{{itm.item_name}}' data-itemid='{{item.id}}'>{{itm.item_name}}</text>
+                <text wx:if="{{currentTab == 0 && itm.pz_is_show == 0}}" data-name='{{itm.item_name}}' data-itemid='{{item.id}}'>{{itm.item_name}}(暂不支持)</text>
+                <text wx:if="{{currentTab == 1 && itm.pk_is_show == 1}}" class="{{itm.singlePK?'addActive':''}}" bindtap='servierChoose1' data-name='{{itm.item_name}}' data-itemid='{{item.id}}'>{{itm.item_name}}</text>
+                <text wx:if="{{currentTab == 1 && itm.pk_is_show == 0}}" data-name='{{itm.item_name}}' data-itemid='{{item.id}}'>{{itm.item_name}}(暂不支持)</text>
+                <text wx:if="{{currentTab == 2 && itm.sp_is_show == 1}}" class="{{itm.singleSP?'addActive':''}}" bindtap='servierChoose1' data-name='{{itm.item_name}}' data-itemid='{{item.id}}'>{{itm.item_name}}</text>
+                <text wx:if="{{currentTab == 2 && itm.sp_is_show == 0}}" data-name='{{itm.item_name}}' data-itemid='{{item.id}}'>{{itm.item_name}}(暂不支持)</text>
+              </view>
+            </view>
+          </view>
+          <view class='item' wx:for="{{data}}" wx:for-item="item" wx:for-index="index" wx:key="index" wx:if="{{item.id==6}}">
+            <view class='top'>
+              <image src='{{static}}/addService2.png'></image>
+              <text>整体{{item.name}}</text>
+            </view>
+            <view class='bottom'>
+              <view wx:for="{{item.item}}" wx:key="indx" wx:for-item="itm" wx:for-index="inx">
+                <text wx:if="{{currentTab == 0 && itm.pz_is_show == 1 && inx==0}}" class="{{itm.singlePZ?'addActive':''}}" bindtap='servierChoose2' data-name='{{itm.item_name}}' data-itemid='{{item.id}}'>基础版</text>
+                <text wx:if="{{currentTab == 0 && itm.pz_is_show == 0 && inx==0}}" class="{{itm.singlePZ?'addActive':''}}" data-name='{{itm.item_name}}' data-itemid='{{item.id}}'>基础版(暂不支持)</text>
+                <text wx:if="{{currentTab == 0 && itm.pz_is_show == 1 && inx==1}}" class="{{itm.singlePZ?'addActive':''}}" bindtap='servierChoose2' data-name='{{itm.item_name}}' data-itemid='{{item.id}}'>高级版</text>
+                <text wx:if="{{currentTab == 0 && itm.pz_is_show == 0 && inx==1}}" class="{{itm.singlePZ?'addActive':''}}" data-name='{{itm.item_name}}' data-itemid='{{item.id}}'>高级版(暂不支持)</text>
+                <text wx:if="{{currentTab == 1 && itm.pk_is_show == 1 && inx==0}}" class="{{itm.singlePK?'addActive':''}}" bindtap='servierChoose2' data-name='{{itm.item_name}}' data-itemid='{{item.id}}'>基础版</text>
+                <text wx:if="{{currentTab == 1 && itm.pk_is_show == 0 && inx==0}}" class="{{itm.singlePK?'addActive':''}}" data-name='{{itm.item_name}}' data-itemid='{{item.id}}'>基础版(暂不支持)</text>
+                <text wx:if="{{currentTab == 1 && itm.pk_is_show == 1 && inx==1}}" class="{{itm.singlePK?'addActive':''}}" bindtap='servierChoose2' data-name='{{itm.item_name}}' data-itemid='{{item.id}}'>高级版</text>
+                <text wx:if="{{currentTab == 1 && itm.pk_is_show == 0 && inx==1}}" class="{{itm.singlePK?'addActive':''}}" data-name='{{itm.item_name}}' data-itemid='{{item.id}}'>高级版(暂不支持)</text>
+                <text wx:if="{{currentTab == 2 && itm.sp_is_show == 1 && inx==0}}" class="{{itm.singleSP?'addActive':''}}" bindtap='servierChoose2' data-name='{{itm.item_name}}' data-itemid='{{item.id}}'>基础版</text>
+                <text wx:if="{{currentTab == 2 && itm.sp_is_show == 0 && inx==0}}" class="{{itm.singleSP?'addActive':''}}" data-name='{{itm.item_name}}' data-itemid='{{item.id}}'>基础版(暂不支持)</text>
+                <text wx:if="{{currentTab == 2 && itm.sp_is_show == 1 && inx==1}}" class="{{itm.singleSP?'addActive':''}}" bindtap='servierChoose2' data-name='{{itm.item_name}}' data-itemid='{{item.id}}'>高级版</text>
+                <text wx:if="{{currentTab == 2 && itm.sp_is_show == 0 && inx==1}}" class="{{itm.singleSP?'addActive':''}}" data-name='{{itm.item_name}}' data-itemid='{{item.id}}'>高级版(暂不支持)</text>
+              </view>
+            </view>
+          </view>
+          <view class='item' wx:for="{{data}}" wx:for-item="item" wx:for-index="index" wx:key="index" wx:if="{{item.id==7}}">
+            <view class='top'>
+              <image src='{{static}}/addService3.png'></image>
+              <text>防护处理</text>
+            </view>
+            <view class='bottom'>
+              <view wx:for="{{item.item}}" wx:key="indx" wx:for-item="itm" wx:for-index="inx">
+                <text wx:if="{{currentTab == 0 && itm.pz_is_show == 1}}" class="{{itm.singlePZ?'addActive':''}}" bindtap='servierChoose3' data-name='{{itm.item_name}}' data-itemid='{{item.id}}'>防水防尘防污处理（非永久性）</text>
+                <text wx:if="{{currentTab == 0 && itm.pz_is_show == 0}}" class="{{itm.singlePZ?'addActive':''}}" data-name='{{itm.item_name}}' data-itemid='{{item.id}}'>防水防尘防污处理（非永久性）(暂不支持)</text>
+                <text wx:if="{{currentTab == 1 && itm.pk_is_show == 1}}" class="{{itm.singlePK?'addActive':''}}" bindtap='servierChoose3' data-name='{{itm.item_name}}' data-itemid='{{item.id}}'>防水防尘防污处理（非永久性）</text>
+                <text wx:if="{{currentTab == 1 && itm.pk_is_show == 0}}" class="{{itm.singlePK?'addActive':''}}" data-name='{{itm.item_name}}' data-itemid='{{item.id}}'>防水防尘防污处理（非永久性）(暂不支持)</text>
+                <text wx:if="{{currentTab == 2 && itm.sp_is_show == 1}}" class="{{itm.singleSP?'addActive':''}}" bindtap='servierChoose3' data-name='{{itm.item_name}}' data-itemid='{{item.id}}'>防水防尘防污处理（非永久性）</text>
+                <text wx:if="{{currentTab == 2 && itm.sp_is_show == 0}}" class="{{itm.singleSP?'addActive':''}}" data-name='{{itm.item_name}}' data-itemid='{{item.id}}'>防水防尘防污处理（非永久性）(暂不支持)</text>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class='prompt'>
+          提示：翻毛皮材质默认勾选[基础护理]，效果更佳。
+        </view>
+        <view class='button'>
+          <view class='sure' bindtap='sure'>
+            <image src='{{static}}/addServiceSure.png'></image>
+            <text>确定</text>
+          </view>
+          <view class='cancel' bindtap='cancel'>
+            取消
+          </view>
+        </view>
+      </view>
+    </view>
+    <!--多双附加服务  -->
+    <view class='addService' wx:if="{{serviceMuch == true}}">
+      <view class='items' wx:if="{{indexService==indexs}}" wx:for="{{morePriceArr}}" wx:for-item="items" wx:for-index="indexs" wx:key="indexs">
+        <view class='box'>
+          <view class='title'>
+            附加服务
+          </view>
+          <view class='content'>
+            <view class='item' wx:for="{{items.data}}" wx:for-item="item" wx:for-index="index" wx:key="index" wx:if="{{item.id==10}}">
+              <view class='top'>
+                <image src='{{static}}/addService1.png'></image>
+                <text>{{item.name}}</text>
+              </view>
+              <view class='bottom'>
+                <view wx:for="{{item.item}}" wx:key="indx" wx:for-item="itm" wx:for-index="inx">
+                  <text wx:if="{{items.currentTab == 0 && itm.pz_is_show == 1}}" class="{{itm.morePZ?'addActive':''}}" bindtap='servierSureMuch1' data-indexs="{{indexs}}" data-name='{{itm.item_name}}' data-itemid='{{item.id}}'>{{itm.item_name}}</text>
+                  <text wx:if="{{items.currentTab == 0 && itm.pz_is_show == 0}}" data-name='{{itm.item_name}}' data-itemid='{{item.id}}'>{{itm.item_name}}(暂不支持)</text>
+                  <text wx:if="{{items.currentTab == 1 && itm.pk_is_show == 1}}" class="{{itm.morePK?'addActive':''}}" bindtap='servierSureMuch1' data-indexs="{{indexs}}" data-name='{{itm.item_name}}' data-itemid='{{item.id}}'>{{itm.item_name}}</text>
+                  <text wx:if="{{items.currentTab == 1 && itm.pk_is_show == 0}}" data-name='{{itm.item_name}}' data-itemid='{{item.id}}'>{{itm.item_name}}(暂不支持)</text>
+                  <text wx:if="{{items.currentTab == 2 && itm.sp_is_show == 1}}" class="{{itm.moreSP?'addActive':''}}" bindtap='servierSureMuch1' data-indexs="{{indexs}}" data-name='{{itm.item_name}}' data-itemid='{{item.id}}'>{{itm.item_name}}</text>
+                  <text wx:if="{{items.currentTab == 2 && itm.sp_is_show == 0}}" data-name='{{itm.item_name}}' data-itemid='{{item.id}}'>{{itm.item_name}}(暂不支持)</text>
+                </view>
+              </view>
+            </view>
+            <view class='item' wx:for="{{items.data}}" wx:for-item="item" wx:for-index="index" wx:key="index" wx:if="{{item.id==6}}">
+              <view class='top'>
+                <image src='{{static}}/addService2.png'></image>
+                <text>整体{{item.name}}</text>
+              </view>
+              <view class='bottom'>
+                <view wx:for="{{item.item}}" wx:key="indx" wx:for-item="itm" wx:for-index="inx">
+                  <text wx:if="{{items.currentTab == 0 && itm.pz_is_show == 1 && inx==0}}" class="{{itm.morePZ?'addActive':''}}" bindtap='servierSureMuch2' data-indexs="{{indexs}}" data-name='{{itm.item_name}}' data-itemid='{{item.id}}'>基础版</text>
+                  <text wx:if="{{items.currentTab == 0 && itm.pz_is_show == 0 && inx==0}}" data-name='{{itm.item_name}}' data-itemid='{{item.id}}'>基础版(暂不支持)</text>
+                  <text wx:if="{{items.currentTab == 0 && itm.pz_is_show == 1 && inx==1}}" class="{{itm.morePZ?'addActive':''}}" bindtap='servierSureMuch2' data-indexs="{{indexs}}" data-name='{{itm.item_name}}' data-itemid='{{item.id}}'>高级版</text>
+                  <text wx:if="{{items.currentTab == 0 && itm.pz_is_show == 0 && inx==1}}" data-name='{{itm.item_name}}' data-itemid='{{item.id}}'>高级版(暂不支持)</text>
+                  <text wx:if="{{items.currentTab == 1 && itm.pk_is_show == 1 && inx==0}}" class="{{itm.morePK?'addActive':''}}" bindtap='servierSureMuch2' data-indexs="{{indexs}}" data-name='{{itm.item_name}}' data-itemid='{{item.id}}'>基础版</text>
+                  <text wx:if="{{items.currentTab == 1 && itm.pk_is_show == 0 && inx==0}}" data-name='{{itm.item_name}}' data-itemid='{{item.id}}'>基础版(暂不支持)</text>
+                  <text wx:if="{{items.currentTab == 1 && itm.pk_is_show == 1 && inx==1}}" class="{{itm.morePK?'addActive':''}}" bindtap='servierSureMuch2' data-indexs="{{indexs}}" data-name='{{itm.item_name}}' data-itemid='{{item.id}}'>高级版</text>
+                  <text wx:if="{{items.currentTab == 1 && itm.pk_is_show == 0 && inx==1}}" data-name='{{itm.item_name}}' data-itemid='{{item.id}}'>高级版(暂不支持)</text>
+                  <text wx:if="{{items.currentTab == 2 && itm.sp_is_show == 1 && inx==0}}" class="{{itm.moreSP?'addActive':''}}" bindtap='servierSureMuch2' data-indexs="{{indexs}}" data-name='{{itm.item_name}}' data-itemid='{{item.id}}'>基础版</text>
+                  <text wx:if="{{items.currentTab == 2 && itm.sp_is_show == 0 && inx==0}}" data-name='{{itm.item_name}}' data-itemid='{{item.id}}'>基础版(暂不支持)</text>
+                  <text wx:if="{{items.currentTab == 2 && itm.sp_is_show == 1 && inx==1}}" class="{{itm.moreSP?'addActive':''}}" bindtap='servierSureMuch2' data-indexs="{{indexs}}" data-name='{{itm.item_name}}' data-itemid='{{item.id}}'>高级版</text>
+                  <text wx:if="{{items.currentTab == 2 && itm.sp_is_show == 0 && inx==1}}" data-name='{{itm.item_name}}' data-itemid='{{item.id}}'>高级版(暂不支持)</text>
+                </view>
+              </view>
+            </view>
+            <view class='item' wx:for="{{items.data}}" wx:for-item="item" wx:for-index="index" wx:key="index" wx:if="{{item.id==7}}">
+              <view class='top'>
+                <image src='{{static}}/addService3.png'></image>
+                <text>防护处理</text>
+              </view>
+              <view class='bottom'>
+                <view wx:for="{{item.item}}" wx:key="indx" wx:for-item="itm" wx:for-index="inx">
+                  <text wx:if="{{items.currentTab == 0 && itm.pz_is_show == 1}}" class="{{itm.morePZ?'addActive':''}}" bindtap='servierSureMuch3' data-indexs="{{indexs}}" data-name='{{itm.item_name}}' data-itemid='{{item.id}}'>防水防尘防污处理（非永久性）</text>
+                  <text wx:if="{{items.currentTab == 0 && itm.pz_is_show == 0}}" data-name='{{itm.item_name}}' data-itemid='{{item.id}}'>防水防尘防污处理（非永久性）(暂不支持)</text>
+                  <text wx:if="{{items.currentTab == 1 && itm.pk_is_show == 1}}" class="{{itm.morePK?'addActive':''}}" bindtap='servierSureMuch3' data-indexs="{{indexs}}" data-name='{{itm.item_name}}' data-itemid='{{item.id}}'>防水防尘防污处理（非永久性）</text>
+                  <text wx:if="{{items.currentTab == 1 && itm.pk_is_show == 0}}" data-name='{{itm.item_name}}' data-itemid='{{item.id}}'>防水防尘防污处理（非永久性）(暂不支持)</text>
+                  <text wx:if="{{items.currentTab == 2 && itm.sp_is_show == 1}}" class="{{itm.moreSP?'addActive':''}}" bindtap='servierSureMuch3' data-indexs="{{indexs}}" data-name='{{itm.item_name}}' data-itemid='{{item.id}}'>防水防尘防污处理（非永久性）</text>
+                  <text wx:if="{{items.currentTab == 2 && itm.sp_is_show == 0}}" data-name='{{itm.item_name}}' data-itemid='{{item.id}}'>防水防尘防污处理（非永久性）(暂不支持)</text>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class='prompt'>
+            提示：翻毛皮材质建议勾选[基础护理]，效果更佳。
+          </view>
+          <view class='button'>
+            <view class='sure' data-indexs="{{indexs}}" bindtap='sureMuch'>
+              <image src='{{static}}/addServiceSure.png'></image>
+              <text>确定</text>
+            </view>
+            <view class='cancel' data-indexs="{{indexs}}" bindtap='cancelMuch'>
+              取消
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!--介绍  -->
+    <view class='introduce'>
+      <button class='introduce-item' bindtap='flow' form-type='submit' hover-class="btn-hover">
+        <image src='{{static}}/liucheng.png'></image>
+        <view>洗护流程</view>
+      </button>
+      <button class='introduce-item' bindtap='commonProblem' form-type='submit' hover-class="btn-hover">
+        <image src='{{static}}/changjianwenti.png'></image>
+        <view>常见问题</view>
+      </button>
+      <button class='introduce-item' bindtap='priceList' form-type='submit' hover-class="btn-hover">
+        <image src='{{static}}/feiyong.png'></image>
+        <view>费用标准</view>
+      </button>
+      <button class='introduce-item' bindtap='goHuiYuan' form-type='submit' hover-class="btn-hover">
+        <image src='{{static}}/huiyuan.png'></image>
+        <view>个人中心</view>
+      </button>
+    </view>
+    <!--专业服务  -->
+    <view class='service'>
+      <view class='service-title'>
+        <image src='{{static}}/zhuanyefuwu.png'></image>
+      </view>
+      <view class='server-content'>
+        <view class='content-item'>
+          <image src='{{static}}/xihu.png'></image>
+          <view>全面洗护工具</view>
+          <view>纯天然专属清洁剂</view>
+        </view>
+        <view class='content-item'>
+          <image src='{{static}}/gongxu.png'></image>
+          <view>极致工序</view>
+          <view>最严格的清洗步骤</view>
+        </view>
+        <view class='content-item'>
+          <image src='{{static}}/shouxi.png'></image>
+          <view>纯手洗 零损伤</view>
+          <view>绝不使用任何清洗机器</view>
+        </view>
+      </view>
+    </view>
+    <!--效果展示  -->
+    <view class='effect clearfix'>
+      <view class='effect-title'>
+        <image src='{{static}}/effect.png'></image>
+        <text>效果展示</text>
+      </view>
+      <view class='effect-image clearfix'>
+        <view class='effect-item clearfix' wx:for="{{effectImage}}" wx:for-index="index" wx:key="index">
+          <image bindtap='bigImg' data-src="{{imgUrl}}{{item.path}}" data-list="{{effectImage}}" src='{{imgUrl}}{{item.path}}-thumb300' mode='widthFix'></image>
+        </view>
+      </view>
+      <view class='wait' wx:if="{{hasMore}}">
+        <icon type="waiting" size="15" />
+        <text>玩命的加载中...</text>
+      </view>
+    </view>
+    <!--底部导航栏  -->
+    <view class='footer'>
+      <!-- <button class='footer-item' bindtap='goXiuFu' form-type='submit' hover-class="btn-hover">
+                <image src='{{static}}/xiufu.png'></image>
+                <view>修复洗护</view>
+            </button> -->
+      <button class='footer-item' bindtap='goXiuFu' form-type='submit' hover-class="btn-hover">
+        <!-- <image src='{{static}}/yongpin.png'></image> -->
+        <image src='../../images/918_xiufu.png'></image>
+        <view>修复服务</view>
+      </button>
+      <!-- <button class='footer-item' bindtap='colorChange' form-type='submit' hover-class="btn-hover">
+                <image src='{{static}}/gaise.png'></image>
+                <view>改色补色</view>
+            </button> -->
+      <button class='footer-item' bindtap='featureService' form-type='submit' hover-class="btn-hover">
+        <!-- <image src='{{static}}/tesefuwu.png'></image> -->
+        <image src='../../images/918_zizhu.png'></image>
+        <view>自助服务</view>
+      </button>
+      <button class='footer-item' bindtap='cleanOrder' form-type='submit' hover-class="btn-hover">
+        <!-- <image src='{{static}}/xihudingdan.png'></image> -->
+        <image src='../../images/918_order.png'></image>
+        <view>洗护订单</view>
+      </button>
+    </view>
+    <!--洗护流程  -->
+    <view class='flow' wx:if="{{flow == true}}" bindtap='hideFlow'>
+      <view class='step'>
+        <image src='{{static}}/cleanFlow_bg.png' class='bg'></image>
+        <image src='{{static}}/cleanFlow_shui.png' class='shui'></image>
+        <view class='title'>洗护流程</view>
+        <view class='content'>
+          <view class='item'>
+            <image src='{{static}}/cleanFlow_step1.png'></image>
+            <text>提交洗护订单</text>
+          </view>
+          <view class='item'>
+            <image src='{{static}}/cleanFlow_step2.png'></image>
+            <text>邮寄至洗护中心</text>
+          </view>
+          <view class='item'>
+            <image src='{{static}}/cleanFlow_step3.png'></image>
+            <text>极致洗护工序</text>
+          </view>
+          <view class='item'>
+            <image src='{{static}}/cleanFlow_step4.png'></image>
+            <text>洗护中心寄回</text>
+          </view>
+        </view>
+        <view class='text'>一般情况下洗护周期3-5个工作日，修复周期为7-15个工作日</view>
+      </view>
+    </view>
+    <!--洗护用品  -->
+    <view class='yongpin' wx:if="{{yongpin == true}}" bindtap='yongpin'>
+      <image src='{{static}}/xihu_big.png'></image>
+    </view>
+    <!--下单提示  -->
+    <view class='orderPrompt' wx:if="{{modal==true}}">
+      <view class='box'>
+        <view class='title'>
+          <image src='{{static}}/change_clean_tishi_icon.png'></image>
+          <view>提示</view>
+        </view>
+        <view class='text'>
+          1.全面纯手工清理，包含鞋面，鞋底，内衬清洁及专业除菌除臭。
+        </view>
+        <view class='text'>
+          2.清洗并不能处理严重污渍和油渍，如有任何疑问可联系24h在线客服。
+        </view>
+        <view class='text'>
+          3.清洗或洗护的项目与实际不一致，客服会进行二次确认。
+        </view>
+        <view class='close' bindtap='noPrompt'>
+          <image src='{{static}}/change_clean_tishi.png' wx:if="{{prompt==true}}"></image>
+          <image src='{{static}}/change_clean_tishi_no.png' wx:else></image>
+          <text>不再提醒</text>
+        </view>
+        <view class='confirm' bindtap='confirm'>
+          确定
+        </view>
+      </view>
+    </view>
+  </form>
+  <!-- 门店收货模块 -->
+  <view class='store_SH' wx:if="{{store_SH}}" bindtap='go_store_confirm'>
+    <text>门店收货</text>
+  </view>
+</view>

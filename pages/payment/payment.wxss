@@ -1,0 +1,631 @@
+/* pages/payment/payment.wxss */
+
+page {
+    width: 100%;
+    height: 100%;
+    background-color: #eef1f4;
+}
+
+.hidden {
+    height: 100%;
+    overflow-y: hidden;
+}
+
+.page {
+    padding-bottom: 200rpx;
+    box-sizing: border-box;
+}
+
+/*banner背景图  */
+
+.banner {
+    width: 100%;
+    height: 342rpx;
+}
+
+.banner image {
+    width: 100%;
+    height: 100%;
+}
+
+/*状态  */
+
+.state {
+    width: 602rpx;
+    height: 294rpx;
+    margin: -254rpx auto 0;
+    position: relative;
+}
+
+.state .bg {
+    width: 100%;
+    height: 100%;
+}
+
+.state .state-red {
+    width: 108rpx;
+    height: 45rpx;
+    position: absolute;
+    top: 0;
+    left: 40rpx;
+}
+
+.state .rocket {
+    width: 210rpx;
+    height: 224rpx;
+    position: absolute;
+    top: -48rpx;
+    right: 11rpx;
+}
+
+.state .goods-img {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 34rpx;
+    left: 0;
+}
+
+.state .goods-img image {
+    width: 90rpx;
+    height: 90rpx;
+    border-radius: 8rpx;
+}
+
+.state .service {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 154rpx;
+    left: 0;
+}
+
+.state .service .item {
+    font-size: 22rpx;
+    color: #5e95f4;
+    padding: 3rpx 7rpx;
+    border: 1rpx solid #5e95f4;
+    margin-right: 10rpx;
+    border-radius: 6rpx;
+}
+
+.state .service .item:last-child {
+    margin-right: 0;
+}
+
+.state .text {
+    width: 590rpx;
+    height: 75rpx;
+    text-align: center;
+    line-height: 75rpx;
+    font-size: 24rpx;
+    color: #4b525b;
+    border-top: 2rpx dashed #e1e1e1;
+    position: absolute;
+    left: 7rpx;
+    top: 218rpx;
+}
+
+/*会员级别  */
+
+.level {
+    width: 702rpx;
+    margin: 20rpx auto 0;
+    background-color: #fff;
+    padding: 30rpx 24rpx;
+    box-sizing: border-box;
+    border-radius: 16rpx;
+}
+
+.level .now-level {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16rpx;
+    box-sizing: border-box;
+}
+
+.level .now-level .left {
+    display: flex;
+    align-items: center;
+}
+
+.level .now-level .left image {
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 7rpx;
+}
+
+.level .now-level .left text:nth-child(1) {
+    font-size: 26rpx;
+    color: #4b525b;
+}
+
+.level .now-level .left text:nth-child(3) {
+    font-size: 24rpx;
+    color: #90a2b2;
+}
+
+.level .now-level .right {
+    font-size: 28rpx;
+    font-weight: 600;
+    color: #5e95f4;
+}
+
+/*等级条  */
+
+.levelBg {
+    padding: 9rpx 15rpx;
+    background-color: #5e95f4;
+    color: #fff !important;
+    position: relative;
+}
+
+.level .strip {
+    margin-top: 19rpx;
+}
+
+.level .strip .level-name {
+    width: 100%;
+    height: 50rpx;
+    display: flex;
+    justify-content: space-between;
+}
+
+.level .strip .level-name .item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 24rpx;
+    color: #666;
+}
+
+.level .strip .level-name .item image {
+    width: 16rpx;
+    height: 14rpx;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -8rpx;
+}
+
+.level .strip .progress {
+    margin-top: 15rpx;
+    padding: 0 16rpx;
+    box-sizing: border-box;
+}
+
+.level .strip .progress .floor {
+    width: 100%;
+    height: 16rpx;
+    background-color: #eef1f4;
+    border-radius: 30rpx;
+    position: relative;
+}
+
+.level .strip .progress .floor .size {
+    /* width: 50rpx; */
+    height: 16rpx;
+    background-image: linear-gradient(50deg, #fff, #5e94f5);
+    border-radius: 30rpx;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 9;
+}
+
+.level .strip .prompt {
+    font-size: 24rpx;
+    line-height: 24rpx;
+    color: #666;
+    margin-top: 30rpx;
+    padding: 0 16rpx;
+    box-sizing: border-box;
+}
+
+/*当前价格  */
+
+.level .price {
+    width: 100%;
+    height: 130rpx;
+    display: flex;
+    margin: 40rpx auto 0;
+    position: relative;
+    padding: 0 16rpx;
+    box-sizing: border-box;
+}
+
+.level .price .bg {
+    width: 606rpx;
+    height: 142rpx;
+    position: absolute;
+    left: 32rpx;
+    top: -4rpx;
+    z-index: 6;
+}
+
+.level .price .now-price {
+    width: 220rpx;
+    height: 130rpx;
+    position: relative;
+    z-index: 8;
+}
+
+.level .price .now-price image {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.level .price .now-price .price-box {
+    position: relative;
+    z-index: 9;
+    text-align: center;
+    line-height: 130rpx;
+    color: #fff;
+}
+
+.level .price .now-price .price-box text:first-child {
+    font-size: 30rpx;
+    margin-right: 8rpx;
+}
+
+.level .price .now-price .price-box text:last-child {
+    font-size: 40rpx;
+}
+
+.level .price .now-text {
+    padding-left: 30rpx;
+    box-sizing: border-box;
+    width: 392rpx;
+    height: 130rpx;
+    display: flex;
+    align-items: center;
+    border-radius: 0rpx 8rpx 8rpx 0rpx;
+    position: relative;
+    z-index: 8;
+    background-color: #fff;
+}
+
+.level .price .now-text .left {
+    height: 130rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.level .price .now-text .left text:first-child {
+    font-size: 28rpx;
+    color: #282828;
+}
+
+.level .price .now-text .left text:last-child {
+    font-size: 24rpx;
+    color: #858585;
+}
+
+.level .price .now-text .right {
+    width: 104rpx;
+    height: 78rpx;
+    margin-left: 37rpx;
+    position: relative;
+}
+
+.level .price .now-text .right image {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+.level .price .now-text .right .youhui-box {
+    position: relative;
+    z-index: 9;
+    width: 104rpx;
+    height: 69rpx;
+    line-height: 26rpx;
+    font-size: 22rpx;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/*横线  */
+
+.level .line {
+    width: 622rpx;
+    height: 2rpx;
+    background-color: #f0f0f0;
+    margin: 32rpx auto 0;
+}
+
+/*会员等级table表  */
+
+.level .table {
+    width: 622rpx;
+    box-sizing: border-box;
+    margin: 40rpx auto 0;
+}
+
+.level .table .thead {
+    width: 100%;
+    height: 64rpx;
+    display: flex;
+}
+
+.level .table .thead view {
+    text-align: center;
+    line-height: 64rpx;
+    background-color: #f7f7f7;
+    font-size: 24rpx;
+    color: #a0a0a2;
+    border-top: 1rpx solid #ececec;
+    border-right: 1rpx solid #ececec;
+}
+
+.level .table .thead view:nth-child(1) {
+    width: 180rpx;
+    border-left: 1rpx solid #ececec;
+}
+
+.level .table .thead view:nth-child(2) {
+    width: 220rpx;
+}
+
+.level .table .thead view:nth-child(3) {
+    width: 220rpx;
+}
+
+.level .table .tbody {
+    width: 100%;
+    height: 84rpx;
+    display: flex;
+}
+
+.level .table .tbody view {
+    text-align: center;
+    line-height: 84rpx;
+    font-size: 24rpx;
+    color: #a0a0a2;
+    border-right: 1rpx solid #ececec;
+    border-bottom: 1rpx solid #ececec;
+}
+
+.level .table .tbody view:nth-child(1) {
+    width: 180rpx;
+    border-left: 1rpx solid #ececec;
+}
+
+.level .table .tbody view:nth-child(2) {
+    width: 220rpx;
+}
+
+.level .table .tbody view:nth-child(3) {
+    width: 220rpx;
+}
+
+/*微信通知  */
+
+.notice {
+    width: 702rpx;
+    height: 88rpx;
+    margin: 20rpx auto 0;
+    background-color: #fff;
+    border-radius: 16rpx;
+    padding: 0 40rpx;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.notice .left {
+    display: flex;
+}
+
+.notice .left image {
+    width: 40rpx;
+    height: 32rpx;
+    margin-right: 20rpx;
+}
+
+.notice .left text {
+    font-size: 24rpx;
+    color: #282828;
+}
+
+.notice .right image {
+    width: 14rpx;
+    height: 24rpx;
+}
+
+/*分享规则  */
+
+.rule {
+    width: 702rpx;
+    text-align: center;
+    background-color: #fff;
+    margin: 20rpx auto 0;
+    padding-bottom: 40rpx;
+    box-sizing: border-box;
+}
+
+.rule .title {
+    font-size: 24rpx;
+    color: #858585;
+    padding: 40rpx 0;
+    box-sizing: border-box;
+}
+
+.rule .title text:nth-child(2) {
+    margin: 0 24rpx;
+}
+
+.rule .content {
+    width: 100%;
+    text-align: center;
+    font-size: 24rpx;
+    line-height: 24rpx;
+    color: #858585;
+    display: flex;
+    flex-direction: column;
+}
+
+.rule .content text:nth-child(2) {
+    margin-top: 20rpx;
+}
+
+/*支付、邀请  */
+
+.payment {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 124rpx;
+    background-color: #fff;
+    border-top: 1rpx solid #ccc;
+    padding: 0 40rpx;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.payment .pay {
+    width: 314rpx;
+    height: 76rpx;
+    text-align: center;
+    line-height: 76rpx;
+    font-size: 28rpx;
+    color: #5e95f4;
+    border-radius: 38rpx;
+    border: 1rpx solid #5e95f4;
+}
+
+.payment .invite {
+    width: 314rpx;
+    height: 76rpx;
+    text-align: center;
+    line-height: 76rpx;
+    position: relative;
+    margin-left: 36rpx;
+}
+
+.payment .invite image {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.payment .invite text {
+    position: relative;
+    z-index: 9;
+    font-size: 28rpx;
+    color: #fff;
+}
+
+/* 支付弹窗 */
+
+.modal {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10;
+}
+
+.modal .box {
+    width: 100%;
+    background-color: #fff;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+
+.modal .box .title {
+    width: 100%;
+    height: 88rpx;
+    padding: 0 24rpx;
+    box-sizing: border-box;
+    font-size: 28rpx;
+    color: #282828;
+    border-bottom: 2rpx solid #f2f2f2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.modal .box .title image {
+    width: 25rpx;
+    height: 25rpx;
+}
+
+.modal .box .money {
+    width: 100%;
+    height: 120rpx;
+    line-height: 120rpx;
+    padding: 0 24rpx;
+    box-sizing: border-box;
+    font-size: 36rpx;
+    color: #282828;
+    font-weight: 600;
+    border-bottom: 1rpx solid #f2f2f2;
+}
+
+.modal .box .item {
+    width: 100%;
+    height: 100rpx;
+    padding: 0 24rpx;
+    box-sizing: border-box;
+    border-bottom: 1rpx solid #f2f2f2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.modal .box .item .left {
+    display: flex;
+    align-items: center;
+}
+
+.modal .box .item .left image {
+    width: 40rpx;
+    height: 35rpx;
+    margin-right: 23rpx;
+}
+
+.modal .box .item .left text {
+    font-size: 28rpx;
+    color: #282828;
+}
+
+.modal .box .item .right image {
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.modal .box .submit {
+    width: 100%;
+    height: 106rpx;
+    text-align: center;
+    line-height: 106rpx;
+    background-color: #5e95f4;
+    font-size: 28rpx;
+    color: #fff;
+}
+
+.noPay {
+    color: #999 !important;
+}

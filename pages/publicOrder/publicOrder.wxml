@@ -1,0 +1,162 @@
+<!--page/cleanOrder/cleanOrder.wxml-->
+<wxs module="filter" src="../../utils/utils.wxs"></wxs>
+
+<view class='page'>
+  <!--邮寄地址  -->
+  <view class='mail' wx:if="{{address != ''}}" bindtap='chooseAddress'>
+    <image src='{{static}}/already.png' class='bg'></image>
+    <view class='C'>
+      <view class='user'>
+        <view class='userInfo'>
+          <image src='{{static}}/address1.png'></image>
+          <text>{{address.consignee_name}}</text>
+          <text>{{address.mb_phone}}</text>
+        </view>
+        <view class='address'>
+          <text>{{address.area_info}}{{address.address}}</text>
+        </view>
+      </view>
+      <view class='right'>
+        <image src='{{static}}/more.png'></image>
+      </view>
+    </view>
+  </view>
+  <view class='no-mail' bindtap='chooseAddress' wx:else>
+    <image src='{{static}}/already.png' class='bg'></image>
+    <view class='C'>
+      <view class='address'>
+        <image src='{{static}}/address_write.png'></image>
+        <text>填写邮寄地址</text>
+      </view>
+      <view class='right'>
+        <image src='{{static}}/more.png'></image>
+      </view>
+    </view>
+  </view>
+  <!--提示  -->
+  <view class='prompt' wx:if="{{serviceTrue == 0}}">
+    请在订单图片位置上传对应鞋子的左侧45°照片，以便工作人员确认。
+  </view>
+  <!--上传图片部分-->
+  <view class='upload' wx:if="{{serviceTrue==0}}" wx:for="{{shopArr.goods}}" wx:key="index" wx:for-item="item" wx:for-index="index">
+    <view class='U-left' bindtap='upImg' data-goods_no="{{item.goods_no}}" data-log_id="{{shopArr.log_id}}">
+      <image src='{{static}}/upload.png' wx:if="{{item.left_image == ''}}"></image>
+      <image src='{{filter.pipei(item.left_image, globalApp)}}' wx:else mode='aspectFill'></image>
+    </view>
+    <view class='U-right'>
+      <view class='U-price'>
+        <text>已选{{item.buy_item_count}}项服务</text>
+        <text>¥ {{item.order_price}}</text>
+      </view>
+      <view class='U-fuwu'>
+        <text wx:for="{{item.buy_item}}" wx:key="inx" wx:for-item="itm" wx:for-index="inx">
+                    {{itm.service_name}}({{itm.item_name}})
+                </text>
+      </view>
+    </view>
+  </view>
+  <!--不需要上传图片部分  -->
+  <view class='no-upload' wx:if="{{serviceTrue==1}}" wx:for="{{shopArr.goods}}" wx:key="index" wx:for-item="item" wx:for-index="index">
+    <view class='U-left'>
+      <image src='{{filter.pipei(item.left_image)}}' mode='aspectFill'></image>
+    </view>
+    <view class='U-right'>
+      <view class='U-fuwu'>
+        <text wx:for="{{item.buy_item}}" wx:key="inx" wx:for-item="itm" wx:for-index="inx">
+                    {{itm.service_name}}({{itm.item_name}})
+                </text>
+      </view>
+      <view class='U-price'>
+        <text>已选{{item.buy_item_count}}项服务</text>
+        <text>¥ {{item.order_price}}</text>
+      </view>
+
+    </view>
+  </view>
+  <!--快递选择  -->
+  <view class='choose'>
+    <view class='express comm'>
+      <text>快递选择：</text>
+      <radio-group class="radio-group" bindchange="radioChange1">
+        <label class="radio" wx:for="{{express}}" wx:key="index" wx:for-item="item" wx:for-index="index" data-index="{{index}}">
+          <radio value="{{item.name}}" data-index="{{index}}" checked="{{item.checked}}" /> {{item.name}}
+        </label>
+      </radio-group>
+    </view>
+    <view class='support comm'>
+      <text>是否保价：</text>
+      <radio-group class="radio-group" bindchange="radioChange2">
+        <label class="radio" wx:for="{{support}}" wx:key="index">
+          <radio value="{{item.name}}" checked="{{item.checked}}" /> {{item.value}}
+        </label>
+      </radio-group>
+      <input type='digit' wx:if="{{disabled==false}}" disabled="{{disabled}}" placeholder='请输入保价金额' value='{{inputValue}}' confirm-type='done' bindinput='supportNum'></input>
+    </view>
+    <view class='remark-favourable'>
+      <text>买家备注：</text>
+      <input type='text' placeholder='请输入买家备注' bindinput='bindValue' maxlength='150'></input>
+    </view>
+  </view>
+  <!--优惠  -->
+  <view class='dis'>
+    <view class='coupon comm'>
+      <text>优惠券</text>
+      <view class='coupon-right' bindtap='chooseCoupon'>
+        <!-- <navigator url='/pages/coupon/coupon' class='nav' hover-class='none'>
+                  点击使用
+                </navigator> -->
+        <text>{{couponNum}}</text>
+        <image src='{{static}}/right.png'></image>
+      </view>
+    </view>
+    <!-- <view class='isCoupon comm' wx:if="{{isCoupon != ''}}">
+          <text>{{isCoupon.coupon_type_name}}</text>
+          <view class='coupon-right'>
+            <text wx:if="{{isCoupon.coupon_type==0 || isCoupon.coupon_type==2}}">满{{isCoupon.rule_over}}减{{isCoupon.rule_deduct}}</text>
+            <text wx:if="{{isCoupon.coupon_type==1}}">{{isCoupon.discount*10}}</text>
+            <text wx:if="{{isCoupon.coupon_type==1}}">折</text>
+          </view>
+        </view> -->
+    <view class='gold comm'>
+      <text>BAN金币</text>
+      <view class='gold-right'>
+        <text>共{{coins.total}}金币，可用{{coins.valid}}金币</text>
+        <switch checked="{{isswitch}}" bindchange="switchChange" />
+      </view>
+    </view>
+    <!-- <view class='remark-favourable'>
+            <text class='favourable'>优惠码：</text>
+            <input placeholder='请输入优惠码'></input>
+            </view> -->
+  </view>
+  <!--付款金额  -->
+  <view class='pay'>
+    <view class='pay-item total'>
+      <view>订单总额</view>
+      <view>¥ {{total}}</view>
+    </view>
+    <view class='pay-item freight'>
+      <view>运费</view>
+      <view>¥ {{freight}}</view>
+    </view>
+    <view class='pay-item discount' wx:if="{{gold!=''&& isswitch}}">
+      <view>金币</view>
+      <view>- ¥ {{gold}}</view>
+    </view>
+    <view class='pay-item total' wx:if="{{protection!=''}}">
+      <view>保价</view>
+      <view> ¥ {{protection}}</view>
+    </view>
+  </view>
+  <!--付款  -->
+  <view class='money'>
+    <view class='money-num'>
+      <text>实付款：</text>
+      <text>¥ {{realPayment}}</text>
+    </view>
+    <view class='submit' bindtap='submit1'>
+      <image src='{{static}}/already.png'></image>
+      <text>提交订单</text>
+    </view>
+  </view>
+</view>

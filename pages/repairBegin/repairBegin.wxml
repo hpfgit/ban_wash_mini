@@ -1,0 +1,92 @@
+<!--page/repairBegin/repairBegin.wxml-->
+<view class='page'>
+    <form bindsubmit='find' report-submit='true'>
+        <!--提示  -->
+        <view class='prompt'>
+            <image src='{{static}}/dengpao.png'></image>
+            <text>请您提供以下位置照片以供工作人员为您提供修复方案</text>
+        </view>
+        <!--添加图片  -->
+        <view class='imgs'>
+            <view class='img-item' wx:for="{{imgs}}" wx:key="index" wx:for-index='index' wx:for-item="item" data-index="{{index}}" bindtap='uploadPic'>
+                <view class='default' wx:if="{{item.pic == ''}}">
+                    <image src="{{item.default}}"></image>
+                </view>
+                <view class='pic' wx:else>
+                    <image src='{{item.pic}}' mode='aspectFill'></image>
+                </view>
+            </view>
+        </view>
+        <!--选填  -->
+        <view class='selection'>
+            <view class='selection-title'>
+                <image src='{{static}}/wenhao.png'></image>
+                <text>请阐述一下具体问题，以便工作人员注意查看<text>(选填)</text></text>
+            </view>
+            <view class='selection-C'>
+                <button form-type='submit' hover-class="btn-hover" class="{{item.checked==true?' active ':' '}} selection-item" wx:for="{{choose}}" wx:for-item="item" wx:for-index="index" wx:key="index" data-index="{{index}}" data-text="{{item.text}}"
+                    bindtap='choose'>
+                    {{item.text}}
+                    <image src='{{static}}/sanjiao.png' wx:if="{{item.checked}}"></image>
+                </button>
+                <view class='fill'>
+                </view>
+            </view>
+        </view>
+        <!--备注  -->
+        <view class='remarks'>
+            <view class='remarks-title'>
+                <text>备注</text>
+                <view class='fanli'>
+                    <image src="{{static}}/fanli.png"></image>
+                    <text>范例</text>
+                </view>
+            </view>
+            <view class='text'>
+                <textarea class='areas' cursor-spacing="100" auto-height placeholder='请输入备注信息（至少10字）' maxlength="{{max}}" bindinput='input'>
+                    <text class='currentWordNumber'>{{currentWordNumber}}/{{max}}</text>
+                </textarea>
+            </view>
+            <view class='upload'>
+                <view class='display'>
+                    <view class='voice'>
+                        <view class='voice-item' wx:for="{{voiceItem}}" wx:key="index" wx:for-index="index">
+                            <image class='voiceBox' src='https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3143598853,690910552&fm=27&gp=0.jpg'></image>
+                            <text bindtap='bofang' class='bofang' wx:if="{{zanting==1}}">▶</text>
+                            <text bindtap='zanting' class='zanting' wx:elif="{{zanting==2}}">||</text>
+                            <text bindtap='deleVoice' class='delete' data-index="{{index}}">X</text>
+                        </view>
+                    </view>
+                    <view class='pic'>
+                        <view class='pic-item' wx:for="{{picItem}}" wx:key="index" wx:for-item="item" wx:for-index="index">
+                            <image src='{{item}}' data-index="{{index}}" bindtap='bigPic' mode='aspectFill'></image>
+                            <text data-index="{{index}}" bindtap='delePic'>X</text>
+                        </view>
+                    </view>
+                    <view class='video'>
+                        <view class='video-item' wx:for="{{videoItem}}" wx:key="index" wx:for-item="item" wx:for-index="index">
+                            <video id='myVideo' bindfullscreenchange="startScreenChange" show-center-play-btn="{{videois1}}" ustom-cache="{{false}}" direction="{{90}}" src='{{item}}' data-index="{{index}}" bindplay="play"></video>
+                            <cover-view data-index="{{index}}" bindtap='deleVideo'>X</cover-view>
+                        </view>
+                    </view>
+                </view>
+                <view class='handle'>
+                    <image src='{{static}}/yuyin.png' bindtap='startVoice'></image>
+                    <image src='{{static}}/xiangji.png' bindtap='addPic'></image>
+                    <image src='{{static}}/shipin.png' bindtap="addVideo"></image>
+                </view>
+            </view>
+        </view>
+        <!--提交  -->
+        <view class='submit'>
+            <view class='submit-btn' bindtap='submit'>
+                <image src='{{static}}/begin.png'></image>
+                <text>提交订单</text>
+            </view>
+            <view class='submit-text'>
+                工作人员将在12小时内为您提供修复方案
+            </view>
+        </view>
+        <image src='{{static}}/yuyin_gif.gif' class='yuyin-gif' wx:if="{{yuyinTrue == true}}"></image>
+    </form>
+</view>

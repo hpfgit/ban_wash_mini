@@ -1,0 +1,19 @@
+.store_select {
+  background-color: #eef1f4;
+}
+.button_box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-200rpx);
+}
+.button_box button {
+  width: 250rpx;
+  height: 74rpx;
+  line-height: 74rpx;
+  background: #5e95f4;
+  margin: 30rpx;
+}

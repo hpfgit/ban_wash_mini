@@ -1,0 +1,322 @@
+<!--page/cleanCollageDetails.wxml-->
+<view class='page'>
+    <!--填写邮寄信息  -->
+    <view class='mail' bindtap='track'>
+        <image src='{{static}}/already.png' class='bg'></image>
+        <view class='mail-content'>
+            <view class='img'>
+                <image src='{{static}}/dingdan.png'></image>
+                <!--单双清洗  -->
+                <text wx:if="{{data.care_log.order_type == 1 && data.care_log.status == 30 && data.order_status==10}}">待付款</text>
+                <text wx:if="{{data.care_log.order_type == 1 && data.care_log.status == 30 && data.order_status==20}}">请开始邮寄</text>
+                <text wx:if="{{data.care_log.order_type == 1 && data.care_log.status == 40}}">正在邮寄到平台</text>
+                <text wx:if="{{data.care_log.order_type == 1 && data.care_log.status == 50}}">平台已收货，等待验货</text>
+                <text wx:if="{{data.care_log.order_type == 1 && data.care_log.status == 404}}">未收到货，请咨询物流</text>
+                <text wx:if="{{data.care_log.order_type == 1 && data.care_log.status == 60}}">正在验货</text>
+                <text wx:if="{{data.care_log.order_type == 1 && data.care_log.status == 70}}">平台验证通过，即将送往洗护中心</text>
+                <text wx:if="{{data.care_log.order_type == 1 && data.care_log.status == 402}}">您的鞋子和提供信息不符，验证未通过</text>
+                <text wx:if="{{data.care_log.order_type == 1 && data.care_log.status == 80}}">您的鞋子正在等待洗护</text>
+                <text wx:if="{{data.care_log.order_type == 1 && data.care_log.status == 85}}">您的鞋子正在洗护中</text>
+                <text wx:if="{{data.care_log.order_type == 1 && data.care_log.status == 90}}">您的洗护已经完成</text>
+                <text wx:if="{{data.care_log.order_type == 1 && data.care_log.status == 100}}">您的鞋子打包完成，等待邮寄</text>
+                <text wx:if="{{data.care_log.order_type == 1 && data.care_log.status == 110}}">您的宝贝已邮出</text>
+                <text wx:if="{{data.care_log.order_type == 1 && data.care_log.status == 120}}">已收货，谢谢您的耐心等待</text>
+                <text wx:if="{{data.care_log.order_type == 1 && data.care_log.status == 65}}">仓库收货时发现问题，需要与您核实</text>
+                <text wx:if="{{data.care_log.order_type == 1 && data.care_log.status == 406}}">平台正在处理您的退货申请</text>
+                <text wx:if="{{data.care_log.order_type == 1 && data.care_log.status == 95}}">平台已经通过您的退货申请</text>
+                <!--多双清洗  -->
+                <text wx:if="{{data.care_log.order_type == 2 && data.care_log.status == 30 && data.order_status==10}}">待付款</text>
+                <text wx:if="{{data.care_log.order_type == 2 && data.care_log.status == 30 && data.order_status==20}}">请开始邮寄</text>
+                <text wx:if="{{data.care_log.order_type == 2 && data.care_log.status == 40}}">正在邮寄到平台</text>
+                <text wx:if="{{data.care_log.order_type == 2 && data.care_log.status == 50}}">平台已收货，等待验货</text>
+                <text wx:if="{{data.care_log.order_type == 2 && data.care_log.status == 404}}">未收到货，请咨询物流</text>
+                <text wx:if="{{data.care_log.order_type == 2 && data.care_log.status == 60}}">正在验货</text>
+                <text wx:if="{{data.care_log.order_type == 2 && data.care_log.status == 70}}">平台验证通过，即将送往洗护中心</text>
+                <text wx:if="{{data.care_log.order_type == 2 && data.care_log.status == 402}}">您的鞋子和提供信息不符，验证未通过</text>
+                <text wx:if="{{data.care_log.order_type == 2 && data.care_log.status == 80}}">您的鞋子正在等待洗护</text>
+                <text wx:if="{{data.care_log.order_type == 2 && data.care_log.status == 85}}">您的鞋子正在洗护中</text>
+                <text wx:if="{{data.care_log.order_type == 2 && data.care_log.status == 90}}">您的洗护已经完成</text>
+                <text wx:if="{{data.care_log.order_type == 2 && data.care_log.status == 100}}">您的鞋子打包完成，等待邮寄</text>
+                <text wx:if="{{data.care_log.order_type == 2 && data.care_log.status == 110}}">您的宝贝已邮出</text>
+                <text wx:if="{{data.care_log.order_type == 2 && data.care_log.status == 120}}">已收货，谢谢您的耐心等待</text>
+                <text wx:if="{{data.care_log.order_type == 2 && data.care_log.status == 65}}">仓库收货时发现问题，需要与您核实</text>
+                <text wx:if="{{data.care_log.order_type == 2 && data.care_log.status == 406}}">平台正在处理您的退货申请</text>
+                <text wx:if="{{data.care_log.order_type == 2 && data.care_log.status == 95}}">平台已经通过您的退货申请</text>
+                <!--修复  -->
+                <text wx:if="{{data.care_log.order_type == 3 && data.care_log.status == 30 && data.order_status==10}}">待付款</text>
+                <text wx:if="{{data.care_log.order_type == 3 && data.care_log.status == 30 && data.order_status==20}}">请开始邮寄</text>
+                <text wx:if="{{data.care_log.order_type == 3 && data.care_log.status == 40}}">正在邮寄到平台</text>
+                <text wx:if="{{data.care_log.order_type == 3 && data.care_log.status == 50}}">平台已收货，等待验货</text>
+                <text wx:if="{{data.care_log.order_type == 3 && data.care_log.status == 404}}">未收到货，请咨询物流</text>
+                <text wx:if="{{data.care_log.order_type == 3 && data.care_log.status == 60}}">正在验货</text>
+                <text wx:if="{{data.care_log.order_type == 3 && data.care_log.status == 70}}">平台验证通过，即将送往修复中心</text>
+                <text wx:if="{{data.care_log.order_type == 3 && data.care_log.status == 402}}">您的鞋子和提供信息不符，验证未通过</text>
+                <text wx:if="{{data.care_log.order_type == 3 && data.care_log.status == 80}}">您的鞋子正在等待修复</text>
+                <text wx:if="{{data.care_log.order_type == 3 && data.care_log.status == 85}}">您的鞋子正在修复中</text>
+                <text wx:if="{{data.care_log.order_type == 3 && data.care_log.status == 90}}">您的修复已经完成</text>
+                <text wx:if="{{data.care_log.order_type == 3 && data.care_log.status == 100}}">您的鞋子打包完成，等待邮寄</text>
+                <text wx:if="{{data.care_log.order_type == 3 && data.care_log.status == 110}}">您的宝贝已邮出</text>
+                <text wx:if="{{data.care_log.order_type == 3 && data.care_log.status == 120}}">已收货，谢谢您的耐心等待</text>
+                <text wx:if="{{data.care_log.order_type == 3 && data.care_log.status == 65}}">仓库收货时发现问题，需要与您核实</text>
+                <text wx:if="{{data.care_log.order_type == 3 && data.care_log.status == 406}}">平台正在处理您的退货申请</text>
+                <text wx:if="{{data.care_log.order_type == 3 && data.care_log.status == 95}}">平台已经通过您的退货申请</text>
+                <!--改色  -->
+                <text wx:if="{{data.care_log.order_type == 4 && data.care_log.status == 30 && data.order_status==10}}">待付款</text>
+                <text wx:if="{{data.care_log.order_type == 4 && data.care_log.status == 30 && data.order_status==20}}">请开始邮寄</text>
+                <text wx:if="{{data.care_log.order_type == 4 && data.care_log.status == 40}}">正在邮寄到平台</text>
+                <text wx:if="{{data.care_log.order_type == 4 && data.care_log.status == 50}}">平台已收货，等待验货</text>
+                <text wx:if="{{data.care_log.order_type == 4 && data.care_log.status == 404}}">未收到货，请咨询物流</text>
+                <text wx:if="{{data.care_log.order_type == 4 && data.care_log.status == 60}}">正在验货</text>
+                <text wx:if="{{data.care_log.order_type == 4 && data.care_log.status == 70}}">平台验证通过，即将送往改色中心</text>
+                <text wx:if="{{data.care_log.order_type == 4 && data.care_log.status == 402}}">您的鞋子和提供信息不符，验证未通过</text>
+                <text wx:if="{{data.care_log.order_type == 4 && data.care_log.status == 80}}">您的鞋子正在等待改色</text>
+                <text wx:if="{{data.care_log.order_type == 4 && data.care_log.status == 85}}">您的鞋子正在洗护中</text>
+                <text wx:if="{{data.care_log.order_type == 4 && data.care_log.status == 90}}">您的改色已经完成</text>
+                <text wx:if="{{data.care_log.order_type == 4 && data.care_log.status == 100}}">您的鞋子打包完成，等待邮寄</text>
+                <text wx:if="{{data.care_log.order_type == 4 && data.care_log.status == 110}}">您的宝贝已邮出</text>
+                <text wx:if="{{data.care_log.order_type == 4 && data.care_log.status == 120}}">已收货，谢谢您的耐心等待</text>
+                <text wx:if="{{data.care_log.order_type == 4 && data.care_log.status == 65}}">仓库收货时发现问题，需要与您核实</text>
+                <text wx:if="{{data.care_log.order_type == 4 && data.care_log.status == 406}}">平台正在处理您的退货申请</text>
+                <text wx:if="{{data.care_log.order_type == 4 && data.care_log.status == 95}}">平台已经通过您的退货申请</text>
+                <!--自助服务  -->
+                <text wx:if="{{data.care_log.order_type == 5 && data.care_log.status == 30 && data.order_status==10}}">待付款</text>
+                <text wx:if="{{data.care_log.order_type == 5 && data.care_log.status == 30 && data.order_status==20}}">已付款</text>
+                <!-- <text wx:if="{{data.care_log.order_type == 5 && data.care_log.status == 40}}">正在邮寄到平台</text>
+                <text wx:if="{{data.care_log.order_type == 5 && data.care_log.status == 50}}">平台已收货，等待验货</text> -->
+                <text wx:if="{{data.care_log.order_type == 5 && data.care_log.status == 404}}">未收到货，请咨询物流</text>
+                <!-- <text wx:if="{{data.care_log.order_type == 5 && data.care_log.status == 60}}">正在验货</text> -->
+                <text wx:if="{{data.care_log.order_type == 5 && data.care_log.status == 70}}">付款成功，等待入库</text>
+                <text wx:if="{{data.care_log.order_type == 5 && data.care_log.status == 402}}">您的鞋子和提供信息不符，验证未通过</text>
+                <text wx:if="{{data.care_log.order_type == 5 && data.care_log.status == 80}}">您的鞋子正在等待洗护</text>
+                <text wx:if="{{data.care_log.order_type == 5 && data.care_log.status == 85}}">您的鞋子正在洗护中</text>
+                <text wx:if="{{data.care_log.order_type == 5 && data.care_log.status == 90}}">您的洗护已经完成</text>
+                <text wx:if="{{data.care_log.order_type == 5 && data.care_log.status == 100}}">您的鞋子打包完成，等待邮寄</text>
+                <text wx:if="{{data.care_log.order_type == 5 && data.care_log.status == 110}}">您的宝贝已邮出</text>
+                <text wx:if="{{data.care_log.order_type == 5 && data.care_log.status == 120}}">已收货，谢谢您的耐心等待</text>
+                <text wx:if="{{data.care_log.order_type == 5 && data.care_log.status == 65}}">仓库收货时发现问题，需要与您核实</text>
+                <text wx:if="{{data.care_log.order_type == 5 && data.care_log.status == 406}}">平台正在处理您的退货申请</text>
+                <text wx:if="{{data.care_log.order_type == 5 && data.care_log.status == 95}}">平台已经通过您的退货申请</text>
+            </view>
+            <view class='right'>
+                <image src='{{static}}/more.png'></image>
+            </view>
+        </view>
+    </view>
+    <!--洗护服务/用品  -->
+    <view class='wash'>
+        <view class='service' bindtap='service'>
+            <view>
+                <image src='{{static}}/xihufuwu.png'></image>
+            </view>
+            <view>
+                <view>洗护服务</view>
+                <view>查看更多洗护服务</view>
+            </view>
+        </view>
+        <view class='articles' bindtap='go_yongpin'>
+            <view>
+                <image src='{{static}}/xihuyongpin.png'></image>
+            </view>
+            <view>
+                <view>洗护用品</view>
+                <view>自己也能动手洗</view>
+            </view>
+        </view>
+    </view>
+    <!--洗护用品  -->
+    <view class='yongpin' wx:if="{{yongpin == true}}" bindtap='yongpin'>
+        <image src='{{static}}/xihu_big.png'></image>
+    </view>
+    <!--用户信息  -->
+    <view class='user'>
+        <view class='userInfo'>
+            <image src='{{static}}/address.png'></image>
+            <text>{{data.consignee_name}}</text>
+            <text>{{data.consignee_mobile}}</text>
+        </view>
+        <view class='address'>
+            <text>{{data.consignee_address}}</text>
+        </view>
+    </view>
+    <!--拼团信息  -->
+    <!-- <image src='{{static}}/user_bg.png' class='userBg'></image>
+    <view class='collage'>
+        <view class='time' wx:if="{{type==0}}">
+            仅剩
+            <text class='num'>4</text> 人，
+            <text class='times'>{{countDownDay}}</text>天
+            <text class='times'>{{countDownHour}}</text>:
+            <text class='times'>{{countDownMinute}}</text>:
+            <text class='times'>{{countDownSecond}}</text> 后结束
+        </view>
+        <view class='fail' wx:elif="{{type==1}}">
+            人数不足6人，
+            <text>拼团失败</text>
+        </view>
+        <view class='success' wx:else="{{type==2}}">
+            已有6人参加，
+            <text>拼团成功</text>
+        </view>
+        <view class='users'>
+            <view class='image' wx:for="{{imgs}}" wx:key="index" class='imgItem'>
+                <image src="{{static}}/daijiaru.png"></image>
+                <image src="{{item.im}}" class='newImg'></image>
+                <image src='{{static}}/miandan.png' class='miandan' wx:if="{{item.mian}}"></image>
+            </view>
+        </view>
+        <view class='invite' wx:if="{{type==0}}">
+            <image src='{{static}}/invite.png'></image>
+            <text>还差4人，点击邀请好友</text>
+        </view>
+        <view class='rule' bindtap='see'>
+            <view class='rule-title'>
+                拼团规则
+            </view>
+            <view class='rule-right'>
+                <text>6人成团 · 1人免单</text>
+                <image src='{{static}}/right.png'></image>
+            </view>
+        </view>
+        <modal hidden="{{hidden}}" no-cancel="false" title="如何参见拼团" bindconfirm="confirm">
+            <view>1.购买任意洗护服务即可发起拼团</view>
+            <view>2.在规定时间内邀请好友参加拼团</view>
+            <view>3.拼团成功后，系统将随机抽取一名用户免费精洗（退还该用户费用至余额，可随机提现），其余用户获得50元洗护代金券，团长获得双倍奖励</view>
+        </modal>
+    </view> -->
+    <!--BAN LAB球鞋洗护实验室  -->
+    <view class='shoes'>
+        <view class='shoes-title'>
+            <view class='title-left'>
+                <image src='{{static}}/dianpu.png'></image>
+                <text>{{data.store_name}}</text>
+            </view>
+            <button class='title-right' bindtap='kefu' open-type="{{openType}}">
+                <text>联系客服</text>
+                <image src='{{static}}/kefu_little.png'></image>
+            </button>
+        </view>
+        <view class='shoes-C' wx:for="{{data.careLog_goods}}" wx:key="index" wx:for-item="item" wx:for-index="index">
+            <view class='shoes-C-content'>
+                <view class='C-left'>
+                    <image src='{{imgUrl}}{{item.left_image}}'></image>
+                </view>
+                <view class='C-right'>
+                    <view class='C-price'>
+                        <text>已选{{item.buy_item.length}}项服务</text>
+                        <text>¥ {{item.goods_order_price}}</text>
+                    </view>
+                    <view class='C-fuwu'>
+                        <!-- <view class='type1' wx:for="{{item.buy_item}}" wx:key="inx" wx:for-item="itm" wx:for-index="inx" wx:if="{{data.care_log.order_type==1 || data.care_log.order_type==2 || data.care_log.order_type==4}}">
+                            <view wx:for="{{itm.services}}" wx:key="inxs" wx:for-item="itms" wx:for-index="inxs">
+                                {{itms.service_name}}({{itms.item_name}})
+                            </view>
+                        </view> -->
+                        <!-- <view class='type2' wx:for="{{item.buy_item}}" wx:key="inx" wx:for-item="itm" wx:for-index="inx" wx:if="{{data.care_log.order_type==3 || data.care_log.order_type==5}}">
+                            {{itm.server_service_name}}
+                        </view> -->
+                        <scroll-view class='type2Box clearfix' scroll-x="{{true}}">
+                            <view class='type2' wx:for="{{item.buy_item}}" wx:key="inx" wx:for-item="itm" wx:for-index="inx">
+                                {{itm.server_service_name}}
+                            </view>
+                        </scroll-view>
+                    </view>
+                </view>
+            </view>
+            <view class='supplement' bindtap='goSupplement' wx:if="{{status >= 65}}">
+                <view class='supplementImg'>
+                    <image src='../../images/supplement.png'></image>
+                </view>
+                <view class='supplementText'>
+                    <!-- <text>{{item.extra_costs.length}}项额外收费</text> -->
+                    <text>查看详细</text>
+                    <image class='drop_down' src='../../images/drop_down.png'></image>
+                </view>
+            </view>
+            <view class='fuwuInfo'>
+                <view class='fuwuInfoTop' data-index ="{{index}}" style="{{isShowInfo == index?'border-bottom: 2rpx solid #f2f2f2; padding-bottom:30rpx;':''}}" bindtap='showFuwuIndo'>
+                    <view class='fuwuInfo-left'>
+                        <view class='h1 weight'>{{item.buy_item[0].server_service_name}}：</view>
+                        <view wx:if="{{item.goods_spec == 1}}">皮质球鞋</view>
+                        <view wx:elif="{{item.goods_spec == 2}}">翻毛皮</view>
+                        <view wx:elif="{{item.goods_spec == 3}}">特殊面料</view>
+                        <view>-{{item.buy_item[0].services[0].item_name}}</view>
+                    </view>
+                    <view class='fuwuInfo-right'>
+                        <image class='drop_down' src='../../images/drop_down.png'></image>
+                    </view>
+                </view>
+
+                <view class='fuwuInfo-list' wx:if="{{isShowInfo == index}}">
+                    <view class='fuwuInfo-item' wx:for="{{item.buy_item}}" wx:if="{{itemIndex != 0}}" wx:key="itemIndex" wx:for-index="itemIndex" wx:for-item="fwItem">
+                        <view class='fwItem-box'>
+                            <view class='fwItem-title'>
+                                {{fwItem.server_service_name}}:
+                            </view>
+                            <view class='fwItem-list clearfix'>
+                                <view class='fwItem-list-item' wx:for="{{fwItem.services}}" wx:for-index="nameIndex" wx:for-item="nameItem" wx:key="nameIndex">
+                                    {{nameItem.service_name}}-{{nameItem.item_name}}
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        
+        
+    </view>
+
+
+
+
+
+
+
+
+
+    <!--服务介绍  -->
+    <!-- <view class='intro' wx:for="{{data.careLog_goods}}" wx:key="index" wx:for-item="item" wx:for-index="index" wx:if="{{data.care_log.order_type==3 || data.care_log.order_type==5}}">
+        <view class='intro-item' wx:for="{{item.buy_item}}" wx:key="inx" wx:for-item="itm" wx:for-index="inx">
+            <view class='father'>{{itm.server_service_name}}：</view>
+            <view class='child'>
+                <text wx:for="{{itm.services}}" wx:key="inxs" wx:for-item="itms" wx:for-index="inxs">{{itms.service_name}}-{{itms.item_name}}</text>
+            </view>
+        </view>
+    </view> -->
+    <!--订单信息  -->
+    <view class='order'>
+        <view class='order-top'>
+            <view>订单编号：{{danhao}}
+                <text bindtap='copy'>复制</text>
+            </view>
+            <view>下单时间：{{data.created_at}}</view>
+        </view>
+        <view class='order-bottom'>
+            <view wx:if="{{data.pay_no.payment_code == null}}">支付方式：未支付</view>
+            <view wx:if="{{data.pay_no.payment_code == 'wallet_pos'}}">支付方式：钱包余额</view>
+            <view wx:if="{{data.pay_no.payment_code == 'carecard_pos'}}">支付方式：洗护卡</view>
+            <view wx:if="{{data.pay_no.payment_code == 'alipay_pos'}}">支付方式：支付宝</view>
+            <view wx:if="{{data.pay_no.payment_code == 'wechat_pos'}}">支付方式：微信</view>
+            <view>配送方式：{{data.express_type}}</view>
+        </view>
+    </view>
+    <!--付款金额  -->
+    <view class='pay'>
+        <view class='pay-item total'>
+            <view>订单总额</view>
+            <view>¥ {{data.goods_amount}}</view>
+        </view>
+        <view class='pay-item freight'>
+            <view>运费</view>
+            <view>¥ {{data.freight}}</view>
+        </view>
+        <view class='pay-item discount'>
+            <view>抵现金额</view>
+            <view>¥ - {{data.deduct_amount}}</view>
+        </view>
+        <view class='pay-item real'>
+            <view>实付款</view>
+            <view>¥ {{data.order_amount}}</view>
+        </view>
+    </view>
+</view>
